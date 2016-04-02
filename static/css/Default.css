@@ -1,0 +1,33 @@
+#Browse{
+    background: url('img/user/08.jpg') 0 0 no-repeat;
+    border: none;
+}
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 0px;
+    border: 1px solid silver;
+    border-radius: 2px;
+    text-align: center;
+    font-size: 20px;
+    font-family: segoe ui;
+    padding-bottom: 5px;
+    background: #3BBFE8;
+    padding: 8px 47px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    border: 1px solid black;
+}
+.fileUpload:hover{
+    background-color: #3BBFE8;
+    opacity: 0.8;
+}
