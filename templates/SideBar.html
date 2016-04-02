@@ -1,0 +1,146 @@
+                <div class="aside-inner">
+                    <nav data-sidebar-anyclick-close="" class="sidebar">
+                        <!-- START sidebar nav-->
+                        <ul class="nav">
+                            <!-- START user info-->
+                            <li class="has-user-block">
+                                <div id="user-block" class="collapse">
+                                    <div class="item user-block">
+                                        <!-- User picture-->
+                                        <div class="user-block-picture">
+                                            <div class="user-block-status">
+                                                <img src="img/user/02.jpg" alt="Avatar" width="60" height="60" class="img-thumbnail img-circle">
+                                                <div class="circle circle-success circle-lg"></div>
+                                            </div>
+                                        </div>
+                                        <!-- Name and Job-->
+                                        <div class="user-block-info">
+                                            <span class="user-block-name">Hello, Mike</span>
+                                            <span class="user-block-role">Designer</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- END user info-->
+                            <!-- Iterates over all sidebar items-->
+                            <li class="nav-heading ">
+                                <span data-localize="sidebar.heading.HEADER">Main Navigation</span>
+                            </li>
+                            <li class=" ">
+                                <a href="dashboard.html#dashboard" title="Dashboard" data-toggle="collapse">
+                                    <div class="pull-right label label-info">3</div>
+                                    <em class="fa fa-tachometer"></em>
+                                    <span data-localize="sidebar.nav.DASHBOARD">Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="nav-heading ">
+                                <span data-localize="sidebar.heading.HEADER">Location Management</span>
+                            </li>
+                            <li class=" ">
+                                <a href="dashboard.html#location" title="Dashboard" data-toggle="collapse">
+                                    <div class="pull-right label label-info">3</div>
+                                    <em class="fa fa-tachometer"></em>
+                                    <span data-localize="sidebar.nav.DASHBOARD">Location</span>
+                                </a>
+                                <ul id="location" class="nav sidebar-subnav collapse">
+                                    <li class="">
+                                        <a onclick="AddStateCity(this.clicked)" title="Dashboard v1">
+                                            <span>STATE - CITY</span>
+                                        </a>
+                                    </li>
+                                    <li class=" ">
+                                        <a onclick="AddSubCityPin(this.clicked)" title="Dashboard v3">
+                                            <span>SUBCITY - PINCODE</span>
+                                        </a>
+                                    </li>
+                                    <li class=" ">
+                                        <a onclick="ViewLocations(this.clicked)" title="Dashboard v3">
+                                            <span>VIEW</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-heading ">
+                                <span data-localize="sidebar.heading.HEADER">Course Management</span>
+                            </li>
+                            <li class="">
+                                <a href="dashboard.html#course1" title="Dashboard" data-toggle="collapse">
+                                    <em class="fa fa-tachometer"></em>
+                                    <span data-localize="sidebar.nav.DASHBOARD">School</span>
+                                </a>
+                                <ul id="course1" class="nav sidebar-subnav collapse">
+                                    <li class="">
+                                        <a href="dashboard.html" title="Dashboard v1">
+                                            <span>Demo1</span>
+                                        </a>
+                                    </li>
+                                    <li class=" ">
+                                        <a href="dashboard_v2.html" title="Dashboard v2">
+                                            <span>Demo2</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="">
+                                <a href="dashboard.html#course2" title="Dashboard" data-toggle="collapse">
+                                    <em class="fa fa-tachometer"></em>
+                                    <span data-localize="sidebar.nav.DASHBOARD">College</span>
+                                </a>
+                                <ul id="course2" class="nav sidebar-subnav collapse">
+                                    <li class="">
+                                        <a href="dashboard.html" title="Dashboard v1">
+                                            <span>Demo1</span>
+                                        </a>
+                                    </li>
+                                    <li class=" ">
+                                        <a href="dashboard_v2.html" title="Dashboard v2">
+                                            <span>Demo2</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="">
+                                <a href="dashboard.html#course3" title="Dashboard" data-toggle="collapse">
+                                    <em class="fa fa-tachometer"></em>
+                                    <span data-localize="sidebar.nav.DASHBOARD">Coaching</span>
+                                </a>
+                                <ul id="course3" class="nav sidebar-subnav collapse">
+                                    <li class="">
+                                        <a href="dashboard.html" title="Dashboard v1">
+                                            <span>Stream</span>
+                                        </a>
+                                    </li>
+                                    <li class=" ">
+                                        <a href="dashboard_v2.html" title="Dashboard v2">
+                                            <span>Courses</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-heading ">
+                                <span data-localize="sidebar.heading.HEADER">Institute Registration</span>
+                            </li>
+                            <li class="">
+                                <a onclick="SchoolRegistration(this.clicked)" title="Dashboard" data-toggle="collapse">
+                                    <em class="fa fa-tachometer"></em>
+                                    <span data-localize="sidebar.nav.DASHBOARD">School Listing</span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a onclick="CollegeRegistration(this.clicked)" title="Dashboard" data-toggle="collapse">
+                                    <em class="fa fa-tachometer"></em>
+                                    <span data-localize="sidebar.nav.DASHBOARD">College Listing</span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a onclick="CoachingRegistration(this.clicked)" title="Dashboard" data-toggle="collapse">
+                                    <em class="fa fa-tachometer"></em>
+                                    <span data-localize="sidebar.nav.DASHBOARD">Coaching Listing</span>
+                                </a>
+                            </li>
+                            <li class="nav-heading ">
+                                <span data-localize="sidebar.heading.HEADER">Advertisement Management</span>
+                            </li>
+                            <!-- END sidebar nav-->
+                    </nav>
+                </div>
