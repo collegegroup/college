@@ -24,9 +24,10 @@ from organization.views.location_views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^home/', Register.as_view()),
-    url(r'^dashboard/', Dashboard.as_view()),
-    url(r'^addstatecity/', AddStateCity.as_view()),
+    url(r'^$', Home.as_view(), name="default"),
+    url(r'^home/', Home.as_view(), name="home"),
+    url(r'^dashboard/', Dashboard.as_view(), name="dashboard"),
+    url(r'^addstatecity/', AddStateCity.as_view(), "addstatecity"),
 
     # INSTITUTE URLS
     url(r'^register/coaching/', CoachingRegister.as_view()),
@@ -42,7 +43,8 @@ urlpatterns = [
     url(r'^upload/college/', UploadCollegeProfile.as_view()),
 
     # EXTRA URLS
-    url(r'^addstate/$', AddState.as_view()),
+    url(r'^addstate/', AddState.as_view()),
+    url(r'^location/(?P<template_name>.*)/$', GetAddCityTemplateSource.as_view()),
     url(r'^test/(?P<tmp_name>.*)$', Test.as_view()),
     url(r'^testdata/', TestPostData.as_view()),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
