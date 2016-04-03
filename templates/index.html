@@ -144,7 +144,8 @@
 
             function AddStateCity(ch)
             {
-                var xmlhttp;
+                console.log('City: ',ch);
+                /*var xmlhttp;
                 if (window.XMLHttpRequest)
                 {// code for IE7+, Firefox, Chrome, Opera, Safari
                     xmlhttp = new XMLHttpRequest();
@@ -157,11 +158,12 @@
                 {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
                     {
+                        console.log('Respons: ', xmlhttp.responseText);
                         document.getElementById("Registration").innerHTML = xmlhttp.responseText;
                     }
                 }
                 xmlhttp.open("GET", "AddStateCity.html?ch=" + ch, true);
-                xmlhttp.send();
+                xmlhttp.send();*/
             }
             function AddSubCityPin(ch)
             {
@@ -276,6 +278,7 @@
         <link class="jsbin" href="/static/css/jquery-ui.css" rel="stylesheet" type="text/css" />
         <script class="jsbin" src="/static/js/jquery.min.js"></script>
         <script class="jsbin" src="/static/js/jquery-ui.min.js"></script>
+
         <script>
             function readURL(input) {
                 if (input.files && input.files[0]) {
