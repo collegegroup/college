@@ -1,7 +1,7 @@
 
-var app = angular.module('collegeMainApp', ['ngRoute']);
+var app = angular.module('mainCollegeApp.dashboard', []);
 
-app.controller('collegeMainCtrl', function($scope) {
+app.controller('dashboardCtrl', function($scope) {
 
     console.log('Its working perfect');
 

@@ -1,4 +1,5 @@
 
+var app = angular.module('mainCollegeApp.subCityPincodeApp', []);
 
 app.controller('subCityPincodeCtrl', function($scope) {
 
