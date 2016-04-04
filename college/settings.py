@@ -17,6 +17,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 
+STATIFILES_DIR = ( os.path.join(BASE_DIR,'static') , )
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 

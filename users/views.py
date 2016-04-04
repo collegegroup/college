@@ -6,6 +6,8 @@ from rest_framework.views import APIView
 from organization.template_loader import *
 # Create your views here.
 
+static = '/static/'
+
 
 class Home(View):
     template_name = 'index.html'
