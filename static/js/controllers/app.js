@@ -7,7 +7,10 @@
                                                 'mainCollegeApp.subCityPincodeApp',
                                                 'mainCollegeApp.viewLocationsApp',
                                                 'mainCollegeApp.collegeManagementApp',
-                                                'mainCollegeApp.coachingManagementApp'
+                                                'mainCollegeApp.coachingManagementApp',
+                                                'mainCollegeApp.schoolRegistrationApp',
+                                                'mainCollegeApp.collegeRegistrationApp',
+                                                'mainCollegeApp.coachingRegistrationApp'
     ]);
 
     CRMApp.controller('mainCollegeCtrl', function($rootScope){

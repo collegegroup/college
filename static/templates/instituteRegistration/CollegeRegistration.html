@@ -1,0 +1,185 @@
+<div class="col-sm-1"></div>
+<div style="text-align: left;" class="col-sm-10 panel panel-default">
+    <div class="panel-heading"><h3>COLLEGE REGISTRATION</h3></div>
+    <div class="panel-body">
+        <form class="form-horizontal" enctype="multipart/form-data" method="post" action="/register/college/">
+            <div class="col-sm-12">
+                <div class="col-sm-3">
+                    <img style="height: 160px; width: 160px; border: 1px solid silver; border-radius: 5px;" id="Image" src="/media/site/logo_dummy.png"  />
+                    <div class="fileUpload btn btn-primary">
+                        <span>Upload</span>
+                        <input type="file" class="upload"  name="Image" onchange="readURL(this);"/>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <div class="form-group">
+                        <div class="col-lg-12">
+                            <label class="control-label">College Name</label>
+                            <input type="text" placeholder="College Name" class="form-control" name="college_name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-12">
+                            <div style="padding: 0; margin: 0;" class="col-sm-8">
+                                <label class="control-label">Location</label>
+                                <input type="text" placeholder="Location" class="form-control" name="location">
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="control-label">Establishment</label>
+                                <input type="text" placeholder=" " class="form-control" name="establishment">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        <label class="control-label">Description</label>
+                        <textarea class="form-control" name="description"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        <label class="control-label">Affiliation</label>
+                        <input type="text" placeholder=" " class="form-control" name="affiliation">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        <label class="control-label">Website</label>
+                        <input type="text" placeholder=" " class="form-control" name="website">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        <label class="control-label">Address</label>
+                        <textarea class="form-control" name="address"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        <div class="col-sm-6">
+                            <label class="control-label">Land line Number</label>
+                            <input type="text" placeholder=" " class="form-control" name="landline_num">
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="control-label">Mobile Number</label>
+                            <input type="text" placeholder=" " class="form-control" name="mobile_num">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        <label class="control-label">Email</label>
+                        <input type="text" placeholder=" " class="form-control" name="emailid">
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: left;" class="col-sm-12 panel panel-default">
+                <div class="panel-heading"><h4>FACILITIES</h4></div>
+                <div class="panel-body">
+                    <div class="col-sm-10">
+                        <label class="checkbox-inline c-checkbox">
+                            <input id="inlineCheckbox10" type="checkbox" value="option1">
+                            <span class="fa fa-check"></span>a</label>
+                        <label class="checkbox-inline c-checkbox">
+                            <input id="inlineCheckbox20" type="checkbox" value="option2">
+                            <span class="fa fa-check"></span>b</label>
+                        <label class="checkbox-inline c-checkbox">
+                            <input id="inlineCheckbox30" type="checkbox" value="option3">
+                            <span class="fa fa-check"></span>c</label>
+                        <label class="checkbox-inline c-checkbox">
+                            <input id="inlineCheckbox30" type="checkbox" value="option3">
+                            <span class="fa fa-check"></span>c</label>
+                        <label class="checkbox-inline c-checkbox">
+                            <input id="inlineCheckbox30" type="checkbox" value="option3">
+                            <span class="fa fa-check"></span>c</label>
+                        <label class="checkbox-inline c-checkbox">
+                            <input id="inlineCheckbox30" type="checkbox" value="option3">
+                            <span class="fa fa-check"></span>c</label>
+                        <label class="checkbox-inline c-checkbox">
+                            <input id="inlineCheckbox30" type="checkbox" value="option3">
+                            <span class="fa fa-check"></span>c</label>
+                        <label class="checkbox-inline c-checkbox">
+                            <input id="inlineCheckbox30" type="checkbox" value="option3">
+                            <span class="fa fa-check"></span>c</label>
+                        <label class="checkbox-inline c-checkbox">
+                            <input id="inlineCheckbox30" type="checkbox" value="option3">
+                            <span class="fa fa-check"></span>c</label>
+                        <label class="checkbox-inline c-checkbox">
+                            <input id="inlineCheckbox30" type="checkbox" value="option3">
+                            <span class="fa fa-check"></span>c</label>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: left;" class="col-sm-12 panel panel-default">
+                <div class="panel-heading"><h4>ADD COURSES</h4></div>
+                <div class="panel-body">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                <label class="control-label">Course</label>
+                                <input type="password" placeholder="Course" class="form-control" name="course">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                <label class="control-label">Duration</label>
+                                <input type="password" placeholder="Duration" class="form-control" name="duration">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                <label class="control-label">Fee</label>
+                                <input type="password" placeholder="Fee" class="form-control" name="fee">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                <label class="control-label">Entrance</label>
+                                <input type="password" placeholder="Fee" class="form-control" name="entrance">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <button onclick="AddMoreCollege(this.clicked)" style="margin-top: 30px;" type="button" class="mb-sm btn btn-info"><em class="fa fa-plus"></em> &nbsp;&nbsp;Add More</button>
+                    </div>
+                </div>
+            </div>
+            <div id="AddMoreCollege" class="col-sm-12"></div>
+            <div style="text-align: left;" class="col-sm-12 panel panel-default">
+                <div class="panel-heading"><h4>PLACEMENTS</h4></div>
+                <div class="panel-body">
+                    <div class="col-sm-6 form-group">
+                        <div class="col-lg-12">
+                            <label class="control-label">Highest Package</label>
+                            <input type="text" placeholder="Fee" class="form-control" name="highest_package">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <div class="col-lg-12">
+                            <label class="control-label">Average Package</label>
+                            <input type="text" placeholder="Fee" class="form-control" name="average_package">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div style="text-align: center;" class="form-group">
+                    <button type="submit" class="mb-sm btn btn-success">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+</div>

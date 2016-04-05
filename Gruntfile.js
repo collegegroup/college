@@ -22,7 +22,11 @@ module.exports = function(grunt) {
                         'static/js/controllers/location/viewLocationsCtrl.js',
                         
                         'static/js/controllers/courseManagement/collegeManagement.js',
-                        'static/js/controllers/courseManagement/coachingManagement.js'
+                        'static/js/controllers/courseManagement/coachingManagement.js',
+
+                        'static/js/controllers/instituteRegistration/schoolRegistration.js',
+                        'static/js/controllers/instituteRegistration/collegeRegistration.js',
+                        'static/js/controllers/instituteRegistration/coachingRegistration.js'
 
                     ],
 

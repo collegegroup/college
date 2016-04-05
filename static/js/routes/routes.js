@@ -52,10 +52,38 @@ collegeApp.config([ "$stateProvider", "$urlRouterProvider",
 
             .state('course management coaching', {
 
-            url: '/coursemanagement/coaching',
+                url: '/coursemanagement/coaching',
 
-            templateUrl: 'static/templates/courseManagement/CoachingMaster.html'
+                templateUrl: 'static/templates/courseManagement/CoachingMaster.html'
 
-        });
+            })
+
+
+
+
+            /*From here institute registration routes*/
+            .state('Institute registration school', {
+
+                url: '/instituteregistration/school',
+
+                templateUrl: 'static/templates/instituteRegistration/SchoolRegistration.html'
+
+            })
+
+            .state('Institute registration college', {
+
+                url: '/instituteregistration/college',
+
+                templateUrl: 'static/templates/instituteRegistration/CollegeRegistration.html'
+
+            })
+
+            .state('Institute registration coaching', {
+
+                url: '/instituteregistration/coaching',
+
+                templateUrl: 'static/templates/instituteRegistration/CoachingRegistration.html'
+
+            });
 
     }]);
