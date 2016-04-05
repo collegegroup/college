@@ -55,7 +55,6 @@ class GetAddCityTemplateSource(APIView):
     template_name = 'index.html'
 
     def get(self, request, template_name):
-        print (template_name)
         if request.method == 'GET':
             body = None
             if template_name == 'statecity':
@@ -64,4 +63,16 @@ class GetAddCityTemplateSource(APIView):
                 body = render(request, self.template_name, {'view': 'templates/AddSubCityPin.html'})
             elif template_name == 'view':
                 body = render(request, self.template_name, {'view': 'templates/ViewLocation.html'})
+            elif template_name == 'college':
+                body = render(request, self.template_name, {'view': 'templates/CollegeMaster.html'})
+            elif template_name == 'school':
+                body = render(request, self.template_name, {'view': 'templates/ViewLocation.html'})
+            elif template_name == 'coaching':
+                body = render(request, self.template_name, {'view': 'templates/CollegeMaster.html'})
+            elif template_name == 'schoollist':
+                body = render(request, self.template_name, {'view': 'templates/SchoolRegister.html'})
+            elif template_name == 'collegelist':
+                body = render(request, self.template_name, {'view': 'templates/CollegeRegister.html'})
+            elif template_name == 'coachinglist':
+                body = render(request, self.template_name, {'view': 'templates/CoachingRegister.html'})
             return HttpResponse(body)

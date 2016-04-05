@@ -45,6 +45,8 @@ urlpatterns = [
     # EXTRA URLS
     url(r'^addstate/', AddState.as_view()),
     url(r'^location/(?P<template_name>.*)/$', GetAddCityTemplateSource.as_view()),
+    url(r'^list/(?P<template_name>.*)/$', GetAddCityTemplateSource.as_view()),
+    url(r'^view/(?P<template_name>.*)/$', GetAddCityTemplateSource.as_view()),
     url(r'^test/(?P<tmp_name>.*)$', Test.as_view()),
     url(r'^testdata/', TestPostData.as_view()),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
