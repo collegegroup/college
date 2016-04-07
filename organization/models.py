@@ -108,7 +108,7 @@ class Location(models.Model):
 
 
 class SchoolMain(models.Model):
-    id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
+    school_id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
     school_name = models.CharField(db_column='SCHOOL_NAME', max_length=200, blank=True, null=True)  # Field name made lowercase.
     location = models.CharField(db_column='LOCATION', max_length=200, blank=True, null=True)  # Field name made lowercase.
     establishment = models.CharField(db_column='ESTABLISHMENT', max_length=45, blank=True, null=True)  # Field name made lowercase.

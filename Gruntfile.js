@@ -15,14 +15,20 @@ module.exports = function(grunt) {
                     'static/js/sourceMin/all.min.js': [
                         'static/js/controllers/app.js',
                         'static/js/routes/routes.js',
+
+                        'static/js/services/uploadService.js',
                         
-                        'static/js/controllers/dashboardCtrl.js',
+                        'static/js/controllers/dashboard/dashboardCtrl.js',
                         'static/js/controllers/location/addStateCityCtrl.js',
                         'static/js/controllers/location/subCityPincodeCtrl.js',
                         'static/js/controllers/location/viewLocationsCtrl.js',
                         
                         'static/js/controllers/courseManagement/collegeManagement.js',
-                        'static/js/controllers/courseManagement/coachingManagement.js'
+                        'static/js/controllers/courseManagement/coachingManagement.js',
+
+                        'static/js/controllers/instituteRegistration/schoolRegistration.js',
+                        'static/js/controllers/instituteRegistration/collegeRegistration.js',
+                        'static/js/controllers/instituteRegistration/coachingRegistration.js'
 
                     ],
 
@@ -31,9 +37,15 @@ module.exports = function(grunt) {
                         'static/js/lib/jquery/jquery-ui.min.js',
                         'static/js/lib/bootstrap/bootstrap.min.js',
                         'static/js/lib/angular/angular.min.js',
-                        'static/js/lib/angular/angular-ui-router.min.js'
+                        'static/js/lib/angular/angular-ui-router.min.js',
+                        'static/js/lib/angular/angular-file-upload.min.js'
                     ]
 
+                }
+            },
+            thirdPartyLib: {
+                files: {
+                    
                 }
             }
         }

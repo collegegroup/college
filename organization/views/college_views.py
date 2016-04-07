@@ -2,7 +2,9 @@ from django.shortcuts import render, HttpResponse
 from rest_framework.views import APIView, status
 from ..college_services import CollegeOrm, CollegeCourseOrm
 from ..jsonparser.college_jsons import *
-import json
+from ..core import *
+from django.conf import settings
+import json, uuid
 from ..models import CollegeMain
 from django.core.files.base import ContentFile
 # Create your views here.
@@ -50,13 +52,11 @@ class UploadCollegeProfile(APIView):
     def post(self, request):
         if request.method == 'POST':
             response = dict()
-            college_main = CollegeOrm.get_college_by_id(request.POST.get('id'))
-            image_name = "profile_" + str(college_main.college_id) + ".jpg"
-            image = ContentFile(request.FILES['image'].read())
+            image_name = settings.MEDIA_ROOT + "profiles/college/profile_" + str(uuid.uuid4()) + ".jpg"
             try:
-                college_main.profile_image.save(image_name, image)
+                handle_uploaded_file(request.FILES['file'], image_name)
                 response.update({'message': 'profile picture uploaded successfully!'})
-                response.update({'profile_name': '/media/' + str(college_main.profile_image)})
+                response.update({'profile_image_path': '/' + image_name})
                 response.update({'response_code': status.HTTP_200_OK})
                 response.update({'status': 'success'})
             except Exception as ex:

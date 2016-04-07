@@ -28,3 +28,12 @@ class SchoolOrm(object):
             school_main.save()
         except:
             raise
+
+    @staticmethod
+    def get_school_by_id(school_id):
+        college_main = None
+        try:
+            school_main = SchoolMain.objects.get(school_id=school_id)
+            return school_main
+        except Exception as ex:
+            raise
