@@ -4,7 +4,8 @@ import json
 
 class SchoolHelper(object):
     def __init__(self, school_name, location, establishment, description, affiliation, website, school_start_time,
-                 school_end_time, address, landline_num, mobile_num, emailid, facilities, extra_curriculum):
+                 school_end_time, address, landline_num, mobile_num, emailid, profile_image,facilities,
+                 extra_curriculum):
         self.school_name = school_name
         self.location = location
         self.establishment = establishment
@@ -18,6 +19,7 @@ class SchoolHelper(object):
         self.mobile_num = mobile_num
         self.emailid = emailid
         self.facilities = facilities
+        self.profile_image = profile_image
         self.extra_curriculum = extra_curriculum
 
 
@@ -42,6 +44,7 @@ class SchoolJsonParser(object):
         mobile_num = None
         emailid = None
         facilities = None
+        profile_image = None
         extra_curriculum = None
 
         if 'data' in result:
@@ -70,9 +73,12 @@ class SchoolJsonParser(object):
                 mobile_num = result['data']['mobile_num']
             if 'emailid' in result['data']:
                 emailid = result['data']['emailid']
+            if 'profile_image' in result['data']:
+                facilities = result['data']['profile_image']
             if 'facilities' in result['data']:
                 facilities = result['data']['facilities']
             if 'extra_curriculum' in result['data']:
                 extra_curriculum = result['data']['extra_curriculum']
         return SchoolHelper(school_name, location, establishment, description, affiliation, website, school_start_time,
-                            school_end_time, address, landline_num, mobile_num, emailid, facilities, extra_curriculum)
+                            school_end_time, address, landline_num, mobile_num, emailid, profile_image,
+                            facilities, extra_curriculum)

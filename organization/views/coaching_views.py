@@ -4,6 +4,7 @@ from django.shortcuts import render, HttpResponse
 from rest_framework.views import APIView, status
 from ..coaching_services import InstituteOrm, InstituteCourseOrm
 from ..jsonparser.coaching_jsons import *
+from ..core import *
 from django.conf import settings
 import json, uuid
 
@@ -74,13 +75,13 @@ class UploadCoachingProfile(APIView):
     def post(self, request):
         if request.method == 'POST':
             response = dict()
-            image_name = settings.MEDIA_ROOT + "profiles/college/profile_" + str(uuid.uuid4()) + ".jpg"
+            image_name = settings.MEDIA_ROOT + "profiles/coaching/profile_" + str(uuid.uuid4()) + ".jpg"
             # image = ContentFile(request.FILES['image'].read())
             try:
                 # institute_main.profile_image.save(image_name, image)
-                handle_uploaded_file(request.FILES['image'], image_name)
+                handle_uploaded_file(request.FILES['file'], image_name)
                 response.update({'message': 'profile picture uploaded successfully!'})
-                response.update({'profile_name': "/" + image_name})
+                response.update({'profile_image_path': "/" + image_name})
                 response.update({'response_code': status.HTTP_200_OK})
                 response.update({'status': 'success'})
             except Exception as ex:
@@ -88,13 +89,3 @@ class UploadCoachingProfile(APIView):
                 response.update({'response_code': status.HTTP_406_NOT_ACCEPTABLE})
                 response.update({'status': 'error'})
             return HttpResponse(json.dumps(response), content_type="application/json")
-
-
-def handle_uploaded_file(file_obj, image_name):
-    try:
-        destination = open(image_name, 'wb+')
-        for chunk in file_obj.chunks():
-            destination.write(chunk)
-        destination.close()
-    except:
-        raise

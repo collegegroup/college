@@ -3,7 +3,7 @@ import json
 
 class CollegeHelper(object):
     def __init__(self, college_name, location, establishment, description, affiliation, website, address,
-                 landline_num, mobile_num, emailid, facilities, highest_package, average_package):
+                 landline_num, mobile_num, emailid, facilities, profile_image, highest_package, average_package):
         self.school_name = college_name
         self.location = location
         self.establishment = establishment
@@ -15,6 +15,7 @@ class CollegeHelper(object):
         self.mobile_num = mobile_num
         self.emailid = emailid
         self.facilities = facilities
+        self.profile_image = profile_image
         self.highest_package = highest_package
         self.average_package = average_package
 
@@ -47,6 +48,7 @@ class CollegeJsonParser(object):
         mobile_num = None
         emailid = None
         facilities = None
+        profile_image = None
         highest_package = None
         average_package = None
         courses = list()
@@ -82,6 +84,8 @@ class CollegeJsonParser(object):
                 highest_package = result['data']['highest_package']
             if 'average_package' in result['data']:
                 average_package = result['data']['average_package']
+            if 'profile_image' in result['data']:
+                average_package = result['data']['profile_image']
             if 'courses' in result['data']:
                 for course in result['data']['courses']:
                     if 'course' in course:
