@@ -18,6 +18,7 @@ class CollegeOrm(object):
         college_main.mobile_num = college_helper.mobile_num
         college_main.emailid = college_helper.emailid
         college_main.facilities = college_helper.facilities
+        college_main.profile_image = college_helper.profile_image
         college_main.highest_package = college_helper.highest_package
         college_main.average_package = college_helper.average_package
         college_main.lastupd_dttm = datetime.datetime.now()
