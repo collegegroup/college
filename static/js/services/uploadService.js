@@ -28,11 +28,11 @@
 
                     }).success(function (response){
 
-                        $rootScope.$broadcast(emitMessage+" success", response);
+                        $rootScope.$broadcast(emitMessage+"Success", response);
 
                     }).error(function(response){
 
-                        $rootScope.$broadcast(emitMessage+" error", response);
+                        $rootScope.$broadcast(emitMessage+"Error", response);
 
                     });
 

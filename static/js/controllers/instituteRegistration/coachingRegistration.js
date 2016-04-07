@@ -12,6 +12,48 @@ app.controller('coachingRegistrationCtrl', function($scope, uploadService) {
     $scope.coachingImageURL = '/media/site/logo_dummy.png';
 
     $scope.coachingImageUploadURL = '/upload/coaching/';
+    
+    $scope.hideCoachingCoureseRemoveButton = true;
+
+    $scope.coachingRegistrationJSON =
+    {
+        data: {
+            institute_name: "nist",
+            director_name: "ramesh kumar",
+            location: "vizag",
+            establishment: "2001",
+            description: "description",
+            affiliation: "au",
+            website: "nistvizag.com",
+            address: "vizag",
+            landline_num: "123456789",
+            mobile_num: "1234567890",
+            emailid: "a@a.com",
+            facilities: [
+                {
+                    value: 1,
+                    text: "Ac"
+                },
+                {
+                    value: 0,
+                    text: "Mineral Water"
+                },
+                {
+                    value: 1,
+                    text: "Bus"
+                }
+            ],
+            profile_image: "",
+            courses: [
+                {
+                    course: "C",
+                    duration: "3 months",
+                    fee: "3000"
+                }
+            ]
+        }
+    };
+
 
     /*
      * This method is used select the file
@@ -26,6 +68,45 @@ app.controller('coachingRegistrationCtrl', function($scope, uploadService) {
     /*
      * This method is used select the file
      * */
+
+
+
+
+
+
+
+
+    /*
+    * THis is used to handling coacing course
+    * */
+    $scope.addCoachingCourse = function () {console.log($scope.coachingRegistrationJSON.data.courses.length);
+
+        $scope.coachingRegistrationJSON.data.courses.push({course: "", duration: "", fee: ""});
+
+        if($scope.coachingRegistrationJSON.data.courses.length >= 2) {
+
+            $scope.hideCoachingCoureseRemoveButton = false;
+
+        }
+
+    };
+    $scope.removeCoachingCourse = function (index) {
+
+        $scope.coachingRegistrationJSON.data.courses.splice(index, 1);
+        
+        if($scope.coachingRegistrationJSON.data.courses.length <= 1) {
+
+            $scope.hideCoachingCoureseRemoveButton = true;
+            
+        }
+
+    };
+    /*
+    * THis is used to add coacing course
+    * */
+
+
+
 
 
 
