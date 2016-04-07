@@ -9,9 +9,50 @@ app.controller('collegeRegistrationCtrl', function($scope, uploadService) {
 
     console.log('Loaded school registration controller.');
 
+    $scope.collegeRegistrationJSON =
+    {
+        college_name:"nist",
+        location:"vizag",
+        establishment: "2001",
+        description: "description",
+        affiliation: "au",
+        website: "nistvizag.com",
+        address: "vizag",
+        landline_num: "123456789",
+        mobile_num: "1234567890",
+        emailid: "a@a.com",
+        facilities: [
+            {
+                value: 1,
+                text: "Ac"
+            },
+            {
+                value: 0,
+                text: "Mineral Water"
+            },
+            {
+                value: 1,
+                text: "Bus"
+            }
+        ],
+        profile_image: "",
+        highest_package: "320000",
+        average_package:"150000",
+        courses:[
+            {
+                course:"MBA",
+                duration:"2 yr",
+                fee:"100000",
+                entrance:"ICET"
+            }
+        ]
+    };
+
     $scope.collegeImageURL = '/media/site/logo_dummy.png';
 
     $scope.collegeImageUploadURL = '/upload/college/';
+
+    $scope.hideCollegeCoureseRemoveButton = true;
 
     /*
      * This method is used select the file
@@ -26,6 +67,45 @@ app.controller('collegeRegistrationCtrl', function($scope, uploadService) {
     /*
      * This method is used select the file
      * */
+
+
+
+
+
+
+
+    /*
+     * THis is used to handling college course
+     * */
+    $scope.addCollegeCourse = function () {
+
+        $scope.collegeRegistrationJSON.courses.push({course: "", duration: "", fee: ""});
+
+        if($scope.collegeRegistrationJSON.courses.length >= 2) {
+
+            $scope.hideCollegeCoureseRemoveButton = false;
+
+        }
+
+    };
+    $scope.removeCollegeCourse = function (index) {
+
+        $scope.collegeRegistrationJSON.courses.splice(index, 1);
+
+        if($scope.collegeRegistrationJSON.courses.length <= 1) {
+
+            $scope.hideCollegeCoureseRemoveButton = true;
+
+        }
+
+    };
+    /*
+     * THis is used to add coacing course
+     * */
+
+
+
+
 
 
 

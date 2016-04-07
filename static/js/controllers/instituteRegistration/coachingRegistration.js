@@ -115,7 +115,7 @@ app.controller('coachingRegistrationCtrl', function($scope, uploadService) {
     /*
     * This is for upload coaching image response
     * */
-    $scope.$on('coachingImageUpload success', function (event, response) {
+    $scope.$on('coachingImageUploadSuccess', function (event, response) { 
 
         if(response.status == "success"){
 
@@ -126,7 +126,7 @@ app.controller('coachingRegistrationCtrl', function($scope, uploadService) {
         }
 
     });
-    $scope.$on('coachingImageUpload error', function (event, response) {
+    $scope.$on('coachingImageUploadError', function (event, response) {
 
     });
     /*
