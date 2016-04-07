@@ -1,0 +1,296 @@
+.TutorDashboardRight a{
+    text-decoration: none;
+}
+.search_bar input{
+    padding: 2em;
+    border: 1px solid silver;
+    border-radius: 3px;
+    width: 25em;
+}
+.search_bar{
+    margin: 25em 0em 0em 25em;
+    width: 100%;
+}
+.MenuBar{
+    background: #2377AF;
+}
+.MenuBar div{
+    padding: .5em 1em;
+    background: #2377AF;
+    color: white;
+    border-right: 1px solid white;
+}
+.MenuBar div:hover{
+    background: #55a7dd;
+    color: white;
+}
+.rating > span:hover:before {
+    content: "\2605";
+    position: absolute;
+    color: gold;
+}
+.rating > span{
+    font-size: 25px;
+    color: silver;
+    font-weight: bold;
+}
+.SCI{
+    text-align: center; font-size: 20px;
+    border-radius: 5px;
+    width: 40%;
+    height: 7em;
+}
+.SCI a{
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    /*background-color: rgba(255, 255, 255, 0.5);*/
+}
+.SCI a:hover{
+    border-bottom: 3px solid #E84C3D;
+}
+.SCI a.active{
+    border-bottom: 3px solid #E84C3D;
+}
+.form-control-registration {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 10px 0px;
+    line-height: 1;
+    background-color: #ffffff;
+    background-image: none;
+    border: 1px solid silver;
+    border-radius: 3px;
+    -webkit-transition: border-color ease-in-out .15s,
+
+        -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    color: black;
+    /*margin-bottom: 30px;*/
+    font-size: 12px;
+    font-family: Montserrat;
+}
+.DashboardSideBar{
+    background: white; height: 950px; 
+    padding-top: 1em; 
+    /*margin-top: 1em;*/
+    margin-bottom: 1em;
+    font-family: Montserrat;
+    padding-left: 1em;
+}
+.DashboardSideBar img{
+    border-radius: 5em;
+    width: 7em;
+}
+.DashboardSideBar a{
+    color: gray;
+}
+.DashboardSideBar a:hover{
+    text-decoration: none;
+}
+.Menu{
+    padding: 10px 10px;
+    margin-bottom: 1px;
+}
+.Menu:hover{
+    background: #F1F1F1;
+    border-left: 5px solid #AD33C5;
+    -webkit-transition: all .1s ease-in-out;
+    -moz-transition: all .1s ease-in-out;
+    -o-transition: all .1s ease-in-out;
+    -ms-transition: all .1s ease-in-out;
+
+}
+.Menu.active{
+    background: #F1F1F1;
+    border-left: 5px solid #AD33C5;
+}
+.DashboardRight{
+    /*background: white;*/
+    height: 500px; margin: 1em; 
+    /*box-shadow: 0px 0px 1px #888888;*/
+}
+.DashboardRight div{
+    height: 100px; border-radius: 3px;
+    margin: 1em;
+    text-align: center;
+}
+.DashboardRight i{
+    color: white;
+    font-size: 30px;
+}
+.AddButton{
+    background: #AD33C5;
+    border: 1px solid silver;
+    color: white;
+    padding: 7px 30px;
+    margin-top: 10px;
+    border-radius: 3px;
+}
+.SectionBorder{
+    border: 1px solid #EEEEEE;
+    padding: 1em;
+    margin-top: 3em;
+    border-radius: 3px;
+}
+.OtherDetails div{
+    margin: 1em 0em;
+}
+.TutorDashboardRight h4{
+    border-bottom: 1px solid silver;
+    text-transform: uppercase;
+    font-family: Montserrat;
+    text-align: left;
+}
+.TutorDashboardRight div{
+    border-radius: 3px;
+    text-align: left;
+    padding: 1em;
+
+}
+.TutorInfo div{
+    padding: 0;
+    font-family: Montserrat;
+    line-height: 2.5;
+}
+.TutorInfo input{
+    height: 2em;
+    border-radius: 3px;
+    border: 1px solid silver;
+    padding: 4px;
+}
+#TutorCourses input[type = "text"]{
+    border-radius: 3px;
+    border: 1px solid silver;
+    padding: 4px;
+    width: 95%;
+}
+#TutorCourses input[type = "submit"]{
+    border-radius: 3px;
+    border: 1px solid silver;
+    padding: 4px;
+    width: 95%;
+}
+#TutorCourses input[type="text"]{
+    width: 100%;
+}
+.TutorInfo input[type="radio"]{
+    height: auto;
+}
+.TutorInfoCourses table{
+    width: 100%;
+}
+.TutorInfo i{
+    font-size: 25px;
+    padding: 10px;
+}
+.TutorInfo a{
+    text-decoration: none;
+}
+.TutorInfoCourses table th{
+    padding: 5px;
+    border: 1px solid #E1E1E1;
+}
+.TutorInfoCourses table td{
+    padding: 5px;
+    border: 1px solid #E1E1E1;
+}
+#TutorEducation input{
+    width: 100%;
+}
+
+#TutorEducationAdd select{
+    border-radius: 3px;
+    border: 1px solid silver;
+    padding: 6px;
+    width: 100%;
+}
+#TutorEducationAdd{
+    padding: 0;
+    margin: 0;
+}
+#TutorEducationAdd input[type="text"]{
+    border-radius: 3px;
+    border: 1px solid silver;
+    padding: 4px;
+    width: 100%;
+}
+#TutorEducationAdd input[type="submit"]{
+    border-radius: 3px;
+    border: 1px solid silver;
+    padding: 4px;
+    width: 100%;
+    background: #92D438; color: white;
+}
+.TutorEdit_Other input[type="text"]{
+    border-radius: 3px;
+    border: 1px solid silver;
+    padding: 4px;
+    width: 100%;
+}
+.TutorEdit_Other input[type="checkbox"]{
+    margin-left: 1em;
+}
+
+
+
+.switch .form-control{padding-top:7px;margin-bottom:0}
+.switch *{cursor:pointer}
+.switch input{opacity:0;position:absolute;z-index:-1}
+.switch span{
+    position:relative;display:inline-block;width:40px;height:20px;
+    background-color:#fff;border:1px solid #ddd;border-radius:100px;
+    transition:all .5s;box-shadow:1px 2px 3px rgba(0,0,0,.1) inset;vertical-align:middle
+}
+.switch span:after{
+    content:"";position:absolute;
+    background-color:#fff;top:0;left:0;height:18px;width:18px;
+    border:1px solid #ddd;border-radius:400px;box-shadow:1px 1px 3px rgba(0,0,0,.1);
+    -webkit-transition:all .2s
+}
+.switch.switch-lg span{width:50px;height:25px}
+.switch.switch-lg span:after{height:23px;width:23px}
+.switch.switch-sm span{width:30px;height:15px}
+.switch.switch-sm span:after{height:13px;width:13px}
+.switch input:checked+span{background-color:#AD33C5;border-color:#AD33C5;transition:all .5s}
+.switch input:checked+span:after{left:50%;transition:all .2s}
+
+a.tooltips {
+    position: relative;
+    //                display: inline;
+}
+a.tooltips span {
+    position: absolute;
+    min-width:17em;
+    color: #FFFFFF;
+    background: #000000;
+    height: auto;
+    line-height: 18px;
+    text-align: center;
+    visibility: hidden;
+    border-radius: 4px;
+}
+a.tooltips span:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    //                margin-left: -8px;
+    //                width: 0; height: 0;
+    border-top: 8px solid #000000;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+}
+a:hover.tooltips span {
+    visibility: visible;
+    opacity: 0.9;
+    bottom: 50px;
+    //                z-index: 4000;
+    text-align: center;
+    font-size: 10px;
+    font-weight: normal;
+    text-transform: none;
+    margin-left: 10px;
+}

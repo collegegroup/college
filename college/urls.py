@@ -21,6 +21,7 @@ from organization.views.school_views import *
 from organization.views.college_views import *
 from organization.views.coaching_views import *
 from organization.views.location_views import *
+from reviews.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -41,6 +42,9 @@ urlpatterns = [
 
     url(r'^register/college/', CollegeRegister.as_view()),
     url(r'^upload/college/', UploadCollegeProfile.as_view()),
+
+    # REVIEW RELATED ALL URL'S
+    url(r'^review/home/', ReviewHome.as_view()),
 
     # EXTRA URLS
     url(r'^addstate/', AddState.as_view()),

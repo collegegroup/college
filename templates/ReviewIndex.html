@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
+        <title>ACADEMICA, Home-2</title>
+        <link href="/media/site/favicon.png" type="image/x-icon" rel="shortcut icon">
+        <link href="/static/assets/css/master.css" rel="stylesheet">
+        <!-- SWITCHER -->
+        <link href="/static/assets/plugins/switcher/css/switcher.css" rel="stylesheet" id="switcher-css" media="all">
+        <link href="/static/assets/plugins/switcher/css/switcher.css" rel="stylesheet" id="switcher-css" media="all">
+        <link href="/static/assets/plugins/switcher/css/color1.css" rel="alternate stylesheet" title="color1" media="all">
+        <link href="/static/assets/plugins/switcher/css/color2.css" rel="alternate stylesheet" title="color2" media="all">
+        <link href="/static/assets/plugins/switcher/css/color3.css" rel="alternate stylesheet" title="color3" media="all">
+        <link href="/static/assets/plugins/switcher/css/color4.css" rel="alternate stylesheet" title="color4" media="all">
+        <link href="/static/assets/plugins/switcher/css/color5.css" rel="alternate stylesheet" title="color5" media="all">
+        <script src="/static/assets/plugins/jquery/jquery-1.11.3.min.js"></script>
+        <link href="/static/assets/css/default.css" rel="stylesheet" type="text/css"/>
+        <link href="/static/assets/css/animate.css" rel="stylesheet" type="text/css"/>
+        <script>
+            $(function () {
+                $("#header").load("Header.html");
+                $("#footer").load("Footer.html");
+            });
+
+            function CollegeKeyword(ch)
+            {
+                var xmlhttp;
+                if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                }
+                else
+                {// code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function ()
+                {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                    {
+                        document.getElementById("HeaderKeywords").innerHTML = xmlhttp.responseText;
+                    }
+                }
+                xmlhttp.open("GET", "CollegeKeyword.html?ch=" + ch, true);
+                xmlhttp.send();
+            }
+            $(function () {
+                $("#header").load("Header.html");
+                $("#footer").load("Footer.html");
+            });
+
+            function InstituteKeyword(ch)
+            {
+                var xmlhttp;
+                if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                }
+                else
+                {// code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function ()
+                {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                    {
+                        document.getElementById("HeaderKeywords").innerHTML = xmlhttp.responseText;
+                    }
+                }
+                xmlhttp.open("GET", "InstituteKeyword.html?ch=" + ch, true);
+                xmlhttp.send();
+            }
+            $(function () {
+                $("#header").load("Header.html");
+                $("#footer").load("Footer.html");
+            });
+
+            function CollegeKeyword(ch)
+            {
+                var xmlhttp;
+                if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                }
+                else
+                {// code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function ()
+                {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                    {
+                        document.getElementById("HeaderKeywords").innerHTML = xmlhttp.responseText;
+                    }
+                }
+                xmlhttp.open("GET", "CollegeKeyword.html?ch=" + ch, true);
+                xmlhttp.send();
+            }
+
+        </script>
+        <link rel="stylesheet" type="text/css" href="login_style.css">
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript" src="login_effect.js"></script>
+    </head>
+
+    <body>
+
+        <!-- Loader -->
+        <div id="page-preloader"><span class="spinner"></span></div>
+        <!-- Loader end -->
+
+        <div class="layout-theme animated-css"  data-header="sticky" data-header-top="200"> 
+
+            <!-- Start Switcher -->
+            <div class="switcher-wrapper">
+            </div>
+            <!-- End Switcher -->
+
+            <div id="wrapper"> 
+
+                <!-- HEADER -->
+                <div id="header"></div>
+                <!-- end header -->
+
+                <div class="main-content">
+                    <div style="width: 100%; height: 250px; ">
+                        <img style="width: 100%; height:50em;" src="/media/site/ReviewIndex.jpg" />
+                    </div>
+                    <div class="section_find-course" data-wow-duration="2s">
+                        <div class="container">
+                            <div class="row">
+                                <div style="margin-top: -70px;" class="col-xs-12">
+                                    <div style="padding: 0em 5em;" class="find-course find-course_mod-b">
+                                        <form class="find-course__form" action="get">
+                                            <div id="HeaderKeywords">
+                                                <div class="animated fadeInRight" id="School">
+                                                    <center>
+                                                        <div style="color: white; font-family: Montserrat; font-size: 40px;">FIND THE BEST COLLEGE THATS FITS YOU...</div>
+                                                    </center>
+                                                    <div class="form-group">
+                                                        <input class="form-control" style="width: 20em; margin: -3px;" type="text" placeholder="Location">
+                                                        <input class="form-control" style="margin: -3px;" type="text"  placeholder="Course Keyword ...">
+                                                        <!-- end jelect --> 
+                                                    </div>
+                                                    <!-- end form-group -->
+                                                    <div class="find-course__wrap-btn">
+                                                        <div class="col-lg-hidden col-md-2 col-sm-2 col-xs-3"></div>
+                                                        <button class="btn btn-info btn-effect"><i class="icon stroke icon-Search"></i>SEARCH</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <center>
+                                                <div class="SCI">
+                                                    <div style="height: 8px; width: 100%;"></div>
+                                                    <div class="col-sm-4"><a onclick="CollegeKeyword(this.clicked)" class="active" href="index.html#School">SCHOOL</a></div>
+                                                    <div class="col-sm-4"><a onclick="CollegeKeyword(this.clicked)" href="index.html#College">COLLEGE</a></div>
+                                                    <div class="col-sm-4"><a onclick="InstituteKeyword(this.clicked)"  href="index.html#Institute">INSTITUTE</a></div>
+                                                </div>
+
+                                            </center>
+                                        </form>
+                                    </div>
+                                    <!-- end find-course -->
+                                    <div class="find-course__info">Search more than 50,000 online courses available from 2,000 publishers</div>
+                                </div>
+                                <!-- end col --> 
+                            </div>
+                            <!-- end row --> 
+                        </div>
+                        <!-- end container --> 
+                    </div>
+                    <!-- end section-default -->
+                    <section style="margin-top: 0vw;" class="section-categories">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="section__inner">
+                                        <div class="wrap-title wrap-title_mod-a">
+                                            <h2 class="ui-title-block ui-title-block_mod-b">Popular <strong>Course Categories </strong></h2>
+                                            <div class="ui-subtitle-block ui-subtitle-block_mod-d">Having over 9 million students worldwide and more than 50,000 online courses available.</div>
+                                        </div>
+                                        <!-- end wrap-title -->
+                                        <div class="categories-tabs">
+                                            <ul class="nav nav-tabs wow bounceInRight" data-wow-duration="2s">
+                                                <li class="active"> <a href="#tab-pane_1" data-toggle="tab">
+                                                        <div class="nav__inner"><i class="icon stroke icon-Pulse"></i><span class="nav__name">HEALTH & PSYCHOLOGY</span></div>
+                                                        <span class="helper"></span> </a> </li>
+                                                <li> <a href="#tab-pane_2" data-toggle="tab">
+                                                        <div class="nav__inner"><i class="icon stroke icon-Chart"></i><span class="nav__name">BUSINESS & MANAGEMENT</span></div>
+                                                        <span class="helper"></span> </a> </li>
+                                                <li> <a href="#tab-pane_3" data-toggle="tab">
+                                                        <div class="nav__inner"><i class="icon stroke icon-Pen"></i><span class="nav__name">EDUCATION & TEACHING</span></div>
+                                                        <span class="helper"></span> </a> </li>
+                                                <li> <a href="#tab-pane_4" data-toggle="tab">
+                                                        <div class="nav__inner"><i class="icon stroke icon-DesktopMonitor"></i><span class="nav__name">SCIENCE & TECHNOLOGY</span></div>
+                                                        <span class="helper"></span> </a> </li>
+                                                <li> <a href="#tab-pane_5" data-toggle="tab">
+                                                        <div class="nav__inner"><i class="icon stroke icon-Pizza"></i><span class="nav__name">FOOD & Drinking</span></div>
+                                                        <span class="helper"></span> </a> </li>
+                                                <li> <a href="#tab-pane_6" data-toggle="tab">
+                                                        <div class="nav__inner"><i class="icon stroke icon-Video"></i><span class="nav__name">CREATIVE ARTS & MEDIA</span></div>
+                                                        <span class="helper"></span> </a> </li>
+                                            </ul>
+                                            <div class="tab-content wow bounceInLeft" data-wow-duration="2s">
+                                                <div class="tab-pane fade in active" id="tab-pane_1">
+                                                    <h3 class="categories-tabs__title">HEALTH & PSYCHOLOGY</h3>
+                                                    <div class="categories-tabs__number">courses available : <strong class="color_primary"> 400</strong></div>
+                                                    <div class="categories-tabs__description">
+                                                        <p>Nulla feugiat nibh placerat fermentum rutrum anted risus euismod eros pharetra felis justo ac tortor. Maecenas odio sit amet odio euismod iaculis. Donec a tellus. Nullam risus turpis rhoncus vel varius consequat laoreet ac neque. Sed eget lectus vitae augue zitae condimen tum sit ame pede. </p>
+                                                        <p>Aenean erat orci mollis quis. Lorem ipsum dolor siter amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                                                    </div>
+                                                    <a class="btn btn-primary btn-effect" href="javascript:void(0);">SEE COURSES</a> </div>
+                                                <div class="tab-pane fade" id="tab-pane_2">
+                                                    <h3 class="categories-tabs__title">BUSINESS & MANAGEMENT</h3>
+                                                    <div class="categories-tabs__number">courses available : <strong class="color_primary"> 400</strong></div>
+                                                    <div class="categories-tabs__description">
+                                                        <p>Nulla feugiat nibh placerat fermentum rutrum anted risus euismod eros pharetra felis justo ac tortor. Maecenas odio sit amet odio euismod iaculis. Donec a tellus. Nullam risus turpis rhoncus vel varius consequat laoreet ac neque. Sed eget lectus vitae augue zitae condimen tum sit ame pede. </p>
+                                                        <p>Aenean erat orci mollis quis. Lorem ipsum dolor siter amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                                                    </div>
+                                                    <a class="btn btn-primary btn-effect" href="javascript:void(0);">SEE COURSES</a> </div>
+                                                <div class="tab-pane fade" id="tab-pane_3">
+                                                    <h3 class="categories-tabs__title">EDUCATION & TEACHING</h3>
+                                                    <div class="categories-tabs__number">courses available : <strong class="color_primary"> 400</strong></div>
+                                                    <div class="categories-tabs__description">
+                                                        <p>Nulla feugiat nibh placerat fermentum rutrum anted risus euismod eros pharetra felis justo ac tortor. Maecenas odio sit amet odio euismod iaculis. Donec a tellus. Nullam risus turpis rhoncus vel varius consequat laoreet ac neque. Sed eget lectus vitae augue zitae condimen tum sit ame pede. </p>
+                                                        <p>Aenean erat orci mollis quis. Lorem ipsum dolor siter amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                                                    </div>
+                                                    <a class="btn btn-primary btn-effect" href="javascript:void(0);">SEE COURSES</a> </div>
+                                                <div class="tab-pane fade" id="tab-pane_4">
+                                                    <h3 class="categories-tabs__title">SCIENCE & TECHNOLOGY</h3>
+                                                    <div class="categories-tabs__number">courses available : <strong class="color_primary"> 400</strong></div>
+                                                    <div class="categories-tabs__description">
+                                                        <p>Nulla feugiat nibh placerat fermentum rutrum anted risus euismod eros pharetra felis justo ac tortor. Maecenas odio sit amet odio euismod iaculis. Donec a tellus. Nullam risus turpis rhoncus vel varius consequat laoreet ac neque. Sed eget lectus vitae augue zitae condimen tum sit ame pede. </p>
+                                                        <p>Aenean erat orci mollis quis. Lorem ipsum dolor siter amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                                                    </div>
+                                                    <a class="btn btn-primary btn-effect" href="javascript:void(0);">SEE COURSES</a> </div>
+                                                <div class="tab-pane fade" id="tab-pane_5">
+                                                    <h3 class="categories-tabs__title">FOOD & Drinking</h3>
+                                                    <div class="categories-tabs__number">courses available : <strong class="color_primary"> 400</strong></div>
+                                                    <div class="categories-tabs__description">
+                                                        <p>Nulla feugiat nibh placerat fermentum rutrum anted risus euismod eros pharetra felis justo ac tortor. Maecenas odio sit amet odio euismod iaculis. Donec a tellus. Nullam risus turpis rhoncus vel varius consequat laoreet ac neque. Sed eget lectus vitae augue zitae condimen tum sit ame pede. </p>
+                                                        <p>Aenean erat orci mollis quis. Lorem ipsum dolor siter amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                                                    </div>
+                                                    <a class="btn btn-primary btn-effect" href="javascript:void(0);">SEE COURSES</a> </div>
+                                                <div class="tab-pane fade" id="tab-pane_6">
+                                                    <h3 class="categories-tabs__title">CREATIVE ARTS & MEDIA</h3>
+                                                    <div class="categories-tabs__number">courses available : <strong class="color_primary"> 400</strong></div>
+                                                    <div class="categories-tabs__description">
+                                                        <p>Nulla feugiat nibh placerat fermentum rutrum anted risus euismod eros pharetra felis justo ac tortor. Maecenas odio sit amet odio euismod iaculis. Donec a tellus. Nullam risus turpis rhoncus vel varius consequat laoreet ac neque. Sed eget lectus vitae augue zitae condimen tum sit ame pede. </p>
+                                                        <p>Aenean erat orci mollis quis. Lorem ipsum dolor siter amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                                                    </div>
+                                                    <a class="btn btn-primary btn-effect" href="javascript:void(0);">SEE COURSES</a> </div>
+                                            </div>
+                                        </div>
+                                        <!-- end categories-tabs --> 
+                                    </div>
+                                </div>
+                                <!-- end col --> 
+                            </div>
+                            <!-- end row --> 
+                        </div>
+                        <!-- end container --> 
+                    </section>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="border-decor_top">
+                                    <section class="section-default">
+                                        <div class="wrap-title" data-wow-duration="2s">
+                                            <h2 class="ui-title-block ui-title-block_mod-d">We Bring You World’s Best Courses From All Top Publishers, <strong>FREE!</strong></h2>
+                                            <div class="ui-subtitle-block ui-subtitle-block_mod-c">Having over 9 million students worldwide and more than 50,000 online courses available.</div>
+                                        </div>
+                                        <!-- end wrap-title -->
+                                        <ul class="advantages advantages_mod-b list-unstyled">
+                                            <li class="advantages__item wow zoomIn" data-wow-duration="2s">
+                                                <div class="advantages__inner">
+                                                    <div class="advantages__info"> <span class="advantages__icon"><i class="icon stroke icon-Cup"></i></span>
+                                                        <h3 class="ui-title-inner decor decor_mod-a">HIGHest RATED</h3>
+                                                    </div>
+                                                </div>
+                                                <p>Fusce eleifend donec sapien phase dcua sed sa pellentesque lacus vamus lorem treb lum arcu semper duiac.</p>
+                                            </li>
+                                            <li class="advantages__item wow zoomIn" data-wow-duration="2s" data-wow-delay=".5s"> <span class="advantages__icon"><i class="icon stroke icon-Users"></i></span>
+                                                <div class="advantages__inner">
+                                                    <h3 class="ui-title-inner decor decor_mod-a">SKILLED FACULTY</h3>
+                                                    <div class="advantages__info">
+                                                        <p>Fusce eleifend donec sapien phase dcua sed sa pellentesque lacus vamus lorem treb lum arcu semper duiac.</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="advantages__item wow zoomIn" data-wow-duration="2s" data-wow-delay="1s"> <span class="advantages__icon"><i class="icon stroke icon-WorldGlobe"></i></span>
+                                                <div class="advantages__inner">
+                                                    <h3 class="ui-title-inner decor decor_mod-a">we are GLOBAL</h3>
+                                                    <div class="advantages__info">
+                                                        <p>Fusce eleifend donec sapien phase dcua sed sa pellentesque lacus vamus lorem treb lum arcu semper duiac.</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="advantages__item wow zoomIn" data-wow-duration="2s" data-wow-delay="1.5s"> <span class="advantages__icon"><i class="icon stroke icon-DesktopMonitor"></i></span>
+                                                <div class="advantages__inner">
+                                                    <h3 class="ui-title-inner decor decor_mod-a">ONLINE TRAINING</h3>
+                                                    <div class="advantages__info">
+                                                        <p>Fusce eleifend donec sapien phase dcua sed sa pellentesque lacus vamus lorem treb lum arcu semper duiac.</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </section>
+                                    <!-- end section-advantages --> 
+                                </div>
+                                <!-- end border-decor_top --> 
+                            </div>
+                            <!-- end col --> 
+                        </div>
+                        <!-- end row --> 
+                    </div>
+                    <!-- end container -->
+
+                    <div class="section-progress wow fadeInUp section-parallax" data-speed="25" data-wow-duration="2s" style="visibility: visible; animation-duration: 2s; animation-name: fadeInUp; background-position: 50% -0px;">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <ul class="list-progress list-unstyled">
+                                        <li class="list-progress__item"> <span class="chart label-chart decor decor_mod-c" data-percent="190"><i class="icon stroke icon-WorldWide"></i><span class="percent">190</span> <canvas height="0" width="0"></canvas></span> <span class="list-progress__name">COUNTRIES REACHED</span> </li>
+                                        <li class="list-progress__item"> <span class="chart label-chart decor decor_mod-c" data-percent="250000"><i class="icon stroke icon-Book"></i><span class="percent">250000</span> <canvas height="0" width="0"></canvas></span> <span class="list-progress__name">PASSED GRADUATES</span> </li>
+                                        <li class="list-progress__item"> <span class="chart label-chart decor decor_mod-c" data-percent="824"><i class="icon stroke icon-User"></i><span class="percent">824</span> <canvas height="0" width="0"></canvas></span> <span class="list-progress__name">QUALIFIED STAFF</span> </li>
+                                        <li class="list-progress__item"> <span class="chart label-chart decor decor_mod-c" data-percent="1500"><i class="icon stroke icon-Edit"></i><span class="percent">1500</span> <canvas height="0" width="0"></canvas></span> <span class="list-progress__name">COURSES PUBLISHED</span> </li>
+                                    </ul>
+                                    <!-- end list-progress --> 
+                                </div>
+                                <!-- end col  --> 
+                            </div>
+                            <!-- end row  --> 
+                        </div>
+                        <!-- end container--> 
+                    </div>
+                    <div style="padding-bottom: 5em " class="wrap-title" data-wow-duration="2s">
+                        <h2 class="ui-title-block ui-title-block_mod-d"><strong>Reviews</strong></h2>
+                        <div class="ui-subtitle-block ui-subtitle-block_mod-c">Having over 9 million students worldwide and more than 50,000 online courses available.</div>
+                    </div>
+
+                    <div style="margin-top: 0em;" class="section-subscribe wow fadeInUp" data-wow-duration="2s">
+                        <div class="subscribe">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="subscribe__icon-wrap"> <i class="icon_bg stroke icon-Imbox"></i><i class="icon stroke icon-Imbox"></i> </div>
+                                        <div class="subscribe__inner">
+                                            <h2 class="subscribe__title">STAY UPDATED WITH ACADEMICA</h2>
+                                            <div class="subscribe__description">Nulla feugiat nibh placerat fermentum rutrum ante risus euismod</div>
+                                        </div>
+                                    </div>
+                                    <!-- end col -->
+                                    <div class="col-sm-6">
+                                        <form class="subscribe__form" action="get">
+                                            <input class="subscribe__input form-control" type="text" placeholder="Your Email address ...">
+                                            <button class="subscribe__btn btn btn-success btn-effect">SUBSCRIBE</button>
+                                        </form>
+                                    </div>
+                                    <!-- end col --> 
+                                </div>
+                                <!-- end row --> 
+                            </div>
+                            <!-- end container --> 
+                        </div>
+                    </div>
+                    <!-- end section-subscribe -->
+                </div>
+                <!-- end main-content -->
+
+                <div id="footer"></div>
+            </div>
+            <!-- end wrapper --> 
+        </div>
+        <!-- end layout-theme --> 
+
+        <!-- SCRIPTS --> 
+        <script src="/static/assets/js/jquery-migrate-1.2.1.js"></script>
+        <script src="/static/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/static/assets/js/modernizr.custom.js"></script>
+        <script src="/static/assets/js/waypoints.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script> 
+
+        <!--THEME--> 
+        <script  src="/static/assets/plugins/sliderpro/js/jquery.sliderPro.min.js"></script>
+        <script src="/static/assets/plugins/owl-carousel/owl.carousel.min.js"></script>
+        <script src="/static/assets/plugins/isotope/jquery.isotope.min.js"></script>
+        <script src="/static/assets/plugins/prettyphoto/js/jquery.prettyPhoto.js"></script>
+        <script src="/static/assets/plugins/datetimepicker/jquery.datetimepicker.js"></script>
+        <script src="/static/assets/plugins/jelect/jquery.jelect.js"></script>
+        <script src="/static/assets/plugins/rendro-easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+        <script src="/static/assets/js/cssua.min.js"></script>
+        <script src="/static/assets/js/wow.min.js"></script>
+        <script src="/static/assets/js/custom.min.js"></script>
+
+        <!--COLOR SWITCHER --> 
+        <script src="/static/assets/plugins/switcher/js/bootstrap-select.js"></script>
+        <script src="/static/assets/plugins/switcher/js/dmss.js"></script>
+    </body>
+</html>
