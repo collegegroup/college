@@ -9,7 +9,7 @@ app.controller('schoolRegistrationCtrl', function($scope, uploadService) {
 
     console.log('Loaded school registration controller.');
 
-    $scope.shcoolImageUploadURL = '/upload/school';
+    $scope.shcoolImageUploadURL = '/upload/school/';
 
     /*
     * This method is used select the file

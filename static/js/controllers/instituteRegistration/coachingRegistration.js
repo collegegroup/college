@@ -5,11 +5,11 @@
 
 var app = angular.module('mainCollegeApp.coachingRegistrationApp', []);
 
-app.controller('coachingRegistrationCtrl', function($scope) {
+app.controller('coachingRegistrationCtrl', function($scope, uploadService) {
 
     console.log('Loaded coaching registration controller.');
 
-    $scope.coachingImageUploadURL = '/upload/coaching';
+    $scope.coachingImageUploadURL = '/upload/coaching/';
 
     /*
      * This method is used select the file
