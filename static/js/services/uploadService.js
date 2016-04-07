@@ -17,10 +17,8 @@
                     $rootScope.upload = $upload.upload({
 
                         url:  uploadURL,
-
-                        data: {'uploadType': uploadType},
                         
-                        file: fileObj
+                        image: fileObj
                     
                     }).progress(function (evt) {
 
