@@ -93,7 +93,7 @@
                     <div class="col-sm-10">
                         <label ng-repeat="facility in coachingRegistrationJSON.data.facilities" class="checkbox-inline c-checkbox">
                             <input ng-model="facility.value" type="checkbox" value="option1" ng-true-value="1" ng-false-value="0">
-                            <span class="fa fa-check"></span>a
+                            <span class="fa fa-check"></span>{{facility.text}}
                         </label>
                     </div>
                 </div>
@@ -126,8 +126,8 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-3" ng-hide="hideCoachingCoureseRemoveButton">
-                        <button ng-click="removeCoachingCourse($index)" style="margin-top: 30px;" type="button" class="mb-sm btn btn-danger"><em class="fa fa-minus"></em> &nbsp;&nbsp;Remove</button>
+                    <div class="col-sm-3" >
+                        <button ng-disabled="hideCoachingCoureseRemoveButton" ng-click="removeCoachingCourse($index)" style="margin-top: 30px;" type="button" class="mb-sm btn btn-danger"><em class="fa fa-minus"></em> &nbsp;&nbsp;Remove</button>
                     </div>
 
                 </div>
