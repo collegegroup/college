@@ -15,6 +15,8 @@ module.exports = function(grunt) {
                     'static/js/sourceMin/all.min.js': [
                         'static/js/controllers/app.js',
                         'static/js/routes/routes.js',
+
+                        'static/js/services/uploadService.js',
                         
                         'static/js/controllers/dashboard/dashboardCtrl.js',
                         'static/js/controllers/location/addStateCityCtrl.js',
@@ -35,9 +37,15 @@ module.exports = function(grunt) {
                         'static/js/lib/jquery/jquery-ui.min.js',
                         'static/js/lib/bootstrap/bootstrap.min.js',
                         'static/js/lib/angular/angular.min.js',
-                        'static/js/lib/angular/angular-ui-router.min.js'
+                        'static/js/lib/angular/angular-ui-router.min.js',
+                        'static/js/lib/angular/angular-file-upload.min.js'
                     ]
 
+                }
+            },
+            thirdPartyLib: {
+                files: {
+                    
                 }
             }
         }
