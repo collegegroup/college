@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse
 from rest_framework.views import APIView, status
+from django.core.files.base import ContentFile
 from ..school_services import SchoolOrm
 from ..jsonparser.school_jsons import *
 import json
@@ -37,4 +38,25 @@ class SchoolRegister(APIView):
             except Exception as ex:
                 response.update({'message': ex})
 
+            return HttpResponse(json.dumps(response), content_type="application/json")
+
+
+class UploadSchoolProfile(APIView):
+
+    def post(self, request):
+        if request.method == 'POST':
+            response = dict()
+            school_main = SchoolOrm.get_school_by_id(request.POST.get('school_id'))
+            image_name = "profile_" + str(school_main.school_id) + ".jpg"
+            image = ContentFile(request.FILES['image'].read())
+            try:
+                school_main.profile_image.save(image_name, image)
+                response.update({'message': 'profile picture uploaded successfully!'})
+                response.update({'profile_name': '/media/' + str(school_main.profile_image)})
+                response.update({'response_code': status.HTTP_200_OK})
+                response.update({'status': 'success'})
+            except Exception as ex:
+                response.update({'message': ex})
+                response.update({'response_code': status.HTTP_406_NOT_ACCEPTABLE})
+                response.update({'status': 'error'})
             return HttpResponse(json.dumps(response), content_type="application/json")
