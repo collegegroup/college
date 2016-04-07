@@ -12,22 +12,27 @@
 
             return {
 
-                uploadFile : function(fileObj, uploadURL, uploadType) {
+                uploadFile : function(fileObj, uploadURL, uploadType, emitMessage) {
 
                     $rootScope.upload = $upload.upload({
 
                         url:  uploadURL,
-                        
-                        image: fileObj
+
+                        data: {'uploadType': uploadType},
+
+                        file: fileObj
                     
                     }).progress(function (evt) {
 
                         //parseInt(100.0 * evt.loaded / evt.total)
 
-                    }).success(function (response, status, headers, config){
+                    }).success(function (response){
 
-                    }).error(function(errorResponse){
+                        $rootScope.$broadcast(emitMessage+" success", response);
 
+                    }).error(function(response){
+
+                        $rootScope.$broadcast(emitMessage+" error", response);
 
                     });
 

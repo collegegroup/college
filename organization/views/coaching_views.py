@@ -78,7 +78,7 @@ class UploadCoachingProfile(APIView):
             # image = ContentFile(request.FILES['image'].read())
             try:
                 # institute_main.profile_image.save(image_name, image)
-                handle_uploaded_file(request.FILES['image'], image_name)
+                handle_uploaded_file(request.FILES['file'], image_name)
                 response.update({'message': 'profile picture uploaded successfully!'})
                 response.update({'profile_name': "/" + image_name})
                 response.update({'response_code': status.HTTP_200_OK})
