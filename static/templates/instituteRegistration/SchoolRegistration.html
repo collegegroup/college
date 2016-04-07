@@ -9,7 +9,12 @@
                     <img style="height: 160px; width: 160px; border: 1px solid silver; border-radius: 5px;" id="Image" src="/media/site/logo_dummy.png"  />
                     <div class="fileUpload btn btn-primary">
                         <span>Upload</span>
-                        <input type="file" class="upload"  name="Image" onchange="readURL(this);"/>
+                        <input
+                                type="file"
+                                class="upload"
+                                accept="image/*"
+                                name="Image"
+                                ng-file-select="onFileSelect($files,'schoolImage')"/>
                     </div>
                 </div>
                 <div class="col-sm-9">
