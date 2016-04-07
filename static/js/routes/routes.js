@@ -11,12 +11,28 @@ collegeApp.config([ "$stateProvider", "$urlRouterProvider",
         $urlRouterProvider.otherwise('/home');
 
         $stateProvider
+            
+            .state('Dashboard', {
 
+                url: '/dashboard',
+
+                templateUrl: 'static/templates/dashboard/dashboard.html',
+
+                controller: 'dashboardCtrl'
+
+            })
+            
+            
+            
+            
+            /*From here location management routes*/
             .state('location statecity', {
 
                 url: '/location/statecity',
 
-                templateUrl: 'static/templates/locationManagement/AddStateCity.html'
+                templateUrl: 'static/templates/locationManagement/AddStateCity.html',
+
+                controller: 'addStateCityCtrl'
 
             })
 
@@ -24,7 +40,9 @@ collegeApp.config([ "$stateProvider", "$urlRouterProvider",
 
                 url: '/location/statepin',
 
-                templateUrl: 'static/templates/locationManagement/AddSubCityPin.html'
+                templateUrl: 'static/templates/locationManagement/AddSubCityPin.html',
+
+                controller: 'subCityPincodeCtrl'
 
             })
 
@@ -32,7 +50,9 @@ collegeApp.config([ "$stateProvider", "$urlRouterProvider",
 
                 url: '/location/view',
 
-                templateUrl: 'static/templates/locationManagement/ViewLocations.html'
+                templateUrl: 'static/templates/locationManagement/ViewLocations.html',
+
+                controller: 'viewLocationsCtrl'
 
             })
 
@@ -46,7 +66,9 @@ collegeApp.config([ "$stateProvider", "$urlRouterProvider",
 
                 url: '/coursemanagement/college',
 
-                templateUrl: 'static/templates/courseManagement/CollegeMaster.html'
+                templateUrl: 'static/templates/courseManagement/CollegeMaster.html',
+
+                controller: 'collegeManagementCtrl'
 
             })
 
@@ -54,7 +76,9 @@ collegeApp.config([ "$stateProvider", "$urlRouterProvider",
 
                 url: '/coursemanagement/coaching',
 
-                templateUrl: 'static/templates/courseManagement/CoachingMaster.html'
+                templateUrl: 'static/templates/courseManagement/CoachingMaster.html',
+
+                controller: 'coachingManagementCtrl'
 
             })
 
@@ -66,7 +90,9 @@ collegeApp.config([ "$stateProvider", "$urlRouterProvider",
 
                 url: '/instituteregistration/school',
 
-                templateUrl: 'static/templates/instituteRegistration/SchoolRegistration.html'
+                templateUrl: 'static/templates/instituteRegistration/SchoolRegistration.html',
+
+                controller: 'schoolRegistrationCtrl'
 
             })
 
@@ -74,7 +100,9 @@ collegeApp.config([ "$stateProvider", "$urlRouterProvider",
 
                 url: '/instituteregistration/college',
 
-                templateUrl: 'static/templates/instituteRegistration/CollegeRegistration.html'
+                templateUrl: 'static/templates/instituteRegistration/CollegeRegistration.html',
+
+                controller: 'collegeRegistrationCtrl'
 
             })
 
@@ -82,7 +110,9 @@ collegeApp.config([ "$stateProvider", "$urlRouterProvider",
 
                 url: '/instituteregistration/coaching',
 
-                templateUrl: 'static/templates/instituteRegistration/CoachingRegistration.html'
+                templateUrl: 'static/templates/instituteRegistration/CoachingRegistration.html',
+
+                controller: 'coachingRegistrationCtrl'
 
             });
 
