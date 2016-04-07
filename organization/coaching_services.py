@@ -19,6 +19,7 @@ class InstituteOrm(object):
         institute_main.mobile_num = institute_helper.mobile_num
         institute_main.emailid = institute_helper.emailid
         institute_main.facilities = institute_helper.facilities
+        institute_main.profile_image = institute_helper.profile_image
         institute_main.lastupd_dttm = datetime.datetime.now()
 
         try:

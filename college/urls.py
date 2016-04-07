@@ -35,7 +35,7 @@ urlpatterns = [
 
     # SCHOOL URLS
     url(r'^register/school/', SchoolRegister.as_view()),
-    url(r'^upload/school/', SchoolRegister.as_view()),
+    url(r'^upload/school/', UploadSchoolProfile.as_view()),
 
     # COLLEGE URLS
 
@@ -49,6 +49,7 @@ urlpatterns = [
     url(r'^view/(?P<template_name>.*)/$', GetAddCityTemplateSource.as_view()),
     url(r'^test/(?P<tmp_name>.*)$', Test.as_view()),
     url(r'^testdata/', TestPostData.as_view()),
+    url(r'^testupload/', UploadCoachingProfileTmp.as_view()),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
         {'document_root': settings.MEDIA_ROOT, 'show_indexes': False}),
 ]

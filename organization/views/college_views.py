@@ -50,7 +50,7 @@ class UploadCollegeProfile(APIView):
     def post(self, request):
         if request.method == 'POST':
             response = dict()
-            college_main = CollegeOrm.get_college_by_id(request.POST.get('id'))
+            college_main = CollegeOrm.get_college_by_id(request.POST.get('college_id'))
             image_name = "profile_" + str(college_main.college_id) + ".jpg"
             image = ContentFile(request.FILES['image'].read())
             try:
