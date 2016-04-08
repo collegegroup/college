@@ -3,7 +3,7 @@ import json
 
 class CollegeHelper(object):
     def __init__(self, college_name, location, establishment, description, affiliation, website, address,
-                 landline_num, mobile_num, emailid, facilities, profile_image, highest_package, average_package):
+                 landline_num, mobile_num, emailid, profile_image, highest_package, average_package):
         self.school_name = college_name
         self.location = location
         self.establishment = establishment
@@ -14,7 +14,6 @@ class CollegeHelper(object):
         self.landline_num = landline_num
         self.mobile_num = mobile_num
         self.emailid = emailid
-        self.facilities = facilities
         self.profile_image = profile_image
         self.highest_package = highest_package
         self.average_package = average_package
@@ -26,6 +25,12 @@ class CollegeCourseHelper(object):
         self.duration = duration
         self.fee = fee
         self.entrance = entrance
+
+
+class FacilitiesHelper(object):
+    def __init__(self, facility_name, facility_status):
+        self.facility_name = facility_name
+        self.facility_status = facility_status
 
 
 class CollegeJsonParser(object):
@@ -47,7 +52,6 @@ class CollegeJsonParser(object):
         landline_num = None
         mobile_num = None
         emailid = None
-        facilities = None
         profile_image = None
         highest_package = None
         average_package = None
@@ -56,6 +60,9 @@ class CollegeJsonParser(object):
         duration = None
         fee = None
         entrance = None
+        facilities = list()
+        facility_name = None
+        facility_status = None
         if 'data' in result:
             data = result['data']
             if 'college_name' in result['data']:
@@ -79,13 +86,18 @@ class CollegeJsonParser(object):
             if 'emailid' in result['data']:
                 emailid = result['data']['emailid']
             if 'facilities' in result['data']:
-                facilities = result['data']['facilities']
+                for facility in result['data']['facilities']:
+                    if 'text' in facility:
+                        facility_name = facility['text']
+                    if 'value' in facility:
+                        facility_status = facility['value']
+                    facilities.append(FacilitiesHelper(facility_name, facility_status))
             if 'highest_package' in result['data']:
                 highest_package = result['data']['highest_package']
             if 'average_package' in result['data']:
                 average_package = result['data']['average_package']
             if 'profile_image' in result['data']:
-                average_package = result['data']['profile_image']
+                profile_image = result['data']['profile_image']
             if 'courses' in result['data']:
                 for course in result['data']['courses']:
                     if 'course' in course:
@@ -98,5 +110,5 @@ class CollegeJsonParser(object):
                         entrance = course['entrance']
                     courses.append(CollegeCourseHelper(course_name, duration, fee, entrance))
         return [CollegeHelper(college_name, location, establishment, description, affiliation, website, address,
-                              landline_num, mobile_num, emailid, facilities, highest_package,
-                              average_package), courses]
+                              landline_num, mobile_num, emailid, profile_image, highest_package,
+                              average_package), courses, facilities]

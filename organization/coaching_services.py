@@ -1,4 +1,4 @@
-from models import InstituteMain, InstituteCourses
+from models import InstituteMain, InstituteCourses, CoachingFacilities
 import datetime
 
 
@@ -18,7 +18,6 @@ class InstituteOrm(object):
         institute_main.landline_num = institute_helper.landline_num
         institute_main.mobile_num = institute_helper.mobile_num
         institute_main.emailid = institute_helper.emailid
-        institute_main.facilities = institute_helper.facilities
         institute_main.profile_image = institute_helper.profile_image
         institute_main.lastupd_dttm = datetime.datetime.now()
 
@@ -36,6 +35,20 @@ class InstituteOrm(object):
             return institute_main
         except Exception as ex:
             raise ex
+
+
+class FacilitiesORM(object):
+    @staticmethod
+    def save_facility(coaching_id, facilities_helper):
+        coaching_facilities = CoachingFacilities()
+        coaching_facilities.coaching_id = coaching_id
+        coaching_facilities.facility_name = facilities_helper.facility_name
+        coaching_facilities.facility_status = facilities_helper.facility_status
+        coaching_facilities.lastupd_dttm = datetime.datetime.now()
+        try:
+            coaching_facilities.save()
+        except:
+            raise
 
 
 class InstituteCourseOrm(object):

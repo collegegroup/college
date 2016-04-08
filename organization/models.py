@@ -21,6 +21,18 @@ class City(models.Model):
         db_table = 'CITY'
 
 
+class CoachingFacilities(models.Model):
+    seq_id = models.AutoField(db_column='SEQ_ID', primary_key=True)  # Field name made lowercase.
+    coaching_id = models.IntegerField(db_column='COACHING_ID', blank=True, null=True)  # Field name made lowercase.
+    facility_name = models.CharField(db_column='FACILITY_NAME', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    facility_status = models.CharField(db_column='FACILITY_STATUS', max_length=2, blank=True, null=True)  # Field name made lowercase.
+    lastupd_dttm = models.DateTimeField(db_column='LASTUPD_DTTM', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'COACHING_FACILITIES'
+
+
 class CollegeCourses(models.Model):
     seq_id = models.AutoField(db_column='SEQ_ID', primary_key=True)  # Field name made lowercase.
     college_id = models.IntegerField(db_column='COLLEGE_ID', blank=True, null=True)  # Field name made lowercase.
@@ -35,8 +47,20 @@ class CollegeCourses(models.Model):
         db_table = 'COLLEGE_COURSES'
 
 
+class CollegeFacilities(models.Model):
+    seq_id = models.AutoField(db_column='SEQ_ID', primary_key=True)  # Field name made lowercase.
+    college_id = models.IntegerField(db_column='COLLEGE_ID', blank=True, null=True)  # Field name made lowercase.
+    facility_name = models.CharField(db_column='FACILITY_NAME', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    facility_status = models.CharField(db_column='FACILITY_STATUS', max_length=2, blank=True, null=True)  # Field name made lowercase.
+    lastupd_dttm = models.DateTimeField(db_column='LASTUPD_DTTM', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'COLLEGE_FACILITIES'
+
+
 class CollegeMain(models.Model):
-    college_id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
+    college_id = models.AutoField(db_column='COLLEGE_ID', primary_key=True)  # Field name made lowercase.
     college_name = models.CharField(db_column='COLLEGE_NAME', max_length=200, blank=True, null=True)  # Field name made lowercase.
     location = models.CharField(db_column='LOCATION', max_length=200, blank=True, null=True)  # Field name made lowercase.
     establishment = models.CharField(db_column='ESTABLISHMENT', max_length=45, blank=True, null=True)  # Field name made lowercase.
@@ -47,8 +71,7 @@ class CollegeMain(models.Model):
     landline_num = models.CharField(db_column='LANDLINE_NUM', max_length=45, blank=True, null=True)  # Field name made lowercase.
     mobile_num = models.CharField(db_column='MOBILE_NUM', max_length=45, blank=True, null=True)  # Field name made lowercase.
     emailid = models.CharField(db_column='EMAILID', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    facilities = models.CharField(db_column='FACILITIES', max_length=2, blank=True, null=True)  # Field name made lowercase.
-    profile_image = models.ImageField(db_column='PROFILE_IMAGE', upload_to="profiles/college/")  # Field name made lowercase.
+    profile_image = models.CharField(db_column='PROFILE_IMAGE', max_length=100, blank=True, null=True)  # Field name made lowercase.
     highest_package = models.DecimalField(db_column='HIGHEST_PACKAGE', max_digits=10, decimal_places=2, blank=True, null=True)  # Field name made lowercase.
     average_package = models.DecimalField(db_column='AVERAGE_PACKAGE', max_digits=10, decimal_places=2, blank=True, null=True)  # Field name made lowercase.
     lastupd_dttm = models.DateTimeField(db_column='LASTUPD_DTTM', blank=True, null=True)  # Field name made lowercase.
@@ -72,7 +95,7 @@ class InstituteCourses(models.Model):
 
 
 class InstituteMain(models.Model):
-    institute_id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
+    institute_id = models.AutoField(db_column='INSTITUTE_ID', primary_key=True)  # Field name made lowercase.
     institute_name = models.CharField(db_column='INSTITUTE_NAME', max_length=200, blank=True, null=True)  # Field name made lowercase.
     director_name = models.CharField(db_column='DIRECTOR_NAME', max_length=45, blank=True, null=True)  # Field name made lowercase.
     location = models.CharField(db_column='LOCATION', max_length=200, blank=True, null=True)  # Field name made lowercase.
@@ -84,8 +107,7 @@ class InstituteMain(models.Model):
     landline_num = models.CharField(db_column='LANDLINE_NUM', max_length=45, blank=True, null=True)  # Field name made lowercase.
     mobile_num = models.CharField(db_column='MOBILE_NUM', max_length=45, blank=True, null=True)  # Field name made lowercase.
     emailid = models.CharField(db_column='EMAILID', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    facilities = models.CharField(db_column='FACILITIES', max_length=2, blank=True, null=True)  # Field name made lowercase.
-    profile_image = models.ImageField(db_column='PROFILE_IMAGE', upload_to="profiles/coaching/")  # Field name made lowercase.
+    profile_image = models.CharField(db_column='PROFILE_IMAGE', max_length=100, blank=True, null=True)  # Field name made lowercase.
     lastupd_dttm = models.DateTimeField(db_column='LASTUPD_DTTM', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
@@ -107,8 +129,32 @@ class Location(models.Model):
         db_table = 'LOCATION'
 
 
+class SchoolCurriculum(models.Model):
+    seq_id = models.AutoField(db_column='SEQ_ID', primary_key=True)  # Field name made lowercase.
+    school_id = models.IntegerField(db_column='SCHOOL_ID', blank=True, null=True)  # Field name made lowercase.
+    curriculum_name = models.CharField(db_column='CURRICULUM_NAME', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    curriculum_status = models.CharField(db_column='CURRICULUM_STATUS', max_length=2, blank=True, null=True)  # Field name made lowercase.
+    lastupd_dttm = models.DateTimeField(db_column='LASTUPD_DTTM', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'SCHOOL_CURRICULUM'
+
+
+class SchoolFacilities(models.Model):
+    seq_id = models.AutoField(db_column='SEQ_ID', primary_key=True)  # Field name made lowercase.
+    school_id = models.IntegerField(db_column='SCHOOL_ID', blank=True, null=True)  # Field name made lowercase.
+    facility_name = models.CharField(db_column='FACILITY_NAME', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    facility_status = models.CharField(db_column='FACILITY_STATUS', max_length=2, blank=True, null=True)  # Field name made lowercase.
+    lastupd_dttm = models.DateTimeField(db_column='LASTUPD_DTTM', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'SCHOOL_FACILITIES'
+
+
 class SchoolMain(models.Model):
-    school_id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
+    school_id = models.AutoField(db_column='SCHOOL_ID', primary_key=True)  # Field name made lowercase.
     school_name = models.CharField(db_column='SCHOOL_NAME', max_length=200, blank=True, null=True)  # Field name made lowercase.
     location = models.CharField(db_column='LOCATION', max_length=200, blank=True, null=True)  # Field name made lowercase.
     establishment = models.CharField(db_column='ESTABLISHMENT', max_length=45, blank=True, null=True)  # Field name made lowercase.
@@ -121,9 +167,7 @@ class SchoolMain(models.Model):
     landline_num = models.CharField(db_column='LANDLINE_NUM', max_length=45, blank=True, null=True)  # Field name made lowercase.
     mobile_num = models.CharField(db_column='MOBILE_NUM', max_length=45, blank=True, null=True)  # Field name made lowercase.
     emailid = models.CharField(db_column='EMAILID', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    facilities = models.CharField(db_column='FACILITIES', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    profile_image = models.ImageField(db_column='PROFILE_IMAGE', upload_to="profiles/coaching/")  # Field name made lowercase.
-    extra_curriculum = models.CharField(db_column='EXTRA_CURRICULUM', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    profile_image = models.CharField(db_column='PROFILE_IMAGE', max_length=100, blank=True, null=True)  # Field name made lowercase.
     lastupd_dttm = models.DateTimeField(db_column='LASTUPD_DTTM', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
@@ -141,5 +185,111 @@ class State(models.Model):
         db_table = 'STATE'
 
 
+class AuthGroup(models.Model):
+    name = models.CharField(unique=True, max_length=80)
+
+    class Meta:
+        managed = False
+        db_table = 'auth_group'
 
 
+class AuthGroupPermissions(models.Model):
+    group = models.ForeignKey(AuthGroup, models.DO_NOTHING)
+    permission = models.ForeignKey('AuthPermission', models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'auth_group_permissions'
+        unique_together = (('group', 'permission'),)
+
+
+class AuthPermission(models.Model):
+    name = models.CharField(max_length=255)
+    content_type = models.ForeignKey('DjangoContentType', models.DO_NOTHING)
+    codename = models.CharField(max_length=100)
+
+    class Meta:
+        managed = False
+        db_table = 'auth_permission'
+        unique_together = (('content_type', 'codename'),)
+
+
+class AuthUser(models.Model):
+    password = models.CharField(max_length=128)
+    last_login = models.DateTimeField(blank=True, null=True)
+    is_superuser = models.IntegerField()
+    username = models.CharField(unique=True, max_length=30)
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    email = models.CharField(max_length=254)
+    is_staff = models.IntegerField()
+    is_active = models.IntegerField()
+    date_joined = models.DateTimeField()
+
+    class Meta:
+        managed = False
+        db_table = 'auth_user'
+
+
+class AuthUserGroups(models.Model):
+    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
+    group = models.ForeignKey(AuthGroup, models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'auth_user_groups'
+        unique_together = (('user', 'group'),)
+
+
+class AuthUserUserPermissions(models.Model):
+    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
+    permission = models.ForeignKey(AuthPermission, models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'auth_user_user_permissions'
+        unique_together = (('user', 'permission'),)
+
+
+class DjangoAdminLog(models.Model):
+    action_time = models.DateTimeField()
+    object_id = models.TextField(blank=True, null=True)
+    object_repr = models.CharField(max_length=200)
+    action_flag = models.SmallIntegerField()
+    change_message = models.TextField()
+    content_type = models.ForeignKey('DjangoContentType', models.DO_NOTHING, blank=True, null=True)
+    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'django_admin_log'
+
+
+class DjangoContentType(models.Model):
+    app_label = models.CharField(max_length=100)
+    model = models.CharField(max_length=100)
+
+    class Meta:
+        managed = False
+        db_table = 'django_content_type'
+        unique_together = (('app_label', 'model'),)
+
+
+class DjangoMigrations(models.Model):
+    app = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+    applied = models.DateTimeField()
+
+    class Meta:
+        managed = False
+        db_table = 'django_migrations'
+
+
+class DjangoSession(models.Model):
+    session_key = models.CharField(primary_key=True, max_length=40)
+    session_data = models.TextField()
+    expire_date = models.DateTimeField()
+
+    class Meta:
+        managed = False
+        db_table = 'django_session'

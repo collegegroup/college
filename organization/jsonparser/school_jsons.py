@@ -4,8 +4,7 @@ import json
 
 class SchoolHelper(object):
     def __init__(self, school_name, location, establishment, description, affiliation, website, school_start_time,
-                 school_end_time, address, landline_num, mobile_num, emailid, profile_image,facilities,
-                 extra_curriculum):
+                 school_end_time, address, landline_num, mobile_num, emailid, profile_image):
         self.school_name = school_name
         self.location = location
         self.establishment = establishment
@@ -18,9 +17,19 @@ class SchoolHelper(object):
         self.landline_num = landline_num
         self.mobile_num = mobile_num
         self.emailid = emailid
-        self.facilities = facilities
         self.profile_image = profile_image
-        self.extra_curriculum = extra_curriculum
+
+
+class FacilitiesHelper(object):
+    def __init__(self, facility_name, facility_status):
+        self.facility_name = facility_name
+        self.facility_status = facility_status
+
+
+class CurriculumHelper(object):
+    def __init__(self, curriculum_name, curriculum_status):
+        self.curriculum_name = curriculum_name
+        self.curriculum_status = curriculum_status
 
 
 class SchoolJsonParser(object):
@@ -43,9 +52,13 @@ class SchoolJsonParser(object):
         landline_num = None
         mobile_num = None
         emailid = None
-        facilities = None
         profile_image = None
-        extra_curriculum = None
+        facilities = list()
+        facility_name = None
+        facility_status = None
+        extra_curriculum = list()
+        curriculum_name = None
+        curriculum_status = None
 
         if 'data' in result:
             data = result['data']
@@ -74,11 +87,21 @@ class SchoolJsonParser(object):
             if 'emailid' in result['data']:
                 emailid = result['data']['emailid']
             if 'profile_image' in result['data']:
-                facilities = result['data']['profile_image']
+                profile_image = result['data']['profile_image']
             if 'facilities' in result['data']:
-                facilities = result['data']['facilities']
+                for facility in result['data']['facilities']:
+                    if 'text' in facility:
+                        facility_name = facility['text']
+                    if 'value' in facility:
+                        facility_status = facility['value']
+                    facilities.append(FacilitiesHelper(facility_name, facility_status))
             if 'extra_curriculum' in result['data']:
-                extra_curriculum = result['data']['extra_curriculum']
-        return SchoolHelper(school_name, location, establishment, description, affiliation, website, school_start_time,
-                            school_end_time, address, landline_num, mobile_num, emailid, profile_image,
-                            facilities, extra_curriculum)
+                for curriculum in result['data']['extra_curriculum']:
+                    if 'text' in curriculum:
+                        curriculum_name = curriculum['text']
+                    if 'value' in curriculum:
+                        curriculum_status = curriculum['value']
+                    extra_curriculum.append(CurriculumHelper(curriculum_name, curriculum_status))
+        return [SchoolHelper(school_name, location, establishment, description, affiliation, website, school_start_time,
+                             school_end_time, address, landline_num, mobile_num, emailid, profile_image),
+                facilities, extra_curriculum]

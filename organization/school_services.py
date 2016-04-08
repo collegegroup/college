@@ -1,4 +1,4 @@
-from .models import SchoolMain
+from .models import SchoolMain, SchoolFacilities, SchoolCurriculum
 import datetime
 
 
@@ -19,13 +19,12 @@ class SchoolOrm(object):
         school_main.landline_num = school_helper.landline_num
         school_main.mobile_num = school_helper.mobile_num
         school_main.emailid = school_helper.emailid
-        school_main.facilities = school_helper.facilities
         school_main.profile_image = school_helper.profile_image
-        school_main.extra_curriculum = school_helper.extra_curriculum
         school_main.lastupd_dttm = datetime.datetime.now()
 
         try:
             school_main.save()
+            return school_main.school_id
         except:
             raise
 
@@ -36,4 +35,32 @@ class SchoolOrm(object):
             school_main = SchoolMain.objects.get(school_id=school_id)
             return school_main
         except Exception as ex:
+            raise
+
+
+class FacilitiesORM(object):
+    @staticmethod
+    def save_facility(school_id, facilities_helper):
+        school_facilities = SchoolFacilities()
+        school_facilities.school_id = school_id
+        school_facilities.facility_name = facilities_helper.facility_name
+        school_facilities.facility_status = facilities_helper.facility_status
+        school_facilities.lastupd_dttm = datetime.datetime.now()
+        try:
+            school_facilities.save()
+        except:
+            raise
+
+
+class CurriculumORM(object):
+    @staticmethod
+    def save_curriculum(school_id, curriculum_helper):
+        school_curriculum = SchoolCurriculum()
+        school_curriculum.school_id = school_id
+        school_curriculum.curriculum_name = curriculum_helper.curriculum_name
+        school_curriculum.curriculum_status = curriculum_helper.curriculum_status
+        school_curriculum.lastupd_dttm = datetime.datetime.now()
+        try:
+            school_curriculum.save()
+        except:
             raise

@@ -3,7 +3,7 @@ import json
 
 class InstituteHelper(object):
     def __init__(self, institute_name, director_name, location, establishment, description, affiliation, website,
-                 address, landline_num, mobile_num, emailid, facilities, profile_image):
+                 address, landline_num, mobile_num, emailid, profile_image):
         self.institute_name = institute_name
         self.director_name = director_name
         self.location = location
@@ -15,7 +15,6 @@ class InstituteHelper(object):
         self.landline_num = landline_num
         self.mobile_num = mobile_num
         self.emailid = emailid
-        self.facilities = facilities
         self.profile_image = profile_image
 
 
@@ -24,6 +23,12 @@ class InstituteCourseHelper(object):
         self.course = course
         self.duration = duration
         self.fee = fee
+
+
+class FacilitiesHelper(object):
+    def __init__(self, facility_name, facility_status):
+        self.facility_name = facility_name
+        self.facility_status = facility_status
 
 
 class InstituteJsonParser(object):
@@ -45,7 +50,9 @@ class InstituteJsonParser(object):
         landline_num = None
         mobile_num = None
         emailid = None
-        facilities = None
+        facilities = list()
+        facility_name = None
+        facility_status = None
         director_name = None
         courses = list()
         course_name = None
@@ -75,7 +82,12 @@ class InstituteJsonParser(object):
             if 'emailid' in result['data']:
                 emailid = result['data']['emailid']
             if 'facilities' in result['data']:
-                facilities = result['data']['facilities']
+                for facility in result['data']['facilities']:
+                    if 'text' in facility:
+                        facility_name = facility['text']
+                    if 'value' in facility:
+                        facility_status = facility['value']
+                    facilities.append(FacilitiesHelper(facility_name, facility_status))
             if 'director_name' in result['data']:
                 director_name = result['data']['director_name']
             if 'profile_image' in result['data']:
@@ -90,4 +102,4 @@ class InstituteJsonParser(object):
                         fee = course['fee']
                     courses.append(InstituteCourseHelper(course_name, duration, fee))
         return [InstituteHelper(institute_name, director_name, location, establishment, description, affiliation,
-                                website, address,landline_num, mobile_num, emailid, facilities, profile_image), courses]
+                                website, address,landline_num, mobile_num, emailid, profile_image), courses, facilities]
