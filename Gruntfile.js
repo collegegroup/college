@@ -17,7 +17,9 @@ module.exports = function(grunt) {
                         'static/js/routes/routes.js',
 
                         'static/js/services/uploadService.js',
-                        
+                        'static/js/services/HTTPRequestService.js',
+                        'static/js/services/utilityService.js',
+
                         'static/js/controllers/dashboard/dashboardCtrl.js',
                         'static/js/controllers/location/addStateCityCtrl.js',
                         'static/js/controllers/location/subCityPincodeCtrl.js',
