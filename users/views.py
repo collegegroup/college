@@ -10,7 +10,7 @@ static = '/static/'
 
 
 class Home(View):
-    template_name = 'ReviewIndex.html'
+    template_name = 'index.html'
 
     def get(self, request):
         body = render(request, self.template_name)
