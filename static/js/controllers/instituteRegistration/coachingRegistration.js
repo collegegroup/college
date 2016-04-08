@@ -5,7 +5,7 @@
 
 var app = angular.module('mainCollegeApp.coachingRegistrationApp', []);
 
-app.controller('coachingRegistrationCtrl', function($scope, uploadService) {
+app.controller('coachingRegistrationCtrl', function($scope, uploadService, HTTPService, utilityService) {
 
     console.log('Loaded coaching registration controller.');
     
@@ -103,6 +103,24 @@ app.controller('coachingRegistrationCtrl', function($scope, uploadService) {
     };
     /*
     * THis is used to add coacing course
+    * */
+
+
+
+
+
+
+
+    /*
+    * This method is used to save coaching resistration
+    * */
+    $scope.saveCoachingRegistration = function(coachingObj) {
+
+        HTTPService.POSTRequest('/register/coaching', ((JSON.stringify(coachingObj))));
+
+    };
+    /*
+    * This method is used to save coaching resistration
     * */
 
 
