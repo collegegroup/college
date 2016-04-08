@@ -21,7 +21,7 @@ from organization.views.school_views import *
 from organization.views.college_views import *
 from organization.views.coaching_views import *
 from organization.views.location_views import *
-from reviews.views import *
+from reviews.views import ReviewHome
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
