@@ -1,4 +1,6 @@
-from models import CollegeMain, CollegeCourses, CollegeFacilities
+__author__ = 'ravi'
+
+from models import CollegeMain, CollegeCourses, CollegeFacilities, CollegeCategory, BasicCollgeCourses
 import datetime
 
 
@@ -66,3 +68,25 @@ class FacilitiesORM(object):
             college_facilities.save()
         except:
             raise
+
+
+class CategoryORM(object):
+    @staticmethod
+    def get_all_college_category():
+        college_category = None
+        try:
+            college_category = CollegeCategory.objects.all().order_by('category_name')
+        except Exception as ex:
+            raise ex
+        return college_category
+
+    @staticmethod
+    def add_basic_course(category_name, course_name):
+        basic_college_courses = BasicCollgeCourses()
+        basic_college_courses.category_name = category_name
+        basic_college_courses.course_name = course_name
+        basic_college_courses.lastupd_dttm = datetime.datetime.now()
+        try:
+            basic_college_courses.save()
+        except Exception as ex:
+            raise ex

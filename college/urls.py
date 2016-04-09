@@ -21,7 +21,7 @@ from organization.views.school_views import *
 from organization.views.college_views import *
 from organization.views.coaching_views import *
 from organization.views.location_views import *
-from reviews.views import ReviewHome
+from reviews.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -33,18 +33,30 @@ urlpatterns = [
     # INSTITUTE URLS
     url(r'^register/coaching/', CoachingRegister.as_view()),
     url(r'^upload/coaching/', UploadCoachingProfile.as_view()),
+    url(r'^category/coaching', GetAllCoachingCategory.as_view()),
+    url(r'^add/category/coaching', AddCoachingBasicCourses.as_view()),
 
     # SCHOOL URLS
     url(r'^register/school/', SchoolRegister.as_view()),
     url(r'^upload/school/', UploadSchoolProfile.as_view()),
 
     # COLLEGE URLS
-
+    url(r'^addcity/', AddCity.as_view()),
     url(r'^register/college/', CollegeRegister.as_view()),
     url(r'^upload/college/', UploadCollegeProfile.as_view()),
+    url(r'^category/college', GetAllCollegeCategory.as_view()),
+    url(r'^add/category/college', AddCollegeBasicCourses.as_view()),
 
     # REVIEW RELATED ALL URL'S
     url(r'^review/home/', ReviewHome.as_view()),
+    url(r'^review/review/', ReviewPage.as_view()),
+
+    # LOCATION URLS
+    url(r'^allstate/', GetAllState.as_view()),
+    url(r'^allcity/', GetAllCity.as_view()),
+    url(r'^addcity/', AddCity.as_view()),
+    url(r'^addlocation/', AddLocation.as_view()),
+    url(r'^alllocation/', GetLocation.as_view()),
 
     # EXTRA URLS
     url(r'^addstate/', AddState.as_view()),

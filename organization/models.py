@@ -10,15 +10,47 @@ from __future__ import unicode_literals
 from django.db import models
 
 
+class BasicCoachingCourses(models.Model):
+    course_id = models.AutoField(db_column='COURSE_ID', primary_key=True)  # Field name made lowercase.
+    course_name = models.CharField(db_column='COURSE_NAME', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    category_name = models.CharField(db_column='CATEGORY_NAME', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    lastupd_dttm = models.DateTimeField(db_column='LASTUPD_DTTM', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'BASIC_COACHING_COURSES'
+
+
+class BasicCollgeCourses(models.Model):
+    course_id = models.AutoField(db_column='COURSE_ID', primary_key=True)  # Field name made lowercase.
+    course_name = models.CharField(db_column='COURSE_NAME', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    category_name = models.CharField(db_column='CATEGORY_NAME', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    lastupd_dttm = models.DateTimeField(db_column='LASTUPD_DTTM', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'BASIC_COLLGE_COURSES'
+
+
 class City(models.Model):
-    city_id = models.IntegerField(db_column='CITY_ID', primary_key=True)  # Field name made lowercase.
+    city_id = models.AutoField(db_column='CITY_ID', primary_key=True)  # Field name made lowercase.
     city_name = models.CharField(db_column='CITY_NAME', max_length=100, blank=True, null=True)  # Field name made lowercase.
-    state_id = models.IntegerField(db_column='STATE_ID', blank=True, null=True)  # Field name made lowercase.
+    state_name = models.CharField(db_column='STATE_NAME', max_length=100, blank=True, null=True)  # Field name made lowercase.
     lastupd_dttm = models.DateTimeField(db_column='LASTUPD_DTTM', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False
         db_table = 'CITY'
+
+
+class CoachingCategory(models.Model):
+    category_id = models.AutoField(db_column='CATEGORY_ID', primary_key=True)  # Field name made lowercase.
+    category_name = models.CharField(db_column='CATEGORY_NAME', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    lastupd_dttm = models.DateTimeField(db_column='LASTUPD_DTTM', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'COACHING_CATEGORY'
 
 
 class CoachingFacilities(models.Model):
@@ -31,6 +63,16 @@ class CoachingFacilities(models.Model):
     class Meta:
         managed = False
         db_table = 'COACHING_FACILITIES'
+
+
+class CollegeCategory(models.Model):
+    category_id = models.AutoField(db_column='CATEGORY_ID', primary_key=True)  # Field name made lowercase.
+    category_name = models.CharField(db_column='CATEGORY_NAME', max_length=100, blank=True, null=True)  # Field name made lowercase.
+    lastupd_dttm = models.DateTimeField(db_column='LASTUPD_DTTM', blank=True, null=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'COLLEGE_CATEGORY'
 
 
 class CollegeCourses(models.Model):

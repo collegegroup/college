@@ -9,3 +9,11 @@ class ReviewHome(APIView):
     def get(self, request):
         body = render(request, self.template_name)
         return HttpResponse(body)
+
+
+class ReviewPage(APIView):
+    template_name = 'Review.html'
+
+    def get(self, request):
+        body = render(request, self.template_name)
+        return HttpResponse(body)

@@ -2,7 +2,7 @@ from __future__ import print_function
 from django.core.files.base import ContentFile
 from django.shortcuts import render, HttpResponse
 from rest_framework.views import APIView, status
-from ..coaching_services import InstituteOrm, InstituteCourseOrm, FacilitiesORM
+from ..coaching_services import InstituteOrm, InstituteCourseOrm, FacilitiesORM, CategoryORM
 from ..jsonparser.coaching_jsons import *
 from ..core import *
 from django.conf import settings
@@ -74,4 +74,44 @@ class UploadCoachingProfile(APIView):
                 response.update({'message': 'could not upload image'})
                 response.update({'response_code': status.HTTP_406_NOT_ACCEPTABLE})
                 response.update({'status': 'error'})
+            return HttpResponse(json.dumps(response), content_type="application/json")
+
+
+class GetAllCoachingCategory(APIView):
+
+    def get(self, request):
+        if request.method == 'GET':
+            response = dict()
+            try:
+                categories = CategoryORM.get_all_coaching_category()
+                category_list = list()
+                for category in categories:
+                    category_list.append(category.category_name)
+                response.update({'data': {'categories': category_list}})
+                response.update({'status': 'success'})
+                response.update({'response_code': status.HTTP_200_OK})
+            except Exception as ex:
+                response.update({'message': 'could not get data'})
+                response.update({'status': 'error'})
+                response.update({'response_code': status.HTTP_406_NOT_ACCEPTABLE})
+            return HttpResponse(json.dumps(response), content_type="application/json")
+
+
+class AddCoachingBasicCourses(APIView):
+    def post(self, request):
+        if request.method == 'POST':
+            response = dict()
+            category_name = request.POST.get('category_name')
+            course_name = request.POST.get('course_name')
+
+            try:
+                CategoryORM.add_basic_course(category_name, course_name)
+                response.update({'message': 'data saved successfully'})
+                response.update({'status': 'success'})
+                response.update({'response_code': status.HTTP_200_OK})
+            except Exception as ex:
+                response.update({'message': 'could not saved data'})
+                response.update({'status': 'error'})
+                response.update({'response_code': status.HTTP_406_NOT_ACCEPTABLE})
+
             return HttpResponse(json.dumps(response), content_type="application/json")

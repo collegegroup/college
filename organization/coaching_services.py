@@ -1,4 +1,5 @@
-from models import InstituteMain, InstituteCourses, CoachingFacilities
+__author__ = 'ravi'
+from models import InstituteMain, InstituteCourses, CoachingFacilities, CoachingCategory, BasicCoachingCourses
 import datetime
 
 
@@ -81,3 +82,25 @@ class InstituteHelper(object):
         self.mobile_num = mobile_num
         self.emailid = emailid
         self.facilities = facilities
+
+
+class CategoryORM(object):
+    @staticmethod
+    def get_all_coaching_category():
+        coaching_category = None
+        try:
+            coaching_category = CoachingCategory.objects.all().order_by('category_name')
+        except Exception as ex:
+            raise ex
+        return coaching_category
+
+    @staticmethod
+    def add_basic_course(category_name, course_name):
+        basic_coaching_courses = BasicCoachingCourses()
+        basic_coaching_courses.category_name = category_name
+        basic_coaching_courses.course_name = course_name
+        basic_coaching_courses.lastupd_dttm = datetime.datetime.now()
+        try:
+            basic_coaching_courses.save()
+        except Exception as ex:
+            raise ex

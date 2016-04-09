@@ -17,10 +17,10 @@
         <script src="/static/assets/plugins/jquery/jquery-1.11.3.min.js"></script>
         <link href="/static/assets/css/default.css" rel="stylesheet" type="text/css"/>
         <link href="/static/assets/css/animate.css" rel="stylesheet" type="text/css"/>
-        <script>
+        <!--<script>
             $(function () {
-                $("#header").load("Header.html");
-                $("#footer").load("Footer.html");
+                $("#header").load("ReviewHeader.html");
+                $("#footer").load("ReviewFooter.html");
             });
 
             function CollegeKeyword(ch)
@@ -45,8 +45,8 @@
                 xmlhttp.send();
             }
             $(function () {
-                $("#header").load("Header.html");
-                $("#footer").load("Footer.html");
+                $("#header").load("ReviewHeader.html");
+                $("#footer").load("ReviewFooter.html");
             });
 
             function InstituteKeyword(ch)
@@ -71,8 +71,8 @@
                 xmlhttp.send();
             }
             $(function () {
-                $("#header").load("Header.html");
-                $("#footer").load("Footer.html");
+                $("#header").load("ReviewHeader.html");
+                $("#footer").load("ReviewFooter.html");
             });
 
             function CollegeKeyword(ch)
@@ -97,7 +97,7 @@
                 xmlhttp.send();
             }
 
-        </script>
+        </script>-->
         <link rel="stylesheet" type="text/css" href="login_style.css">
         <script type="text/javascript" src="jquery.js"></script>
         <script type="text/javascript" src="login_effect.js"></script>
@@ -119,12 +119,14 @@
             <div id="wrapper"> 
 
                 <!-- HEADER -->
-                <div id="header"></div>
+                <div id="header">
+                    {% include "ReviewHeader.html" %}
+                </div>
                 <!-- end header -->
 
                 <div class="main-content">
                     <div style="width: 100%; height: 250px; ">
-                        <img style="width: 100%; height:50em;" src="/media/site/ReviewIndex.jpg" />
+                        <img style="width: 100%; height:50em;" src="/media/site/ReviewIndexBg.jpg" />
                     </div>
                     <div class="section_find-course" data-wow-duration="2s">
                         <div class="container">
@@ -369,7 +371,9 @@
                 </div>
                 <!-- end main-content -->
 
-                <div id="footer"></div>
+                <div id="footer">
+                    {% include "ReviewFooter.html" %}
+                </div>
             </div>
             <!-- end wrapper --> 
         </div>
