@@ -9,43 +9,44 @@ app.controller('collegeRegistrationCtrl', function($scope, uploadService) {
 
     console.log('Loaded school registration controller.');
 
-    $scope.collegeRegistrationJSON =
-    {
-        college_name:"nist",
-        location:"vizag",
-        establishment: "2001",
-        description: "description",
-        affiliation: "au",
-        website: "nistvizag.com",
-        address: "vizag",
-        landline_num: "123456789",
-        mobile_num: "1234567890",
-        emailid: "a@a.com",
-        facilities: [
-            {
-                value: 1,
-                text: "Ac"
-            },
-            {
-                value: 0,
-                text: "Mineral Water"
-            },
-            {
-                value: 1,
-                text: "Bus"
-            }
-        ],
-        profile_image: "",
-        highest_package: "320000",
-        average_package:"150000",
-        courses:[
-            {
-                course:"MBA",
-                duration:"2 yr",
-                fee:"100000",
-                entrance:"ICET"
-            }
-        ]
+    $scope.collegeRegistrationJSON ={
+        data: {
+            college_name:"nist",
+            location:"vizag",
+            establishment: "2001",
+            description: "description",
+            affiliation: "au",
+            website: "nistvizag.com",
+            address: "vizag",
+            landline_num: "123456789",
+            mobile_num: "1234567890",
+            emailid: "a@a.com",
+            facilities: [
+                {
+                    value: 1,
+                    text: "Ac"
+                },
+                {
+                    value: 0,
+                    text: "Mineral Water"
+                },
+                {
+                    value: 1,
+                    text: "Bus"
+                }
+            ],
+            profile_image: "",
+            highest_package: "320000",
+            average_package:"150000",
+            courses:[
+                {
+                    course:"MBA",
+                    duration:"2 yr",
+                    fee:"100000",
+                    entrance:"ICET"
+                }
+            ]
+        }
     };
 
     $scope.collegeImageURL = '/media/site/logo_dummy.png';
@@ -79,9 +80,9 @@ app.controller('collegeRegistrationCtrl', function($scope, uploadService) {
      * */
     $scope.addCollegeCourse = function () {
 
-        $scope.collegeRegistrationJSON.courses.push({course: "", duration: "", fee: ""});
+        $scope.collegeRegistrationJSON.data.courses.push({course: "", duration: "", fee: ""});
 
-        if($scope.collegeRegistrationJSON.courses.length >= 2) {
+        if($scope.collegeRegistrationJSON.data.courses.length >= 2) {
 
             $scope.hideCollegeCoureseRemoveButton = false;
 
@@ -90,9 +91,9 @@ app.controller('collegeRegistrationCtrl', function($scope, uploadService) {
     };
     $scope.removeCollegeCourse = function (index) {
 
-        $scope.collegeRegistrationJSON.courses.splice(index, 1);
+        $scope.collegeRegistrationJSON.data.courses.splice(index, 1);
 
-        if($scope.collegeRegistrationJSON.courses.length <= 1) {
+        if($scope.collegeRegistrationJSON.data.courses.length <= 1) {
 
             $scope.hideCollegeCoureseRemoveButton = true;
 

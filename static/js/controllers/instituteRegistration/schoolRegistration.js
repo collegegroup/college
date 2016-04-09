@@ -9,6 +9,45 @@ app.controller('schoolRegistrationCtrl', function($scope, uploadService) {
 
     console.log('Loaded school registration controller.');
 
+    $scope.schoolRegistrationJSON = {
+
+        data:{
+            school_name: "NIST SCHOOL",
+            location: "AKP",
+            establishment: "2001",
+            description: "DEC",
+            affiliation: "CBSE",
+            website: "example.com",
+            school_start_time: "10:00",
+            school_end_time: "04:00",
+            address: "address",
+            landline_num: "landline_num",
+            mobile_num: "0213125469",
+            emailid: "emailid",
+            facilities: [
+                {
+                    text: "AC",
+                    value: 0
+                },
+                {
+                    text: "BUS",
+                    value: 1
+                }
+            ],
+            profile_image: "/media/profiles/school/1.jpg",
+            extra_curriculum: [
+                {
+                    text: "sports",
+                    value: 1
+                },
+                {
+                    text: "yoga",
+                    value: 0
+                }
+            ]
+        }
+    };
+
     $scope.schoolImageURL = '/media/site/logo_dummy.png';
 
     $scope.shcoolImageUploadURL = '/upload/school/';
