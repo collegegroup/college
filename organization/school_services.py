@@ -1,4 +1,4 @@
-from .models import SchoolMain, SchoolFacilities, SchoolCurriculum
+from models import SchoolMain, SchoolFacilities, SchoolCurriculum
 import datetime
 
 

@@ -1,6 +1,4 @@
-__author__ = 'ravi'
-
-from models import CollegeMain, CollegeCourses, CollegeFacilities, CollegeCategory, BasicCollgeCourses
+from models import CollegeMain, CollegeCourses, CollegeFacilities, CollegeCategory, BasicCollegeCourses
 import datetime
 
 
@@ -82,7 +80,7 @@ class CategoryORM(object):
 
     @staticmethod
     def add_basic_course(category_name, course_name):
-        basic_college_courses = BasicCollgeCourses()
+        basic_college_courses = BasicCollegeCourses()
         basic_college_courses.category_name = category_name
         basic_college_courses.course_name = course_name
         basic_college_courses.lastupd_dttm = datetime.datetime.now()

@@ -21,7 +21,7 @@ class BasicCoachingCourses(models.Model):
         db_table = 'BASIC_COACHING_COURSES'
 
 
-class BasicCollgeCourses(models.Model):
+class BasicCollegeCourses(models.Model):
     course_id = models.AutoField(db_column='COURSE_ID', primary_key=True)  # Field name made lowercase.
     course_name = models.CharField(db_column='COURSE_NAME', max_length=100, blank=True, null=True)  # Field name made lowercase.
     category_name = models.CharField(db_column='CATEGORY_NAME', max_length=100, blank=True, null=True)  # Field name made lowercase.
@@ -29,7 +29,7 @@ class BasicCollgeCourses(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'BASIC_COLLGE_COURSES'
+        db_table = 'BASIC_COLLEGE_COURSES'
 
 
 class City(models.Model):

@@ -18,11 +18,10 @@
     padding: .5em 1em;
     background: #2377AF;
     color: white;
-    border-right: 1px solid white;
-}
-.MenuBar div:hover{
-    background: #55a7dd;
-    color: white;
+    letter-spacing: 3px;
+    font-size: 25px;
+    text-transform: uppercase;
+    text-align: center;
 }
 .rating > span:hover:before {
     content: "\2605";
@@ -167,14 +166,16 @@
     padding: 4px;
     width: 95%;
 }
+#TutorCourses select{
+    border-radius: 3px;
+    border: 1px solid silver;
+    padding: 7px;
+    width: 100%;
+}
 #TutorCourses input[type = "submit"]{
     border-radius: 3px;
     border: 1px solid silver;
     padding: 4px;
-    width: 95%;
-}
-#TutorCourses input[type="text"]{
-    width: 100%;
 }
 .TutorInfo input[type="radio"]{
     height: auto;
@@ -293,4 +294,39 @@ a:hover.tooltips span {
     font-weight: normal;
     text-transform: none;
     margin-left: 10px;
+}
+.imageHolder { position: relative; } 
+.imageHolder .caption { 
+    opacity: 0; position: absolute;
+    width: 61%; bottom: 9em; left: 3.2em; padding: 0px 0px; color: black;
+    background: violet; text-align: center;
+} 
+.imageHolder:hover .caption { opacity: 0.7; }
+
+label.myLabel input[type="file"] {
+    position: fixed;
+    top: -1000px;
+}
+
+/***** Example custom styling *****/
+.myLabel {
+    padding: 8px 5px;
+    margin: 2px;
+    background: crimson;
+    display: inline-block;
+    font-size: 10px;
+    font-family: Montserrat;
+}
+.myLabel:hover {
+    opacity: 0.8;
+    color: white;
+}
+.myLabel:active {
+    opacity: 0.7;
+}
+.myLabel :invalid + span {
+    color: white;
+}
+.myLabel :valid + span {
+    color: white;
 }
