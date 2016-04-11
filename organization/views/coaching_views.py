@@ -18,8 +18,10 @@ class CoachingRegister(APIView):
         if request.method == 'POST':
             institute_orm = InstituteOrm()
             institute_json_parser = InstituteJsonParser()
-            institute_helper, courses, facilities = institute_json_parser.institute_register_json_parser(request.body)
+            # print(request.POST.get('jsonData'))
+            institute_helper, courses, facilities = institute_json_parser.institute_register_json_parser(request.POST.get('jsonData'))
             response = dict()
+
             try:
                 institute_id = institute_orm.save_institute(institute_helper)
                 for course in courses:
@@ -30,10 +32,12 @@ class CoachingRegister(APIView):
                 response.update({'response_code': status.HTTP_200_OK})
                 response.update({'status': 'success'})
             except Exception as ex:
+                print (ex)
                 response.update({'message': 'could not save data'})
                 response.update({'response_code': status.HTTP_406_NOT_ACCEPTABLE})
                 response.update({'status': 'error'})
 
+            # response.update({'jsonData': request.POST.get('jsonData')})
             return HttpResponse(json.dumps(response), content_type="application/json")
 
 

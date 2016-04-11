@@ -45,9 +45,14 @@ class Test(View):
 class TestPostData(APIView):
     def post(self, request):
         if request.method == 'POST':
+            data = (request.POST.get('jsonData'))
+            print(data)
+            print (json.loads(data))
+            '''
             print(json.loads(request.body))
             if 'data' in json.loads(request.body):
                 print("yes")
+                '''
         return HttpResponse()
 
 
