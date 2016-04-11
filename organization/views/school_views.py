@@ -14,7 +14,7 @@ class SchoolRegister(APIView):
     def post(self, request):
         if request.method == 'POST':
             school_json_parser = SchoolJsonParser()
-            school_helper, facilities, extra_curriculum = school_json_parser.school_register_json_parser(request.body)
+            school_helper, facilities, extra_curriculum = school_json_parser.school_register_json_parser(request.POST.get('jsonData'))
             school_orm = SchoolOrm()
             response = dict()
             try:
@@ -23,7 +23,7 @@ class SchoolRegister(APIView):
                     FacilitiesORM.save_facility(school_id, facility)
                 for curriculum in extra_curriculum:
                     CurriculumORM.save_curriculum(school_id, curriculum)
-                response.update({'message': 'date saved successfully!'})
+                response.update({'message': 'data saved successfully!'})
                 response.update({'response_code': status.HTTP_200_OK})
                 response.update({'status': 'success'})
             except Exception as ex:

@@ -12,7 +12,7 @@
 
             return {
 
-                POSTRequest: function(URL, data) {
+                POSTRequest: function(URL, data, emitMessage) {
 
                     $http({
 
@@ -32,15 +32,17 @@
 
                         if(response.data.status == 'success'){
 
+                            $rootScope.$broadcast(emitMessage+"Success", response);
 
+                        } else {
+
+                            $rootScope.$broadcast(emitMessage+"Error", response);
 
                         }
 
-
-
                     }, function errorCallback(response) {
 
-
+                        $rootScope.$broadcast(emitMessage+"Error", response);
 
                     });
 

@@ -16,7 +16,7 @@ class CollegeRegister(APIView):
     def post(self, request):
         if request.method == 'POST':
             college_json_parser = CollegeJsonParser()
-            college_helper, courses, facilities = college_json_parser.college_register_json_parser(request.body)
+            college_helper, courses, facilities = college_json_parser.college_register_json_parser(request.POST.get('jsonData'))
             college_orm = CollegeOrm()
             response = dict()
             try:
@@ -25,7 +25,7 @@ class CollegeRegister(APIView):
                     CollegeCourseOrm.save_college_course(course, college_id)
                 for facility in facilities:
                     FacilitiesORM.save_facility(college_id, facility)
-                response.update({'message': 'date saved successfully!'})
+                response.update({'message': 'data saved successfully!'})
                 response.update({'response_code': status.HTTP_200_OK})
                 response.update({'status': 'success'})
             except Exception as ex:

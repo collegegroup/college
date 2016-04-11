@@ -28,7 +28,7 @@ class CoachingRegister(APIView):
                     InstituteCourseOrm.save_institute_course(course, institute_id)
                 for facility in facilities:
                     FacilitiesORM.save_facility(institute_id, facility)
-                response.update({'message': 'date saved successfully!'})
+                response.update({'message': 'data saved successfully!'})
                 response.update({'response_code': status.HTTP_200_OK})
                 response.update({'status': 'success'})
             except Exception as ex:

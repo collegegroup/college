@@ -18,17 +18,17 @@ app.controller('coachingRegistrationCtrl', function($scope, uploadService, HTTPS
     $scope.coachingRegistrationJSON =
     {
         data: {
-            institute_name: "nist",
-            director_name: "ramesh kumar",
-            location: "vizag",
-            establishment: "2001",
-            description: "description",
-            affiliation: "au",
-            website: "nistvizag.com",
-            address: "vizag",
-            landline_num: "123456789",
-            mobile_num: "1234567890",
-            emailid: "a@a.com",
+            institute_name: "",
+            director_name: "",
+            location: "",
+            establishment: "",
+            description: "",
+            affiliation: "",
+            website: "",
+            address: "",
+            landline_num: "",
+            mobile_num: "",
+            emailid: "",
             facilities: [
                 {
                     value: 1,
@@ -46,9 +46,9 @@ app.controller('coachingRegistrationCtrl', function($scope, uploadService, HTTPS
             profile_image: "",
             courses: [
                 {
-                    course: "C",
-                    duration: "3 months",
-                    fee: "3000"
+                    course: "",
+                    duration: "",
+                    fee: ""
                 }
             ]
         }
@@ -111,12 +111,72 @@ app.controller('coachingRegistrationCtrl', function($scope, uploadService, HTTPS
 
 
 
+
+    /*
+    * This method is used to reset the coaching registration form
+    * */
+    $scope.resetCoachingRegistrationForm = function() {
+
+        $scope.coachingRegistrationJSON =
+        {
+            data: {
+                institute_name: "",
+                director_name: "",
+                location: "",
+                establishment: "",
+                description: "",
+                affiliation: "",
+                website: "",
+                address: "",
+                landline_num: "",
+                mobile_num: "",
+                emailid: "",
+                facilities: [
+                    {
+                        value: 1,
+                        text: "Ac"
+                    },
+                    {
+                        value: 0,
+                        text: "Mineral Water"
+                    },
+                    {
+                        value: 1,
+                        text: "Bus"
+                    }
+                ],
+                profile_image: "",
+                courses: [
+                    {
+                        course: "",
+                        duration: "",
+                        fee: ""
+                    }
+                ]
+            }
+        };
+
+    };
+    /*
+    * This method is used to reset the coaching registration form
+    * */
+
+
+
+
+
+
+
+
+
     /*
     * This method is used to save coaching resistration
     * */
     $scope.saveCoachingRegistration = function(coachingObj) {
 
-        HTTPService.POSTRequest('/register/coaching', ((JSON.stringify(coachingObj))));
+        var formData = utilityService.objectToRequestData({jsonData: encodeURIComponent(JSON.stringify(coachingObj))});
+
+        HTTPService.POSTRequest('/register/coaching/', formData, 'coachingRegistration');
 
     };
     /*
@@ -131,9 +191,32 @@ app.controller('coachingRegistrationCtrl', function($scope, uploadService, HTTPS
 
 
     /*
-    * This is for upload coaching image response
+    * This is for registration coaching response
     * */
-    $scope.$on('coachingImageUploadSuccess', function (event, response) { 
+    $scope.$on('coachingRegistrationSuccess', function (event, response) {
+
+        $scope.resetCoachingRegistrationForm();
+
+    });
+    $scope.$on('coachingRegistrationError', function (event, response) {
+
+    });
+    /*
+    * This is for registration coaching response
+    * */
+
+
+
+
+
+
+
+
+
+    /*
+     * This is for upload coaching image response
+     * */
+    $scope.$on('coachingImageUploadSuccess', function (event, response) {
 
         if(response.status == "success"){
 
@@ -148,8 +231,8 @@ app.controller('coachingRegistrationCtrl', function($scope, uploadService, HTTPS
 
     });
     /*
-    * This is for upload coaching image response
-    * */
+     * This is for upload coaching image response
+     * */
 
 });
 
