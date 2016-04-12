@@ -1,7 +1,7 @@
 (function(angular){
     'use strict';
 
-    var collgeApp = angular.module('mainCollegeApp', ['ui.router',
+    var collgeApp = angular.module('mainCollegeApp', ['ui.router', "ui.bootstrap",
                                                 'mainCollegeApp.dashboard',
 
                                                 'mainCollegeApp.addStateCityApp',
@@ -28,5 +28,20 @@
 
     });
 
-    })(angular);
+    collgeApp.directive('focusMe', function($timeout) {
+        return {
+            scope: { trigger: '=focusMe' },
+            link: function(scope, element) {
+                scope.$watch('trigger', function(value) {
+                    if(value === true) {
+                        element[0].focus();
+                        scope.trigger = false;
+                    }
+                });
+            }
+        };
+    });
+
+
+})(angular);
 

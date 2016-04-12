@@ -15,8 +15,55 @@ app.controller('coachingRegistrationCtrl', function($scope, uploadService, HTTPS
     
     $scope.hideCoachingCoureseRemoveButton = true;
 
-    $scope.coachingRegistrationJSON =
-    {
+    /* Form validation variables */
+    $scope.coachingInstituteNameError = false;
+
+    $scope.coachingDirectorNameError = false;
+
+    $scope.coachingLocationError = false;
+
+    $scope.coachingEstablishmentError = false;
+
+    $scope.coachingDescriptionError = false;
+
+    $scope.coachingAddressError = false;
+
+    $scope.coachingAffiliationError = false;
+
+    $scope.coachingMobileNoError = false;
+
+    $scope.coachingWebsiteError = false;
+
+    $scope.coachingEmailError = false;
+
+    $scope.coachingCoursesError = false;
+    /* Form validation variables */
+
+    /* Form validation variables */
+    $scope.coachingInstituteNameFocus = false;
+
+    $scope.coachingDirectorNameFocus = false;
+
+    $scope.coachingLocationFocus = false;
+
+    $scope.coachingEstablishmentFocus = false;
+
+    $scope.coachingDescriptionFocus = false;
+
+    $scope.coachingAddressFocus = false;
+
+    $scope.coachingAffiliationFocus = false;
+
+    $scope.coachingMobileNoFocus = false;
+
+    $scope.coachingWebsiteFocus = false;
+
+    $scope.coachingEmailFocus = false;
+
+    $scope.coachingCoursesFocus = false;
+    /* Form validation variables */
+
+    $scope.coachingRegistrationJSON = {
         data: {
             institute_name: "",
             director_name: "",
@@ -159,6 +206,241 @@ app.controller('coachingRegistrationCtrl', function($scope, uploadService, HTTPS
     };
     /*
     * This method is used to reset the coaching registration form
+    * */
+
+
+
+
+
+
+
+    /*
+    * Validation methods
+    * */
+    $scope.validateCoachingInstituteName = function(instituteName) {
+
+        if(utilityService.validateText(instituteName, "COACHING INSTITUTE NAME VALIDATION")) {
+
+            $scope.coachingInstituteNameError = false;
+            $scope.coachingInstituteNameFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.coachingInstituteNameError = true;
+            $scope.coachingInstituteNameFocus = true;
+
+            return false;
+
+        }
+
+    };
+    $scope.validateCoachingDirectorName = function(directorName) {
+
+        if(utilityService.validateText(directorName, "COACHING DIRECTOR NAME VALIDATION")) {
+
+            $scope.coachingDirectorNameError = false;
+            $scope.coachingDirectorNameFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.coachingDirectorNameError = true;
+            $scope.coachingDirectorNameFocus = true;
+
+            return false;
+
+        }
+
+    };
+    $scope.validateCoachingLocation = function(locationName) {
+
+        if(utilityService.validateText(locationName, "COACHING LOCATION NAME VALIDATION")) {
+
+            $scope.coachingLocationError = false;
+            $scope.coachingLocationFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.coachingLocationError = true;
+            $scope.coachingLocationFocus = true;
+
+            return false;
+
+        }
+
+    };
+    $scope.validateCoachingEstablishment = function(establishment) {
+
+        if(utilityService.validateNumber(establishment, "COACHING ESTABLISHMENT VALIDATION")) {
+
+            $scope.coachingEstablishmentError = false;
+            $scope.coachingEstablishmentFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.coachingEstablishmentError = true;
+            $scope.coachingEstablishmentFocus = true;
+
+            return false;
+
+        }
+
+    };
+    $scope.validateCoachingDescription = function(description) {
+
+        if(utilityService.validateText(description, "COACHING DESCRIPTION VALIDATION")) {
+
+            $scope.coachingDescriptionError = false;
+            $scope.coachingDescriptionFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.coachingDescriptionError = true;
+            $scope.coachingDescriptionFocus = true;
+
+            return false;
+
+        }
+
+    };
+    $scope.validateCoachingAddress = function(address) {
+
+        if(utilityService.validateText(address, "COACHING ADDRESS VALIDATION")) {
+
+            $scope.coachingAddressError = false;
+            $scope.coachingAddressFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.coachingAddressError = true;
+            $scope.coachingAddressFocus = true;
+
+            return false;
+
+        }
+
+    };
+    $scope.validateCoachingAffiliation = function(affiliation) {
+
+        if(utilityService.validateText(affiliation, "COACHING ADDRESS VALIDATION")) {
+
+            $scope.coachingAffiliationError = false;
+            $scope.coachingAffiliationFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.coachingAffiliationError = true;
+            $scope.coachingAffiliationFocus = true;
+
+            return false;
+
+        }
+
+    };
+    $scope.validateCoachingMobileNo = function(mobileNo) {
+
+        if(utilityService.validateText(mobileNo, "COACHING MOBILE NO VALIDATION")) {
+
+            $scope.coachingMobileNoError = false;
+            $scope.coachingMobileNoFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.coachingMobileNoError = true;
+            $scope.coachingMobileNoFocus = true;
+
+            return false;
+
+        }
+
+    };
+    $scope.validateCoachingWebsite = function(website) {
+
+        if(utilityService.validateText(website, "COACHING WEBSITE VALIDATION")) {
+
+            $scope.coachingWebsiteError = false;
+            $scope.coachingWebsiteFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.coachingWebsiteError = true;
+            $scope.coachingWebsiteFocus = true;
+
+            return false;
+
+        }
+
+    };
+    $scope.validateCoachingEmail = function(emailID) {
+
+        if(utilityService.validateEmail(emailID, "COACHING EMAIL ID VALIDATION")) {
+
+            $scope.coachingEmailError = false;
+            $scope.coachingEmailFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.coachingEmailError = true;
+            $scope.coachingEmailFocus = true;
+
+            return false;
+
+        }
+
+    };
+    /*
+    * Validation methods
+    * */
+
+
+
+
+
+
+
+
+    /*
+    * This method is used to validate coaching registration form
+    * */
+    $scope.validateCoachingRegistrationForm = function(coachingObj) {
+
+        if( $scope.validateCoachingInstituteName(coachingObj.data.institute_name) &&
+            $scope.validateCoachingDirectorName(coachingObj.data.director_name) &&
+            $scope.validateCoachingLocation(coachingObj.data.location) &&
+            $scope.validateCoachingEstablishment(coachingObj.data.establishment) &&
+            $scope.validateCoachingDescription(coachingObj.data.description) &&
+            $scope.validateCoachingAddress(coachingObj.data.address) &&
+            $scope.validateCoachingAffiliation(coachingObj.data.affiliation) &&
+            $scope.validateCoachingMobileNo(coachingObj.data.mobile_num) &&
+            $scope.validateCoachingWebsite(coachingObj.data.website) &&
+            $scope.validateCoachingEmail(coachingObj.data.emailid)) {
+
+            $scope.saveCoachingRegistration(coachingObj);
+
+        }
+
+    };
+    /*
+    * This method is used to validate coaching registration form
     * */
 
 

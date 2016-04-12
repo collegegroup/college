@@ -2,7 +2,7 @@
 <div style="text-align: left;" class="col-sm-10 panel panel-default">
     <div class="panel-heading"><h3>COLLEGE REGISTRATION</h3></div>
     <div class="panel-body">
-        <form class="form-horizontal">
+        <form name="collegeForm" class="form-horizontal">
             <div class="col-sm-12">
                 <div class="col-sm-3">
                     <img style="height: 160px; width: 160px; border: 1px solid silver; border-radius: 5px;" id="Image" src="{{collegeImageURL}}"  />
@@ -18,71 +18,74 @@
                 </div>
                 <div class="col-sm-9">
                     <div class="form-group">
-                        <div class="col-lg-12">
+                        <div class="col-lg-12" ng-class="{'has-error': collegeNameError}">
                             <label class="control-label">College Name</label>
-                            <input type="text" ng-model="collegeRegistrationJSON.data.college_name" placeholder="College Name" class="form-control" name="college_name">
+                            <input type="text" focus-me="collegeNameFocus" ng-model="collegeRegistrationJSON.data.college_name" placeholder="College Name" class="form-control" name="college_name">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-lg-12">
-                            <div style="padding: 0; margin: 0;" class="col-sm-8">
+                            <div style="padding: 0; margin: 0;" class="col-sm-8" ng-class="{'has-error': collegeLocationError}">
                                 <label class="control-label">Location</label>
-                                <input type="text" ng-model="collegeRegistrationJSON.data.location" placeholder="Location" class="form-control" name="location">
+                                <input type="text" focus-me="collegeLocationFocus" ng-model="collegeRegistrationJSON.data.location" placeholder="Location" class="form-control" name="location">
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-4" ng-class="{'has-error': collegeEstablishmentError}">
                                 <label class="control-label">Establishment</label>
-                                <input type="text" ng-model="collegeRegistrationJSON.data.establishment" placeholder=" " class="form-control" name="establishment">
+                                <input type="number" focus-me="collegeEstablishmentFocus" ng-model="collegeRegistrationJSON.data.establishment" placeholder=" " class="form-control" name="establishment">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <div class="col-lg-12">
-                        <label class="control-label">Description</label>
-                        <textarea ng-model="collegeRegistrationJSON.data.description" class="form-control" name="description"></textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-lg-12">
-                        <label class="control-label">Affiliation</label>
-                        <input type="text" ng-model="collegeRegistrationJSON.data.affiliation" placeholder=" " class="form-control" name="affiliation">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-lg-12">
-                        <label class="control-label">Website</label>
-                        <input type="text" ng-model="collegeRegistrationJSON.data.website" placeholder=" " class="form-control" name="website">
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <div class="col-lg-12">
-                        <label class="control-label">Address</label>
-                        <textarea ng-model="collegeRegistrationJSON.data.address" class="form-control" name="address"></textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-lg-12">
-                        <div class="col-sm-6">
-                            <label class="control-label">Land line Number</label>
-                            <input ng-model="collegeRegistrationJSON.data.landline_num" type="text" placeholder=" " class="form-control" name="landline_num">
+            <div class="col-sm-12">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="col-lg-12" ng-class="{'has-error': collegeDescriptionError}">
+                            <label class="control-label">Description</label>
+                            <textarea focus-me="collegeDescriptionFocus" ng-model="collegeRegistrationJSON.data.description" class="form-control" name="description"></textarea>
                         </div>
-                        <div class="col-sm-6">
-                            <label class="control-label">Mobile Number</label>
-                            <input ng-model="collegeRegistrationJSON.data.mobile_num" type="text" placeholder=" " class="form-control" name="mobile_num">
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-12" ng-class="{'has-error': collegeAffiliationError}">
+                            <label class="control-label">Affiliation</label>
+                            <input type="text" focus-me="collegeAffiliationFocus" ng-model="collegeRegistrationJSON.data.affiliation" placeholder=" " class="form-control" name="affiliation">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-12" ng-class="{'has-error': collegeWebsiteError}">
+                            <label class="control-label">Website</label>
+                            <input type="text" focus-me="collegeWebsiteFocus" ng-model="collegeRegistrationJSON.data.website" placeholder=" " class="form-control" name="website">
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="col-lg-12">
-                        <label class="control-label">Email</label>
-                        <input ng-model="collegeRegistrationJSON.data.emailid" type="text" placeholder=" " class="form-control" name="emailid">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="col-lg-12" ng-class="{'has-error': collegeAddressError}">
+                            <label class="control-label">Address</label>
+                            <textarea focus-me="collegeAddressFocus" ng-model="collegeRegistrationJSON.data.address" class="form-control" name="address"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-12">
+                            <div class="col-sm-6">
+                                <label class="control-label">Land line Number</label>
+                                <input ng-model="collegeRegistrationJSON.data.landline_num" type="text" placeholder=" " class="form-control" name="landline_num">
+                            </div>
+                            <div class="col-sm-6" ng-class="{'has-error': collegeMobileNoError}">
+                                <label class="control-label">Mobile Number</label>
+                                <input focus-me="collegeMobileNoFocus" ng-model="collegeRegistrationJSON.data.mobile_num" type="text" placeholder=" " class="form-control" name="mobile_num">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-12" ng-class="{'has-error': collegeForm.emailid.$error.email || collegeEmailError}">
+                            <label class="control-label">Email</label>
+                            <input focus-me="collegeEmailFocus" ng-model="collegeRegistrationJSON.data.emailid" type="email" placeholder=" " class="form-control" name="emailid">
+                        </div>
                     </div>
                 </div>
             </div>
+
             <div style="text-align: left;" class="col-sm-12 panel panel-default">
                 <div class="panel-heading"><h4>FACILITIES</h4></div>
                 <div class="panel-body">
@@ -158,7 +161,7 @@
             </div>
             <div class="col-sm-12">
                 <div style="text-align: center;" class="form-group">
-                    <button ng-click="saveCollegeRegistration(collegeRegistrationJSON)" class="mb-sm btn btn-success">Submit</button>
+                    <button ng-click="validateCollegeRegistrationForm(collegeRegistrationJSON)" class="mb-sm btn btn-success">Submit</button>
                 </div>
             </div>
         </form>

@@ -1,9 +1,18 @@
+<style>
+    .dn-timepicker-popup {
+        max-height: 300px;
+        overflow: auto;
 
+    }
+    .form-control[dn-timepicker] {
+        background-color: #FFFFFF;
+    }
+</style>
 <div class="col-sm-1"></div>
-<div style="text-align: left;" class="col-sm-10 panel panel-default">
+<div style="text-align: left;" class="col-sm-11 panel panel-default">
     <div class="panel-heading"><h3>SCHOOL REGISTRATION</h3></div>
     <div class="panel-body">
-        <form class="form-horizontal">
+        <form name="schoolForm" class="form-horizontal">
             <div class="col-sm-12">
                 <div class="col-sm-3">
                     <img style="height: 160px; width: 160px; border: 1px solid silver; border-radius: 5px;" id="Image" src="{{schoolImageURL}}"  />
@@ -19,84 +28,108 @@
                 </div>
                 <div class="col-sm-9">
                     <div class="form-group">
-                        <div class="col-lg-12">
+                        <div class="col-lg-12" ng-class="{'has-error': schoolNameError}">
                             <label class="control-label">School Name</label>
-                            <input ng-model="schoolRegistrationJSON.data.school_name" type="text" placeholder="School Name" class="form-control" name="school_name">
+                            <input focus-me="schoolNameFocus" ng-model="schoolRegistrationJSON.data.school_name" type="text" placeholder="School Name" class="form-control" name="school_name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-12" ng-class="{'has-error': schoolLocationError}">
+                            <div style="padding: 0; margin: 0;" class="col-sm-8">
+                                <label class="control-label">Location</label>
+                                <input focus-me="schoolLocationFocus" ng-model="schoolRegistrationJSON.data.location" type="text" placeholder="Location" class="form-control" name="location">
+                            </div>
+                            <div class="col-sm-4" ng-class="{'has-error': schoolEstablishmentError}">
+                                <label class="control-label">Establishment</label>
+                                <input type="number"  focus-me="schoolEstablishmentFocus" ng-model="schoolRegistrationJSON.data.establishment" placeholder=" " class="form-control" name="establishment">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 ">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="col-lg-12" ng-class="{'has-error': schoolDescriptionError}">
+                            <label class="control-label">Description</label>
+                            <textarea focus-me="schoolDescriptionFocus" ng-model="schoolRegistrationJSON.data.description" class="form-control" name="description"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-12" ng-class="{'has-error': schoolAffiliationError}">
+                            <label class="control-label">Affiliation</label>
+                            <input focus-me="schoolAffiliationFocus" ng-model="schoolRegistrationJSON.data.affiliation" type="text" placeholder=" " class="form-control" name="affiliation">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-12" ng-class="{'has-error': schoolWebsiteError}">
+                            <label class="control-label">Website</label>
+                            <input focus-me="schoolWebsiteFocus" ng-model="schoolRegistrationJSON.data.website" type="text" placeholder=" " class="form-control" name="website">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <div class="col-sm-6">
+                                <label class="control-label">School-Start Timing</label>
+                                <input type="text"
+                                       placeholder="Start"
+                                       class="form-control"
+                                       name="start_time"
+                                       dn-timepicker
+                                       ng-model="schoolRegistrationJSON.data.school_start_time"
+                                       min-time="00:00"
+                                       max-time="23:59"
+                                       step="05m"
+                                       readonly
+                                       required/>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="control-label">School-End Timing</label>
+                                <input type="text"
+                                       placeholder="Start"
+                                       class="form-control"
+                                       name="start_time"
+                                       dn-timepicker
+                                       ng-model="schoolRegistrationJSON.data.school_end_time"
+                                       min-time="00:00"
+                                       max-time="23:59"
+                                       step="05m"
+                                       readonly
+                                       required/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group" ng-class="{'has-error': schoolAddressError}">
+                        <div class="col-lg-12">
+                            <label class="control-label">Address</label>
+                            <textarea focus-me="schoolAddressFocus" ng-model="schoolRegistrationJSON.data.address" class="form-control" name="address"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-lg-12">
-                            <div style="padding: 0; margin: 0;" class="col-sm-8">
-                                <label class="control-label">Location</label>
-                                <input ng-model="schoolRegistrationJSON.data.location" type="text" placeholder="Location" class="form-control" name="location">
+                            <div class="col-sm-6">
+                                <label class="control-label">Land line Number</label>
+                                <input ng-model="schoolRegistrationJSON.data.landline_num" type="text" placeholder=" " class="form-control" name="landline_num">
                             </div>
-                            <div class="col-sm-4">
-                                <label class="control-label">Establishment</label>
-                                <input ng-model="schoolRegistrationJSON.data.establishment" type="text" placeholder=" " class="form-control" name="establishment">
+                            <div class="col-sm-6" ng-class="{'has-error': schoolMobileNoError}">
+                                <label class="control-label">Mobile Number</label>
+                                <input focus-me="schoolMobileNoFocus" ng-model="schoolRegistrationJSON.data.mobile_num" type="text" placeholder=" " class="form-control" name="mobile_num">
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <div class="col-lg-12">
-                        <label class="control-label">Description</label>
-                        <textarea ng-model="schoolRegistrationJSON.data.description" class="form-control" name="description"></textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-lg-12">
-                        <label class="control-label">Affiliation</label>
-                        <input ng-model="schoolRegistrationJSON.data.affiliation" type="text" placeholder=" " class="form-control" name="affiliation">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-lg-12">
-                        <label class="control-label">Website</label>
-                        <input ng-model="schoolRegistrationJSON.data.website" type="text" placeholder=" " class="form-control" name="website">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-lg-12">
-                        <div class="col-sm-6">
-                            <label class="control-label">School-Start Timing</label>
-                            <input ng-model="schoolRegistrationJSON.data.school_start_time" type="text" placeholder="Start" class="form-control" name="start_time">
-                        </div>
-                        <div class="col-sm-6">
-                            <label class="control-label">School-End Timing</label>
-                            <input ng-model="schoolRegistrationJSON.data.school_end_time" type="text" placeholder="End" class="form-control" name="end_time">
+                    <div class="form-group">
+                        <div class="col-lg-12" ng-class="{'has-error': schoolForm.emailid.$error.email || schoolEmailError}">
+                            <label class="control-label">Email</label>
+                            <input focus-me="schoolEmailFocus" ng-model="schoolRegistrationJSON.data.emailid" type="email" placeholder=" " class="form-control" name="emailid">
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <div class="col-lg-12">
-                        <label class="control-label">Address</label>
-                        <textarea ng-model="schoolRegistrationJSON.data.address" class="form-control" name="address"></textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-lg-12">
-                        <div class="col-sm-6">
-                            <label class="control-label">Land line Number</label>
-                            <input ng-model="schoolRegistrationJSON.data.landline_num" type="text" placeholder=" " class="form-control" name="landline_num">
-                        </div>
-                        <div class="col-sm-6">
-                            <label class="control-label">Mobile Number</label>
-                            <input ng-model="schoolRegistrationJSON.data.mobile_num" type="text" placeholder=" " class="form-control" name="mobile_num">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-lg-12">
-                        <label class="control-label">Email</label>
-                        <input ng-model="schoolRegistrationJSON.data.emailid" type="text" placeholder=" " class="form-control" name="emailid">
-                    </div>
-                </div>
-            </div>
-            <div style="text-align: left;" class="col-sm-12 panel panel-default">
+
+            <div style="" class="col-sm-12 panel panel-default">
                 <div class="panel-heading"><h4>FACILITIES</h4></div>
                 <div class="panel-body">
                     <div class="col-sm-10">
@@ -107,7 +140,7 @@
                     </div>
                 </div>
             </div>
-            <div style="text-align: left;" class="col-sm-12 panel panel-default">
+            <div style="" class="col-sm-12 panel panel-default">
                 <div class="panel-heading"><h4>EXTRA-CURRICULUM</h4></div>
                 <div class="panel-body">
                     <div class="col-sm-10">
@@ -121,7 +154,7 @@
             <div class="col-sm-12">
                 <div style="text-align: center;" class="form-group">
                     <!--<button type="button" class="mb-sm btn btn-success">Submit</button>-->
-                    <input ng-click="saveSchoolRegistration(schoolRegistrationJSON)" class="mb-sm btn btn-success" value="Submit">
+                    <input ng-click="validateSchoolRegistrationForm(schoolRegistrationJSON)" class="mb-sm btn btn-success" value="Submit">
                 </div>
             </div>
         </form>

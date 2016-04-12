@@ -3,23 +3,62 @@
  */
 
 
-var app = angular.module('mainCollegeApp.schoolRegistrationApp', ['angularFileUpload']);
+var app = angular.module('mainCollegeApp.schoolRegistrationApp', ['angularFileUpload', 'dnTimepicker']);
 
 app.controller('schoolRegistrationCtrl', function($scope, uploadService, utilityService, HTTPService) {
 
-    console.log('Loaded school registration controller.');
+
+    /* Form validation variables */
+    $scope.schoolNameError = false;
+
+    $scope.schoolLocationError = false;
+
+    $scope.schoolEstablishmentError = false;
+
+    $scope.schoolDescriptionError = false;
+
+    $scope.schoolAddressError = false;
+
+    $scope.schoolAffiliationError = false;
+
+    $scope.schoolMobileNoError = false;
+
+    $scope.schoolWebsiteError = false;
+
+    $scope.schoolEmailError = false;
+    /* Form validation variables */
+
+    /* Form validation variables */
+    $scope.schoolNameError = false;
+
+    $scope.schoolLocationFocus = false;
+
+    $scope.schoolEstablishmentFocus = false;
+
+    $scope.schoolDescriptionFocus = false;
+
+    $scope.schoolAddressFocus = false;
+
+    $scope.schoolAffiliationFocus = false;
+
+    $scope.schoolMobileNoFocus = false;
+
+    $scope.schoolWebsiteFocus = false;
+
+    $scope.schoolEmailFocus = false;
+    /* Form validation variables */
 
     $scope.schoolRegistrationJSON = {
 
         data:{
             school_name: "NIST SCHOOL",
             location: "AKP",
-            establishment: "2001",
+            establishment: "",
             description: "DEC",
             affiliation: "CBSE",
             website: "example.com",
-            school_start_time: "10:00",
-            school_end_time: "04:00",
+            school_start_time: new Date(),
+            school_end_time: new Date(),
             address: "address",
             landline_num: "landline_num",
             mobile_num: "0213125469",
@@ -131,7 +170,227 @@ app.controller('schoolRegistrationCtrl', function($scope, uploadService, utility
 
 
     /*
-     * This method is used to save coaching resistration
+     * Validation methods
+     * */
+    $scope.validateSchoolName = function(schoolName) {
+
+        if(utilityService.validateText(schoolName, "SCHOOL NAME VALIDATION")) {
+
+            $scope.schoolNameError = false;
+            $scope.schoolNameFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.schoolNameError = true;
+            $scope.schoolNameFocus = true;
+
+            return false;
+
+        }
+
+    };
+    $scope.validateSchoolLocation = function(locationName) {
+
+        if(utilityService.validateText(locationName, "SCHOOL LOCATION NAME VALIDATION")) {
+
+            $scope.schoolLocationError = false;
+            $scope.schoolLocationFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.schoolLocationError = true;
+            $scope.schoolLocationFocus = true;
+
+            return false;
+
+        }
+
+    };
+    $scope.validateSchoolEstablishment = function(establishment) {
+
+        if(utilityService.validateNumber(establishment, "SCHOOL ESTABLISHMENT VALIDATION")) {
+
+            $scope.schoolEstablishmentError = false;
+            $scope.schoolEstablishmentFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.schoolEstablishmentError = true;
+            $scope.schoolEstablishmentFocus = true;
+
+            return false;
+
+        }
+
+    };
+    $scope.validateSchoolDescription = function(description) {
+
+        if(utilityService.validateText(description, "SCHOOL DESCRIPTION VALIDATION")) {
+
+            $scope.schoolDescriptionError = false;
+            $scope.schoolDescriptionFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.schoolDescriptionError = true;
+            $scope.schoolDescriptionFocus = true;
+
+            return false;
+
+        }
+
+    };
+    $scope.validateSchoolAddress = function(address) {
+
+        if(utilityService.validateText(address, "SCHOOL ADDRESS VALIDATION")) {
+
+            $scope.schoolAddressError = false;
+            $scope.schoolAddressFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.schoolAddressError = true;
+            $scope.schoolAddressFocus = true;
+
+            return false;
+
+        }
+
+    };
+    $scope.validateSchoolAffiliation = function(affiliation) {
+
+        if(utilityService.validateText(affiliation, "SCHOOL ADDRESS VALIDATION")) {
+
+            $scope.schoolAffiliationError = false;
+            $scope.schoolAffiliationFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.schoolAffiliationError = true;
+            $scope.schoolAffiliationFocus = true;
+
+            return false;
+
+        }
+
+    };
+    $scope.validateSchoolMobileNo = function(mobileNo) {
+
+        if(utilityService.validateText(mobileNo, "SCHOOL MOBILE NO VALIDATION")) {
+
+            $scope.schoolMobileNoError = false;
+            $scope.schoolMobileNoFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.schoolMobileNoError = true;
+            $scope.schoolMobileNoFocus = true;
+
+            return false;
+
+        }
+
+    };
+    $scope.validateSchoolWebsite = function(website) {
+
+        if(utilityService.validateText(website, "SCHOOL WEBSITE VALIDATION")) {
+
+            $scope.schoolWebsiteError = false;
+            $scope.schoolWebsiteFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.schoolWebsiteError = true;
+            $scope.schoolWebsiteFocus = true;
+
+            return false;
+
+        }
+
+    };
+    $scope.validateSchoolEmail = function(emailID) {
+
+        if(utilityService.validateEmail(emailID, "SCHOOL EMAIL ID VALIDATION")) {
+
+            $scope.schoolEmailError = false;
+            $scope.schoolEmailFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.schoolEmailError = true;
+            $scope.schoolEmailFocus = true;
+
+            return false;
+
+        }
+
+    };
+    /*
+     * Validation methods
+     * */
+
+
+
+
+
+
+
+
+
+    /*
+     * This method is used to validate school registration form
+     * */
+    $scope.validateSchoolRegistrationForm = function(schoolObj) {
+
+        if( $scope.validateSchoolName(schoolObj.data.school_name) &&
+            $scope.validateSchoolLocation(schoolObj.data.location) &&
+            $scope.validateSchoolEstablishment(schoolObj.data.establishment) &&
+            $scope.validateSchoolDescription(schoolObj.data.description) &&
+            $scope.validateSchoolAddress(schoolObj.data.address) &&
+            $scope.validateSchoolAffiliation(schoolObj.data.affiliation) &&
+            $scope.validateSchoolMobileNo(schoolObj.data.mobile_num) &&
+            $scope.validateSchoolWebsite(schoolObj.data.website) &&
+            $scope.validateSchoolEmail(schoolObj.data.emailid)) {
+
+            $scope.saveSchoolRegistration(schoolObj);
+
+        }
+
+    };
+    /*
+     * This method is used to validate school registration form
+     * */
+
+
+
+
+
+
+
+
+
+
+
+    /*
+     * This method is used to save school resistration
      * */
     $scope.saveSchoolRegistration = function(schoolObj) {
 
@@ -141,7 +400,7 @@ app.controller('schoolRegistrationCtrl', function($scope, uploadService, utility
 
     };
     /*
-     * This method is used to save coaching resistration
+     * This method is used to save school resistration
      * */
 
 
@@ -152,7 +411,7 @@ app.controller('schoolRegistrationCtrl', function($scope, uploadService, utility
 
 
     /*
-     * This is for registration coaching response
+     * This is for registration school response
      * */
     $scope.$on('schoolRegistrationSuccess', function (event, response) {
 
@@ -163,7 +422,7 @@ app.controller('schoolRegistrationCtrl', function($scope, uploadService, utility
 
     });
     /*
-     * This is for registration coaching response
+     * This is for registration school response
      * */
 
 
@@ -173,7 +432,7 @@ app.controller('schoolRegistrationCtrl', function($scope, uploadService, utility
 
 
     /*
-     * This is for upload college image response
+     * This is for upload school image response
      * */
     $scope.$on('schoolImageUploadSuccess', function (event, response) {
 
@@ -190,7 +449,7 @@ app.controller('schoolRegistrationCtrl', function($scope, uploadService, utility
 
     });
     /*
-     * This is for upload college image response
+     * This is for upload school image response
      * */
 
 });

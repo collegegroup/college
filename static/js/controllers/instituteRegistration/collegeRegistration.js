@@ -7,18 +7,64 @@ var app = angular.module('mainCollegeApp.collegeRegistrationApp', []);
 
 app.controller('collegeRegistrationCtrl', function($scope, uploadService, utilityService, HTTPService) {
 
+    /* Form validation variables */
+    $scope.collegeNameError = false;
+
+    $scope.collegeLocationError = false;
+
+    $scope.collegeEstablishmentError = false;
+
+    $scope.collegeDescriptionError = false;
+
+    $scope.collegeAddressError = false;
+
+    $scope.collegeAffiliationError = false;
+
+    $scope.collegeMobileNoError = false;
+
+    $scope.collegeWebsiteError = false;
+
+    $scope.collegeEmailError = false;
+
+    $scope.collegeCoursesError = false;
+    /* Form validation variables */
+
+    /* Form validation variables */
+    $scope.collegeNameFocus = false;
+
+    $scope.collegeDirectorNameFocus = false;
+
+    $scope.collegeLocationFocus = false;
+
+    $scope.collegeEstablishmentFocus = false;
+
+    $scope.collegeDescriptionFocus = false;
+
+    $scope.collegeAddressFocus = false;
+
+    $scope.collegeAffiliationFocus = false;
+
+    $scope.collegeMobileNoFocus = false;
+
+    $scope.collegeWebsiteFocus = false;
+
+    $scope.collegeEmailFocus = false;
+
+    $scope.collegeCoursesFocus = false;
+    /* Form validation variables */
+
     $scope.collegeRegistrationJSON ={
         data: {
-            college_name:"nist",
-            location:"vizag",
-            establishment: "2001",
-            description: "description",
-            affiliation: "au",
-            website: "nistvizag.com",
-            address: "vizag",
-            landline_num: "123456789",
-            mobile_num: "1234567890",
-            emailid: "a@a.com",
+            college_name:"",
+            location:"",
+            establishment: "",
+            description: "",
+            affiliation: "",
+            website: "",
+            address: "",
+            landline_num: "",
+            mobile_num: "",
+            emailid: "",
             facilities: [
                 {
                     value: 1,
@@ -34,14 +80,14 @@ app.controller('collegeRegistrationCtrl', function($scope, uploadService, utilit
                 }
             ],
             profile_image: "",
-            highest_package: "320000",
-            average_package:"150000",
+            highest_package: "",
+            average_package:"",
             courses:[
                 {
-                    course:"MBA",
-                    duration:"2 yr",
-                    fee:"100000",
-                    entrance:"ICET"
+                    course:"",
+                    duration:"",
+                    fee:"",
+                    entrance:""
                 }
             ]
         }
@@ -115,16 +161,16 @@ app.controller('collegeRegistrationCtrl', function($scope, uploadService, utilit
 
         $scope.collegeRegistrationJSON = {
             data: {
-                college_name:"nist",
-                location:"vizag",
-                establishment: "2001",
-                description: "description",
-                affiliation: "au",
-                website: "nistvizag.com",
-                address: "vizag",
-                landline_num: "123456789",
-                mobile_num: "1234567890",
-                emailid: "a@a.com",
+                college_name:"",
+                location:"",
+                establishment: "",
+                description: "",
+                affiliation: "",
+                website: "",
+                address: "",
+                landline_num: "",
+                mobile_num: "",
+                emailid: "",
                 facilities: [
                     {
                         value: 1,
@@ -140,14 +186,14 @@ app.controller('collegeRegistrationCtrl', function($scope, uploadService, utilit
                     }
                 ],
                 profile_image: "",
-                highest_package: "320000",
-                average_package:"150000",
+                highest_package: "",
+                average_package:"",
                 courses:[
                     {
-                        course:"MBA",
-                        duration:"2 yr",
-                        fee:"100000",
-                        entrance:"ICET"
+                        course:"",
+                        duration:"",
+                        fee:"",
+                        entrance:""
                     }
                 ]
             }
@@ -158,6 +204,221 @@ app.controller('collegeRegistrationCtrl', function($scope, uploadService, utilit
      * This method is used to reset the college registration form
      * */
 
+
+
+
+
+
+
+
+    /*
+     * Validation methods
+     * */
+    $scope.validateCollegeName = function(collegeeName) {
+
+        if(utilityService.validateText(collegeeName, "COLLEGE NAME VALIDATION")) {
+
+            $scope.collegeNameError = false;
+            $scope.collegeNameFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.collegeNameError = true;
+            $scope.collegeNameFocus = true;
+
+            return false;
+
+        }
+
+    };
+    $scope.validateCollegeLocation = function(locationName) {
+
+        if(utilityService.validateText(locationName, "COLLEGE LOCATION NAME VALIDATION")) {
+
+            $scope.collegeLocationError = false;
+            $scope.collegeLocationFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.collegeLocationError = true;
+            $scope.collegeLocationFocus = true;
+
+            return false;
+
+        }
+
+    };
+    $scope.validateCollegeEstablishment = function(establishment) {
+
+        if(utilityService.validateNumber(establishment, "COLLEGE ESTABLISHMENT VALIDATION")) {
+
+            $scope.collegeEstablishmentError = false;
+            $scope.collegeEstablishmentFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.collegeEstablishmentError = true;
+            $scope.collegeEstablishmentFocus = true;
+
+            return false;
+
+        }
+
+    };
+    $scope.validateCollegeDescription = function(description) {
+
+        if(utilityService.validateText(description, "COLLEGE DESCRIPTION VALIDATION")) {
+
+            $scope.collegeDescriptionError = false;
+            $scope.collegeDescriptionFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.collegeDescriptionError = true;
+            $scope.collegeDescriptionFocus = true;
+
+            return false;
+
+        }
+
+    };
+    $scope.validateCollegeAddress = function(address) {
+
+        if(utilityService.validateText(address, "COLLEGE ADDRESS VALIDATION")) {
+
+            $scope.collegeAddressError = false;
+            $scope.collegeAddressFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.collegeAddressError = true;
+            $scope.collegeAddressFocus = true;
+
+            return false;
+
+        }
+
+    };
+    $scope.validateCollegeAffiliation = function(affiliation) {
+
+        if(utilityService.validateText(affiliation, "COLLEGE ADDRESS VALIDATION")) {
+
+            $scope.collegeAffiliationError = false;
+            $scope.collegeAffiliationFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.collegeAffiliationError = true;
+            $scope.collegeAffiliationFocus = true;
+
+            return false;
+
+        }
+
+    };
+    $scope.validateCollegeMobileNo = function(mobileNo) {
+
+        if(utilityService.validateText(mobileNo, "COLLEGE MOBILE NO VALIDATION")) {
+
+            $scope.collegeMobileNoError = false;
+            $scope.collegeMobileNoFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.collegeMobileNoError = true;
+            $scope.collegeMobileNoFocus = true;
+
+            return false;
+
+        }
+
+    };
+    $scope.validateCollegeWebsite = function(website) {
+
+        if(utilityService.validateText(website, "COLLEGE WEBSITE VALIDATION")) {
+
+            $scope.collegeWebsiteError = false;
+            $scope.collegeWebsiteFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.collegeWebsiteError = true;
+            $scope.collegeWebsiteFocus = true;
+
+            return false;
+
+        }
+
+    };
+    $scope.validateCollegeEmail = function(emailID) {
+
+        if(utilityService.validateEmail(emailID, "COLLEGE EMAIL ID VALIDATION")) {
+
+            $scope.collegeEmailError = false;
+            $scope.collegeEmailFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.collegeEmailError = true;
+            $scope.collegeEmailFocus = true;
+
+            return false;
+
+        }
+
+    };
+    /*
+     * Validation methods
+     * */
+
+
+
+
+
+
+
+
+    /*
+     * This method is used to validate college registration form
+     * */
+    $scope.validateCollegeRegistrationForm = function(collegeObj) {
+
+        if( $scope.validateCollegeName(collegeObj.data.college_name) &&
+            $scope.validateCollegeLocation(collegeObj.data.location) &&
+            $scope.validateCollegeEstablishment(collegeObj.data.establishment) &&
+            $scope.validateCollegeDescription(collegeObj.data.description) &&
+            $scope.validateCollegeAddress(collegeObj.data.address) &&
+            $scope.validateCollegeAffiliation(collegeObj.data.affiliation) &&
+            $scope.validateCollegeMobileNo(collegeObj.data.mobile_num) &&
+            $scope.validateCollegeWebsite(collegeObj.data.website) &&
+            $scope.validateCollegeEmail(collegeObj.data.emailid)) {
+
+            $scope.saveCollegeRegistration(collegeObj);
+
+        }
+
+    };
+    /*
+     * This method is used to validate college registration form
+     * */
 
 
 

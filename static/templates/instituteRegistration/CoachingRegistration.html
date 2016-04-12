@@ -2,7 +2,7 @@
 <div style="text-align: left;" class="col-sm-10 panel panel-default">
     <div class="panel-heading"><h3>COACHING REGISTRATION</h3></div>
     <div class="panel-body">
-        <form class="form-horizontal">
+        <form name="coachingForm" class="form-horizontal">
             <div class="col-sm-12">
                 <div class="col-sm-3">
                     <img style="height: 160px; width: 160px; border: 1px solid silver; border-radius: 5px;" id="Image" src="{{coachingImageURL}}"  />
@@ -18,75 +18,79 @@
                 </div>
                 <div class="col-sm-9">
                     <div class="form-group">
-                        <div class="col-lg-6">
+                        <div class="col-lg-6" ng-class="{'has-error': coachingInstituteNameError}">
                             <label class="control-label">Institute Name</label>
-                            <input type="text" ng-model="coachingRegistrationJSON.data.institute_name" placeholder="Institute Name" class="form-control" name="institute_name">
+                            <input type="text" focus-me="coachingInstituteNameFocus" ng-model="coachingRegistrationJSON.data.institute_name" placeholder="Institute Name" class="form-control" name="institute_name">
+                            <!--<span class="fa fa-times form-control-feedback"></span>-->
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6" ng-class="{'has-error': coachingDirectorNameError}">
                             <label class="control-label">Director Name</label>
-                            <input type="text" ng-model="coachingRegistrationJSON.data.director_name" placeholder="Director Name" class="form-control" name="director_name">
+                            <input type="text" focus-me="coachingDirectorNameFocus" ng-model="coachingRegistrationJSON.data.director_name" placeholder="Director Name" class="form-control" name="director_name">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-lg-12">
-                            <div style="padding: 0; margin: 0;" class="col-sm-8">
+                            <div style="padding: 0; margin: 0;" class="col-sm-8" ng-class="{'has-error': coachingLocationError}">
                                 <label class="control-label">Location</label>
-                                <input type="text" ng-model="coachingRegistrationJSON.data.location" placeholder="Location" class="form-control" name="location">
+                                <input type="text" focus-me="coachingLocationFocus" ng-model="coachingRegistrationJSON.data.location" placeholder="Location" class="form-control" name="location">
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-4" ng-class="{'has-error': coachingEstablishmentError}">
                                 <label class="control-label">Establishment</label>
-                                <input type="text" ng-model="coachingRegistrationJSON.data.establishment" placeholder=" " class="form-control" name="establishment">
+                                <input type="number" focus-me="coachingEstablishmentFocus" ng-model="coachingRegistrationJSON.data.establishment" placeholder=" " class="form-control" name="establishment">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <div class="col-lg-12">
-                        <label class="control-label">Description</label>
-                        <textarea ng-model="coachingRegistrationJSON.data.description" class="form-control" name="description"></textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-lg-12">
-                        <label class="control-label">Affiliation</label>
-                        <input ng-model="coachingRegistrationJSON.data.affiliation" type="text" placeholder=" " class="form-control" name="affiliation">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-lg-12">
-                        <label class="control-label">Website</label>
-                        <input ng-model="coachingRegistrationJSON.data.website" type="text" placeholder=" " class="form-control" name="website">
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <div class="col-lg-12">
-                        <label class="control-label">Address</label>
-                        <textarea ng-model="coachingRegistrationJSON.data.address" class="form-control" name="address"></textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div style="padding: 0; margin: 0;" class="col-lg-12">
-                        <div class="col-sm-6">
-                            <label class="control-label">Land line Number</label>
-                            <input ng-model="coachingRegistrationJSON.data.landline_num" type="text" placeholder=" " class="form-control" name="landline_num">
+            <div class="col-sm-12">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="col-lg-12" ng-class="{'has-error': coachingDescriptionError}">
+                            <label class="control-label">Description</label>
+                            <textarea focus-me="coachingDescriptionFocus" ng-model="coachingRegistrationJSON.data.description" class="form-control" name="description"></textarea>
                         </div>
-                        <div class="col-sm-6">
-                            <label class="control-label">Mobile Number</label>
-                            <input ng-model="coachingRegistrationJSON.data.mobile_num" type="text" placeholder=" " class="form-control" name="mobile_num">
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-12" ng-class="{'has-error': coachingAffiliationError}">
+                            <label class="control-label">Affiliation</label>
+                            <input type="text" focus-me="coachingAffiliationFocus" ng-model="coachingRegistrationJSON.data.affiliation" placeholder=" " class="form-control" name="affiliation">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-12" ng-class="{'has-error': coachingWebsiteError}">
+                            <label class="control-label">Website</label>
+                            <input focus-me="coachingWebsiteFocus" ng-model="coachingRegistrationJSON.data.website" type="text" placeholder=" " class="form-control" name="website">
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="col-lg-12">
-                        <label class="control-label">Email</label>
-                        <input ng-model="coachingRegistrationJSON.data.emailid" type="text" placeholder=" " class="form-control" name="emailid">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="col-lg-12" ng-class="{'has-error': coachingAddressError}">
+                            <label class="control-label">Address</label>
+                            <textarea focus-me="coachingAddressFocus" ng-model="coachingRegistrationJSON.data.address" class="form-control" name="address"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div style="padding: 0; margin: 0;" class="col-lg-12">
+                            <div class="col-sm-6">
+                                <label class="control-label">Land line Number</label>
+                                <input ng-model="coachingRegistrationJSON.data.landline_num" type="text" placeholder=" " class="form-control" name="landline_num">
+                            </div>
+                            <div class="col-sm-6" ng-class="{'has-error': coachingMobileNoError}">
+                                <label class="control-label">Mobile Number</label>
+                                <input focus-me="coachingMobileNoFocus" ng-model="coachingRegistrationJSON.data.mobile_num" type="text" placeholder=" " class="form-control" name="mobile_num">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-12" ng-class="{'has-error': coachingForm.emailid.$error.email || coachingEmailError}">
+                            <label class="control-label">Email</label>
+                            <input type="email" focus-me="coachingEmailFocus" ng-model="coachingRegistrationJSON.data.emailid" placeholder=" " class="form-control" name="emailid">
+                        </div>
                     </div>
                 </div>
             </div>
+
             <div style="text-align: left;" class="col-sm-12 panel panel-default">
                 <div class="panel-heading"><h4>FACILITIES</h4></div>
                 <div class="panel-body">
@@ -139,7 +143,7 @@
             <div class="col-sm-12">
                 <div style="text-align: center;" class="form-group">
                     <!--<button type="button" class="mb-sm btn btn-success">Submit</button>-->
-                    <input ng-click="saveCoachingRegistration(coachingRegistrationJSON)" type="submit" class="mb-sm btn btn-success" value="Submit">
+                    <input ng-click="validateCoachingRegistrationForm(coachingRegistrationJSON)" type="submit" class="mb-sm btn btn-success" value="Submit">
                 </div>
             </div>
         </form>

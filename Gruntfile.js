@@ -37,10 +37,14 @@ module.exports = function(grunt) {
                     'static/js/sourceMin/cust.all.min.js': [
                         'static/js/lib/jquery/jquery.min.js',
                         'static/js/lib/jquery/jquery-ui.min.js',
-                        'static/js/lib/bootstrap/bootstrap.min.js',
                         'static/js/lib/angular/angular.min.js',
+                        'static/js/lib/bootstrap/bootstrap.min.js',
+                        'static/js/lib/bootstrap/ui-bootstrap-tpls.min.js',
                         'static/js/lib/angular/angular-ui-router.min.js',
-                        'static/js/lib/angular/angular-file-upload.min.js'
+                        'static/js/lib/angular/angular-file-upload.min.js',
+                        'static/js/lib/angular/angular-dateparser.min.js',
+                        'static/js/lib/angular/angular-timepicker.min.js'
+
                     ]
 
                 }
