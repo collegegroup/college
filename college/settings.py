@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users',
     'organization',
-    'reviews'
 ]
 
 MIDDLEWARE_CLASSES = [

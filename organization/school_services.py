@@ -1,4 +1,4 @@
-from models import SchoolMain, SchoolFacilities, SchoolCurriculum
+from models import *
 import datetime
 
 
@@ -36,6 +36,15 @@ class SchoolOrm(object):
             return school_main
         except Exception as ex:
             raise
+
+    @staticmethod
+    def get_schools_by_name(name_prefix):
+        schools = None
+        try:
+            schools = SchoolMain.objects.filter(school_name__startswith=name_prefix)
+            return schools
+        except Exception as ex:
+            raise ex
 
 
 class FacilitiesORM(object):

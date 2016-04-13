@@ -4,6 +4,7 @@ from django.shortcuts import render, HttpResponse
 from rest_framework.views import APIView, status
 from ..coaching_services import InstituteOrm, InstituteCourseOrm, FacilitiesORM, CategoryORM
 from ..jsonparser.coaching_jsons import *
+from ..dataserializers.coaching_category_serializer import BasicCoachingCoursesSerializer
 from ..core import *
 from django.conf import settings
 import json
@@ -115,6 +116,25 @@ class AddCoachingBasicCourses(APIView):
                 response.update({'response_code': status.HTTP_200_OK})
             except Exception as ex:
                 response.update({'message': 'could not saved data'})
+                response.update({'status': 'error'})
+                response.update({'response_code': status.HTTP_406_NOT_ACCEPTABLE})
+
+            return HttpResponse(json.dumps(response), content_type="application/json")
+
+
+class GetAllBasicCoachingCourses(APIView):
+    def get(self, request):
+        if request.method == "GET":
+            response = dict()
+            try:
+                basic_categories = CategoryORM.get_basic_category_and_course()
+
+                response.update({'data': {'categories_courses': BasicCoachingCoursesSerializer(basic_categories,
+                                                                                               many=True).data}})
+                response.update({'status': 'success'})
+                response.update({'response_code': status.HTTP_200_OK})
+            except Exception as ex:
+                response.update({'message': 'could not get data'})
                 response.update({'status': 'error'})
                 response.update({'response_code': status.HTTP_406_NOT_ACCEPTABLE})
 

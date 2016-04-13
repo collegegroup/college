@@ -1,4 +1,4 @@
-from models import CollegeMain, CollegeCourses, CollegeFacilities, CollegeCategory, BasicCollegeCourses
+from models import *
 import datetime
 
 
@@ -36,6 +36,15 @@ class CollegeOrm(object):
             return college_main
         except Exception as ex:
             raise
+
+    @staticmethod
+    def get_colleges_by_name(college_name_prefix):
+        colleges = None
+        try:
+            colleges = CollegeMain.objects.filter(college_name__startswith=college_name_prefix)
+            return colleges
+        except Exception as ex:
+            raise ex
 
 
 class CollegeCourseOrm(object):
@@ -88,3 +97,12 @@ class CategoryORM(object):
             basic_college_courses.save()
         except Exception as ex:
             raise ex
+
+    @staticmethod
+    def get_basic_category_and_course():
+        college_category = None
+        try:
+            college_category = BasicCollegeCourses.objects.all()
+        except Exception as ex:
+            raise ex
+        return college_category
