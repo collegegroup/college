@@ -27,14 +27,17 @@
                         <div class="form-group">
                             <div class="col-lg-6">
                                 <label class="control-label">Add Courses</label>
-                                <input type="text" placeholder="BE(Computer Science)" class="form-control">
+                                <input type="text" ng-model="collegeCourse" placeholder="BE(Computer Science)" class="form-control">
                             </div>
                             <div class="col-lg-6">
                                 <label class="control-label">Select Categories</label>
-                                <input type="text" placeholder="Management, Law" class="form-control">
+                                <select type="text" ng-model="collegeCategory" placeholder="Management, Law" class="form-control">
+                                    <option value="">Select Category</option>
+                                    <option ng-repeat="category in collegeCategories" ng-value="category">{{category}}</option>
+                                </select>
                             </div>
                             <div style="text-align: center;" class="col-lg-12">
-                                <button type="button" style="margin-top: 30px;" class="mb-sm btn btn-success">ADD COURSES</button>
+                                <button ng-click="addCollegeCategory(collegeCourse, collegeCategory)" ng-disabled="collegeCourse == '' || collegeCategory == ''" type="button" style="margin-top: 30px;" class="mb-sm btn btn-success">ADD COURSES</button>
                             </div>
                         </div>
                     </div>
@@ -58,10 +61,10 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>@twitterhggjhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</td>
-                        <td>Larry</td>
+                    <tr ng-repeat="location in allLocations | filter:searchLocations">
+                        <td>{{$index+1}}</td>
+                        <td>{{categoryCourse.course_name}}</td>
+                        <td>{{categoryCourse.category_name}}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -71,7 +74,7 @@
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="input-group">
-                            <input type="text" placeholder="Search" class="input-sm form-control">
+                            <input type="text" ng-model="searchCollegeCategoriesCourses" placeholder="Search" class="input-sm form-control">
                         <span class="input-group-btn">
                             <button type="button" class="btn btn-sm btn-default">Search</button>
                         </span>
