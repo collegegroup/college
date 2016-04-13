@@ -1,5 +1,5 @@
 <div>
-    <div style="text-align: left; margin: 0em 1em;" class="col-sm-5 panel panel-default">
+    <!--<div style="text-align: left; margin: 0em 1em;" class="col-sm-5 panel panel-default">
         <div class="panel-heading"><h3>COACHING CATEGORY</h3></div>
         <div class="panel-body">
             <form class="form-horizontal" enctype="multipart/form-data">
@@ -17,30 +17,36 @@
             </form>
         </div>
 
-    </div>
-    <div style="text-align: left;" class="col-sm-6 panel panel-default">
-        <div class="panel-heading"><h3>COACHING BRANCHES/COURSES</h3></div>
-        <div class="panel-body">
-            <form class="form-horizontal" enctype="multipart/form-data">
-                <div class="col-sm-12">
-                    <div class="form-group">
-                        <div class="col-lg-6">
-                            <label class="control-label">Add Courses</label>
-                            <input type="text" placeholder="BE(Computer Science)" class="form-control">
-                        </div>
-                        <div class="col-lg-6">
-                            <label class="control-label">Select Categories</label>
-                            <input type="text" placeholder="Management, Law" class="form-control">
-                        </div>
-                        <div style="text-align: center;" class="col-lg-12">
-                            <button type="button" style="margin-top: 30px;" class="mb-sm btn btn-success">ADD COURSES</button>
+    </div>-->
+    <div class="col-sm-12">
+        <div style="text-align: left;" class="col-sm-12 panel panel-default">
+            <div class="panel-heading"><h3>COACHING BRANCHES/COURSES</h3></div>
+            <div class="panel-body">
+                <form class="form-horizontal" enctype="multipart/form-data">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="col-lg-6">
+                                <label class="control-label">Add Courses</label>
+                                <input type="text" ng-model="coachingCourse" placeholder="BE(Computer Science)" class="form-control">
+                            </div>
+                            <div class="col-lg-6">
+                                <label class="control-label">Select Categories</label>
+                                <select type="text" ng-model="coachingCategory" placeholder="Management, Law" class="form-control">
+                                    <option value="">Select Category</option>
+                                    <option ng-repeat="category in coachingCategories" ng-value="category">{{category}}</option>
+                                </select>
+                            </div>
+                            <div style="text-align: center;" class="col-lg-12">
+                                <button ng-click="addCoachingCategory(coachingCourse, coachingCategory)" ng-disabled="coachingCourse == '' || coachingCategory == ''" type="button" style="margin-top: 30px;" class="mb-sm btn btn-success">ADD COURSES</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </form>
-        </div>
+                </form>
+            </div>
 
+        </div>
     </div>
+
     <div class="col-sm-12">
         <div style="" class="col-sm-12 panel panel-default">
             <div class="panel-heading"></div>

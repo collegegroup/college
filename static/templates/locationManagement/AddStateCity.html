@@ -1,6 +1,6 @@
 
 <div>
-    <div style="text-align: left; margin: 0em 1em;" class="col-sm-5 panel panel-default">
+    <!--<div style="text-align: left; margin: 0em 1em;" class="col-sm-5 panel panel-default">
     <div class="panel-heading"><h3>STATE</h3></div>
     <div class="panel-body">
         <form class="form-horizontal" enctype="multipart/form-data" action="/addstate/" method="post">
@@ -17,30 +17,36 @@
             </div>
         </form>
     </div>
-</div>
-<div style="text-align: left;" class="col-sm-5 panel panel-default">
-    <div class="panel-heading"><h3>CITY</h3></div>
-    <div class="panel-body">
-        <form class="form-horizontal" enctype="multipart/form-data">
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <div class="col-lg-6">
-                        <label class="control-label">Add City</label>
-                        <input type="text" placeholder="Add City Name" class="form-control">
+</div>-->
+    <div class="col-sm-12">
+        <div style="text-align: left;" class="col-sm-12 panel panel-default">
+            <div class="panel-heading"><h3>CITY</h3></div>
+            <div class="panel-body">
+                <form class="form-horizontal" enctype="multipart/form-data">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="col-lg-6">
+                                <label class="control-label">Add City</label>
+                                <input type="text" ng-model="city" placeholder="Add City Name" class="form-control">
+                            </div>
+                            <div class="col-lg-6">
+                                <label class="control-label">Select State</label>
+                                <select type="text" ng-model="state" class="form-control">
+                                    <option value="">Select State</option>
+                                    <option ng-repeat="state in allStates" ng-value="state">{{state}}</option>
+                                </select>
+                            </div>
+                            <div style="text-align: center;" class="col-lg-12">
+                                <button ng-click="addCity(city, state)" ng-disabled="city == '' || state == ''" type="button" style="margin-top: 30px;" class="mb-sm btn btn-success">ADD CITY</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-6">
-                        <label class="control-label">Select State</label>
-                        <input type="text" placeholder="Select State" class="form-control">
-                    </div>
-                    <div style="text-align: center;" class="col-lg-12">
-                        <button type="button" style="margin-top: 30px;" class="mb-sm btn btn-success">ADD CITY</button>
-                    </div>
-                </div>
+                </form>
             </div>
-        </form>
+
+        </div>
     </div>
 
-</div>
 <div class="col-sm-12">
     <div style="" class="col-sm-12 panel panel-default">
         <div class="panel-heading"></div>

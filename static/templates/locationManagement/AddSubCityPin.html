@@ -1,5 +1,5 @@
 <div>
-    <div style="text-align: left; margin: 0em 1em;" class="col-sm-5 panel panel-default">
+    <!--<div style="text-align: left; margin: 0em 1em;" class="col-sm-5 panel panel-default">
     <div class="panel-heading"><h3>LOCATION</h3></div>
     <div class="panel-body">
         <form class="form-horizontal" enctype="multipart/form-data">
@@ -21,30 +21,52 @@
         </form>
     </div>
 
-</div>
-<div style="text-align: left;" class="col-sm-5 panel panel-default">
-    <div class="panel-heading"><h3>PIN CODE</h3></div>
-    <div class="panel-body">
-        <form class="form-horizontal" enctype="multipart/form-data">
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <div class="col-lg-6">
-                        <label class="control-label">Add Pincode</label>
-                        <input type="text" placeholder="Add Pincode" class="form-control">
+</div>-->
+    <div class="col-sm-12">
+        <div style="text-align: left;" class="col-sm-12 panel panel-default">
+            <div class="panel-heading"><h3>LOCATION</h3></div>
+            <div class="panel-body">
+                <form class="form-horizontal" enctype="multipart/form-data">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="col-lg-3">
+                                <label class="control-label">Add Location</label>
+                                <input type="text" ng-model="location" placeholder="Add Pincode" class="form-control">
+                            </div>
+                            <div class="col-lg-3">
+                                <label class="control-label">Select City</label>
+                                <select type="text" ng-model="city" placeholder="Management, Law" class="form-control">
+                                    <option value="">Select Category</option>
+                                    <option ng-repeat="city in cities" ng-value="city">{{city}}</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3">
+                                <label class="control-label">Select State</label>
+                                <select type="text" ng-model="state" placeholder="Management, Law" class="form-control">
+                                    <option value="">Select Category</option>
+                                    <option ng-repeat="state in states" ng-value="state">{{state}}</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3">
+                                <label class="control-label">Add Pincode</label>
+                                <input type="text" ng-model="pincode" placeholder="Add Pincode" class="form-control">
+                            </div>
+                            <div style="text-align: center;" class="col-lg-12">
+                                <button
+                                        ng-disabled="location == '' || city == '' || state == '' || pincode == ''"
+                                        ng-click="addLocation(city, state, location, pincode)"
+                                        type="button"
+                                        style="margin-top: 30px;"
+                                        class="mb-sm btn btn-success">ADD LOCATION</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-6">
-                        <label class="control-label">Select City</label>
-                        <input type="text" placeholder="Raipur, Durg" class="form-control">
-                    </div>
-                    <div style="text-align: center;" class="col-lg-12">
-                        <button type="button" style="margin-top: 30px;" class="mb-sm btn btn-success">ADD PINCODE</button>
-                    </div>
-                </div>
+                </form>
             </div>
-        </form>
+
+        </div>
     </div>
 
-</div>
 <div class="col-sm-12">
     <div style="" class="col-sm-12 panel panel-default">
         <div class="panel-heading"></div>

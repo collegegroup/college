@@ -46,6 +46,40 @@
 
                     });
 
+                },
+
+                GETRequest: function(URL, data, emitMessage) {
+
+                    $http({
+
+                        method: 'GET',
+
+                        url: URL,
+
+                        headers: {
+
+                            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+
+                        }
+
+                    }).then(function successCallback(response) {
+
+                        if(response.data.status == 'success'){
+
+                            $rootScope.$broadcast(emitMessage+"Success", response);
+
+                        } else {
+
+                            $rootScope.$broadcast(emitMessage+"Error", response);
+
+                        }
+
+                    }, function errorCallback(response) {
+
+                        $rootScope.$broadcast(emitMessage+"Error", response);
+
+                    });
+
                 }
 
             }
