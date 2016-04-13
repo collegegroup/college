@@ -2,11 +2,12 @@ from __future__ import print_function
 from django.shortcuts import render, HttpResponse
 from rest_framework.views import APIView, status
 from ..college_services import CollegeOrm, CollegeCourseOrm, FacilitiesORM, CategoryORM
+from ..dataserializers.college_category_serializer import BasicCollegeCoursesSerializer
 from ..jsonparser.college_jsons import *
 from ..core import *
 from django.conf import settings
 import json, uuid
-from ..models import CollegeMain
+from ..models import *
 from django.core.files.base import ContentFile
 # Create your views here.
 
@@ -89,6 +90,25 @@ class AddCollegeBasicCourses(APIView):
                 response.update({'response_code': status.HTTP_200_OK})
             except Exception as ex:
                 response.update({'message': 'could not saved data'})
+                response.update({'status': 'error'})
+                response.update({'response_code': status.HTTP_406_NOT_ACCEPTABLE})
+
+            return HttpResponse(json.dumps(response), content_type="application/json")
+
+
+class GetAllBasicCollegeCourses(APIView):
+    def get(self, request):
+        if request.method == "GET":
+            response = dict()
+            try:
+                basic_categories = CategoryORM.get_basic_category_and_course()
+
+                response.update({'data': {'categories_courses': BasicCollegeCoursesSerializer(basic_categories,
+                                                                                              many=True).data}})
+                response.update({'status': 'success'})
+                response.update({'response_code': status.HTTP_200_OK})
+            except Exception as ex:
+                response.update({'message': 'could not get data'})
                 response.update({'status': 'error'})
                 response.update({'response_code': status.HTTP_406_NOT_ACCEPTABLE})
 

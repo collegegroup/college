@@ -1,5 +1,5 @@
 __author__ = 'ravi'
-from models import InstituteMain, InstituteCourses, CoachingFacilities, CoachingCategory, BasicCoachingCourses
+from models import *
 import datetime
 
 
@@ -34,6 +34,15 @@ class InstituteOrm(object):
         try:
             institute_main = InstituteMain.objects.get(institute_id=institute_id)
             return institute_main
+        except Exception as ex:
+            raise ex
+
+    @staticmethod
+    def get_institutes_by_name(institute_name_prefix):
+        institutes = None
+        try:
+            institutes = InstituteMain.objects.filter(institute_name__startswith=institute_name_prefix)
+            return institutes
         except Exception as ex:
             raise ex
 
@@ -104,3 +113,12 @@ class CategoryORM(object):
             basic_coaching_courses.save()
         except Exception as ex:
             raise ex
+
+    @staticmethod
+    def get_basic_category_and_course():
+        coaching_category = None
+        try:
+            coaching_category = BasicCoachingCourses.objects.all()
+        except Exception as ex:
+            raise ex
+        return coaching_category
