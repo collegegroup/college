@@ -24,7 +24,7 @@ class SchoolOrm(object):
 
         try:
             school_main.save()
-            return school_main.school_id
+            return school_main.id
         except:
             raise
 
@@ -32,7 +32,7 @@ class SchoolOrm(object):
     def get_school_by_id(school_id):
         college_main = None
         try:
-            school_main = SchoolMain.objects.get(school_id=school_id)
+            school_main = SchoolMain.objects.get(id=school_id)
             return school_main
         except Exception as ex:
             raise

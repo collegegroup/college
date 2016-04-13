@@ -18,6 +18,9 @@ class GetOrganizationDetails(APIView):
             institute_list = list()
             school_list = list()
             college_list = list()
+            institute_dict = dict()
+            school_dict = dict()
+            college_dict = dict()
             response = dict()
             name_prefix = request.POST.get('name_prefix')
             try:
@@ -29,16 +32,21 @@ class GetOrganizationDetails(APIView):
                 college_serializer = CollegeSmallSerializer(colleges, many=True)
 
                 for institute in coaching_serializer.data:
-                    institute.update({'type': '1'})
-                    institute_list.append(institute)
+                    institute_dict.update({'id': institute.institute_id})
+                    institute_dict.update({'name': institute.institute_name})
+                    institute_dict.update({'type': 'coaching'})
+                    institute_list.append(institute_dict)
                 for school in school_serializer.data:
-                    school.update({'type': '2'})
-                    school_list.append(school)
+                    school_dict.update({'id': school.institute_id})
+                    school_dict.update({'name': school.institute_name})
+                    school_dict.update({'type': 'school'})
+                    school_list.append(school_dict)
                 for college in college_serializer.data:
-                    college.update({'type': '3'})
+                    institute_dict.update({'id': college.institute_id})
+                    institute_dict.update({'name': college.institute_name})
+                    college.update({'type': 'college'})
                     college_list.append(college)
-                response.update({'data': {'coaching_data': institute_list, 'school_data': school_list,
-                                          'college_data': college_list}})
+                response.update({'data': {"academies": school_list + college_list + institute_list}})
                 response.update({'response_code': status.HTTP_200_OK})
                 response.update({'status': 'success'})
             except Exception as ex:

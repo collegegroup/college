@@ -24,7 +24,7 @@ class InstituteOrm(object):
 
         try:
             institute_main.save()
-            return institute_main.institute_id
+            return institute_main.id
         except Exception as ex:
             raise ex
 

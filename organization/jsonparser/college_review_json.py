@@ -2,8 +2,10 @@ import json
 
 
 class CollegeReviewHelper(object):
-    def __init__(self, college_name, course, entrance, rank, passout_year, fee, review, faculties, infrasturcture,
-                 accommodation, placement, social_life):
+    def __init__(self, user_id, college_id, college_name, course, entrance, rank, passout_year, fee, review, faculties,
+                 infrastructure, accommodation, placement, social_life):
+        self.user_id = user_id
+        self.college_id = college_id
         self.college_name = college_name
         self.course = course
         self.entrance = entrance
@@ -12,7 +14,7 @@ class CollegeReviewHelper(object):
         self.fee = fee
         self.review = review
         self.faculties = faculties
-        self.infrastructure = infrasturcture
+        self.infrastructure = infrastructure
         self.accommodation = accommodation
         self.placement = placement
         self.social_life = social_life
@@ -23,6 +25,8 @@ class CollegeReviewJsonParser(object):
     @staticmethod
     def college_review_json_parser(json_string):
         result = json.loads(json_string)
+        user_id = None
+        college_id = None
         college_name = None
         course = None
         entrance = None
@@ -36,6 +40,10 @@ class CollegeReviewJsonParser(object):
         placement = None
         social_life = None
 
+        if 'user_id' in result:
+            user_id = result['user_id']
+        if 'college_id' in result:
+            college_id = result['college_id']
         if 'college_name' in result:
             college_name = result['college_name']
         if 'course' in result:
@@ -61,5 +69,5 @@ class CollegeReviewJsonParser(object):
         if 'social_life' in result:
             social_life = result['social_life']
 
-        return CollegeReviewHelper(college_name, course, entrance, rank, passout_year, fee, review, faculties,
-                                   infrastructure, accommodation, placement, social_life)
+        return CollegeReviewHelper(user_id, college_id, college_name, course, entrance, rank, passout_year, fee,
+                                   review, faculties, infrastructure, accommodation, placement, social_life)
