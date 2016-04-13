@@ -117,7 +117,7 @@ class GetLocation(APIView):
             try:
                 locations = LocationORM.get_all_location()
                 location_serializer = LocationSerializer(locations, many=True)
-                response.update({'data': {'location': location_serializer.data}})
+                response.update({'data': {'locations': location_serializer.data}})
                 response.update({'status': 'success'})
                 response.update({'response_code': status.HTTP_200_OK})
             except Exception as ex:

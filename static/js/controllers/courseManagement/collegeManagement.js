@@ -5,9 +5,13 @@ app.controller('collegeManagementCtrl', function($scope, HTTPService, utilitySer
 
     $scope.collegeCategories = [];
 
+    $scope.collegeCategoriesCourses = [];
+
     $scope.collegeCategory = '';
 
     $scope.collegeCourse = '';
+
+    $scope.searchCollegeCategoriesCourses = '';
 
     /*
     * This for get college categories
@@ -16,6 +20,13 @@ app.controller('collegeManagementCtrl', function($scope, HTTPService, utilitySer
     /*
     * This for get college categories
     * */
+    /*
+     * This for get category course
+     * */
+    HTTPService.GETRequest('/category/course/college/', '', 'getCollegeCategoriesCourses');
+    /*
+     * This for get category course
+     * */
 
 
 
@@ -52,6 +63,12 @@ app.controller('collegeManagementCtrl', function($scope, HTTPService, utilitySer
 
        console.log('addCollegeCategory: ', response);
 
+        $scope.collegeCategoriesCourses.push({"course_name": $scope.collegeCategory, "category_name": $scope.collegeCourse});
+
+        $scope.collegeCategory = '';
+
+        $scope.collegeCourse = '';
+
     });
     $scope.$on('addCollegeCategoryError', function (event, response) {
 
@@ -79,6 +96,22 @@ app.controller('collegeManagementCtrl', function($scope, HTTPService, utilitySer
     });
     /*
      * This is for get college categories response
+     * */
+    /*
+     * This is for get coaching categories response
+     * */
+    $scope.$on('getCollegeCategoriesCoursesSuccess', function (event, response) {
+
+        console.log('coachingCategoriesCourses: ', response);
+
+        $scope.collegeCategoriesCourses = response.data.data.categories_courses;
+
+    });
+    $scope.$on('getCollegeCategoriesCoursesCoursesError', function (event, response) {
+
+    });
+    /*
+     * This is for get coaching categories response
      * */
 
 });

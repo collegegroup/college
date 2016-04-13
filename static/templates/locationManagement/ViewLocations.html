@@ -16,15 +16,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>@twitter</td>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>the Bird</td>
+                    <tr ng-repeat="location in allLocations | filter:searchLocations">
+                        <td>{{$index+1}}</td>
+                        <td>{{location.state_name}}</td>
+                        <td>{{location.city_name}}</td>
+                        <td>{{location.sub_city}}</td>
+                        <td>{{location.pin_code}}</td>
                         <td>
                             <label class="switch">
-                                <input type="checkbox" checked="checked">
+                                <input type="checkbox" ng-model="location.status" ng-true-value="'1'" ng-false-value="'0'">
                                 <span></span>
                             </label>
                         </td>
@@ -37,7 +37,7 @@
             <div class="row">
                 <div class="col-lg-2">
                     <div class="input-group">
-                        <input type="text" placeholder="Search" class="input-sm form-control">
+                        <input type="text" ng-model="searchLocations" placeholder="Search" class="input-sm form-control">
                         <span class="input-group-btn">
                             <button type="button" class="btn btn-sm btn-default">Search</button>
                         </span>

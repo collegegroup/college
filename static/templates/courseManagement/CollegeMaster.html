@@ -61,10 +61,10 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>@twitterhggjhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</td>
-                        <td>Larry</td>
+                    <tr ng-repeat="location in allLocations | filter:searchLocations">
+                        <td>{{$index+1}}</td>
+                        <td>{{categoryCourse.course_name}}</td>
+                        <td>{{categoryCourse.category_name}}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -74,7 +74,7 @@
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="input-group">
-                            <input type="text" placeholder="Search" class="input-sm form-control">
+                            <input type="text" ng-model="searchCollegeCategoriesCourses" placeholder="Search" class="input-sm form-control">
                         <span class="input-group-btn">
                             <button type="button" class="btn btn-sm btn-default">Search</button>
                         </span>

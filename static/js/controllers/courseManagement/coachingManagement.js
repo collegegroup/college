@@ -9,9 +9,13 @@ app.controller('coachingManagementCtrl', function($scope, HTTPService, utilitySe
 
     $scope.coachingCategories = [];
 
+    $scope.coachingCategoriesCourses = [];
+
     $scope.coachingCategory = '';
 
     $scope.coachingCourse = '';
+
+    $scope.searchCoachingCategoriesCourses = '';
 
     /*
      * This for get coaching categories
@@ -19,6 +23,13 @@ app.controller('coachingManagementCtrl', function($scope, HTTPService, utilitySe
     HTTPService.GETRequest('/category/coaching/', '', 'getCoachingCategories');
     /*
      * This for get coaching categories
+     * */
+    /*
+     * This for get category course
+     * */
+    HTTPService.GETRequest('/category/course/coaching/', '', 'getCoachingCategoriesCourses');
+    /*
+     * This for get category course
      * */
 
 
@@ -54,7 +65,11 @@ app.controller('coachingManagementCtrl', function($scope, HTTPService, utilitySe
      * */
     $scope.$on('addCoachingCategorySuccess', function (event, response) {
 
-        console.log('addCoachingCategory: ', response);
+        $scope.coachingCategoriesCourses.push({"course_name": $scope.coachingCourse, "category_name": $scope.coachingCategory});
+
+        $scope.coachingCategory = '';
+
+        $scope.coachingCourse = '';
 
     });
     $scope.$on('addCoachingCategoryError', function (event, response) {
@@ -79,6 +94,22 @@ app.controller('coachingManagementCtrl', function($scope, HTTPService, utilitySe
 
     });
     $scope.$on('getCoachingCategoriesError', function (event, response) {
+
+    });
+    /*
+     * This is for get coaching categories response
+     * */
+    /*
+     * This is for get coaching categories response
+     * */
+    $scope.$on('getCoachingCategoriesCoursesSuccess', function (event, response) {
+
+        console.log('coachingCategoriesCourses: ', response);
+
+        $scope.coachingCategoriesCourses = response.data.data.categories_courses;
+
+    });
+    $scope.$on('getCoachingCategoriesCoursesError', function (event, response) {
 
     });
     /*
