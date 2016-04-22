@@ -12,29 +12,29 @@ module.exports = function(grunt) {
             production: {
                 files: {
                     //'public/js/app/services.min.js': ['public/js/app/services/*.js'],
-                    'static/js/sourceMin/all.min.js': [
-                        'static/js/controllers/app.js',
-                        'static/js/routes/routes.js',
+                    'static/adminApp/js/sourceMin/all.min.js': [
+                        'static/adminApp/js/controllers/app.js',
+                        'static/adminApp/js/routes/routes.js',
 
-                        'static/js/services/uploadService.js',
-                        'static/js/services/HTTPRequestService.js',
-                        'static/js/services/utilityService.js',
+                        'static/adminApp/js/services/uploadService.js',
+                        'static/adminApp/js/services/HTTPRequestService.js',
+                        'static/adminApp/js/services/utilityService.js',
 
-                        'static/js/controllers/dashboard/dashboardCtrl.js',
-                        'static/js/controllers/location/addStateCityCtrl.js',
-                        'static/js/controllers/location/subCityPincodeCtrl.js',
-                        'static/js/controllers/location/viewLocationsCtrl.js',
+                        'static/adminApp/js/controllers/dashboard/dashboardCtrl.js',
+                        'static/adminApp/js/controllers/location/addStateCityCtrl.js',
+                        'static/adminApp/js/controllers/location/subCityPincodeCtrl.js',
+                        'static/adminApp/js/controllers/location/viewLocationsCtrl.js',
                         
-                        'static/js/controllers/courseManagement/collegeManagement.js',
-                        'static/js/controllers/courseManagement/coachingManagement.js',
+                        'static/adminApp/js/controllers/courseManagement/collegeManagement.js',
+                        'static/adminApp/js/controllers/courseManagement/coachingManagement.js',
 
-                        'static/js/controllers/instituteRegistration/schoolRegistration.js',
-                        'static/js/controllers/instituteRegistration/collegeRegistration.js',
-                        'static/js/controllers/instituteRegistration/coachingRegistration.js'
+                        'static/adminApp/js/controllers/instituteRegistration/schoolRegistration.js',
+                        'static/adminApp/js/controllers/instituteRegistration/collegeRegistration.js',
+                        'static/adminApp/js/controllers/instituteRegistration/coachingRegistration.js'
 
                     ],
 
-                    'static/js/sourceMin/cust.all.min.js': [
+                    'static/adminApp/js/sourceMin/cust.all.min.js': [
                         'static/js/lib/jquery/jquery.min.js',
                         'static/js/lib/jquery/jquery-ui.min.js',
                         'static/js/lib/angular/angular.min.js',
