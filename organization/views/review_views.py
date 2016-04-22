@@ -7,6 +7,7 @@ from ..dataserializers.school_serializer import SchoolSmallSerializer
 from ..dataserializers.coaching_serializer import CoachingSmallSerializer
 from ..dataserializers.college_serializer import CollegeSmallSerializer
 import json
+__author__ = 'ravi'
 # Create your views here.
 
 
@@ -14,7 +15,6 @@ class GetOrganizationDetails(APIView):
 
     def post(self, request):
         if request.method == "POST":
-            print (request.method)
             institute_list = list()
             school_list = list()
             college_list = list()
@@ -32,20 +32,20 @@ class GetOrganizationDetails(APIView):
                 college_serializer = CollegeSmallSerializer(colleges, many=True)
 
                 for institute in coaching_serializer.data:
-                    institute_dict.update({'id': institute.institute_id})
-                    institute_dict.update({'name': institute.institute_name})
+                    institute_dict.update({'id': institute['institute_id']})
+                    institute_dict.update({'name': institute['institute_name']})
                     institute_dict.update({'type': 'coaching'})
                     institute_list.append(institute_dict)
                 for school in school_serializer.data:
-                    school_dict.update({'id': school.institute_id})
-                    school_dict.update({'name': school.institute_name})
+                    school_dict.update({'id': school['school_id']})
+                    school_dict.update({'name': school['school_name']})
                     school_dict.update({'type': 'school'})
                     school_list.append(school_dict)
                 for college in college_serializer.data:
-                    institute_dict.update({'id': college.institute_id})
-                    institute_dict.update({'name': college.institute_name})
-                    college.update({'type': 'college'})
-                    college_list.append(college)
+                    college_dict.update({'id': college['college_id']})
+                    college_dict.update({'name': college['college_name']})
+                    college_dict.update({'type': 'college'})
+                    college_list.append(college_dict)
                 response.update({'data': {"academies": school_list + college_list + institute_list}})
                 response.update({'response_code': status.HTTP_200_OK})
                 response.update({'status': 'success'})

@@ -6,6 +6,7 @@ from ..core import *
 from django.conf import settings
 from ..jsonparser.school_jsons import *
 import json, uuid
+__author__ = 'ravi'
 # Create your views here.
 
 
@@ -50,4 +51,22 @@ class UploadSchoolProfile(APIView):
                 response.update({'message': 'could not upload image'})
                 response.update({'response_code': status.HTTP_406_NOT_ACCEPTABLE})
                 response.update({'status': 'error'})
+            return HttpResponse(json.dumps(response), content_type="application/json")
+
+
+class GetSchoolForReview(APIView):
+    def get(self, request, school_id):
+        if request.method == "GET":
+            response = dict()
+            try:
+                school = SchoolOrm.get_school_by_id(school_id)
+                response.update({'data': {'school_name': school.school_name}})
+                response.update({'status': 'success'})
+                response.update({'response_code': status.HTTP_200_OK})
+            except Exception as ex:
+                print (ex)
+                response.update({'message': 'could not get data'})
+                response.update({'status': 'error'})
+                response.update({'response_code': status.HTTP_406_NOT_ACCEPTABLE})
+
             return HttpResponse(json.dumps(response), content_type="application/json")

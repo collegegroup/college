@@ -1,6 +1,6 @@
-__author__ = 'ravi'
-from models import *
+from models import InstituteMain, CoachingCategory, CoachingFacilities, BasicCoachingCourses, InstituteCourses
 import datetime
+__author__ = 'ravi'
 
 
 class InstituteOrm(object):
@@ -65,7 +65,7 @@ class InstituteCourseOrm(object):
     @staticmethod
     def save_institute_course(course, institute_id):
         institute_courses = InstituteCourses()
-        institute_courses.college_id = institute_id
+        institute_courses.institute_id = institute_id
         institute_courses.course = course.course
         institute_courses.duration = course.duration
         institute_courses.fee = course.fee
@@ -74,6 +74,16 @@ class InstituteCourseOrm(object):
             institute_courses.save()
         except Exception as ex:
             raise ex
+
+    @staticmethod
+    def get_coaching_courses_by_id(institute_id):
+        courses = None
+        try:
+            courses = InstituteCourses.objects.filter(institute_id=institute_id).order_by('course')
+        except Exception as ex:
+            raise ex
+        return courses
+
 
 
 class InstituteHelper(object):

@@ -3,12 +3,14 @@ from django.shortcuts import render, HttpResponse
 from rest_framework.views import APIView, status
 from ..college_services import CollegeOrm, CollegeCourseOrm, FacilitiesORM, CategoryORM
 from ..dataserializers.college_category_serializer import BasicCollegeCoursesSerializer
+from ..dataserializers.college_serializer import CollegeCoursesSerializer
 from ..jsonparser.college_jsons import *
 from ..core import *
 from django.conf import settings
 import json, uuid
 from ..models import *
 from django.core.files.base import ContentFile
+__author__ = 'ravi'
 # Create your views here.
 
 
@@ -105,6 +107,25 @@ class GetAllBasicCollegeCourses(APIView):
 
                 response.update({'data': {'categories_courses': BasicCollegeCoursesSerializer(basic_categories,
                                                                                               many=True).data}})
+                response.update({'status': 'success'})
+                response.update({'response_code': status.HTTP_200_OK})
+            except Exception as ex:
+                response.update({'message': 'could not get data'})
+                response.update({'status': 'error'})
+                response.update({'response_code': status.HTTP_406_NOT_ACCEPTABLE})
+
+            return HttpResponse(json.dumps(response), content_type="application/json")
+
+
+class GetCollegeForReview(APIView):
+    def get(self, request, college_id):
+        if request.method == "GET":
+            response = dict()
+            try:
+                college = CollegeOrm.get_college_by_id(college_id)
+                courses = CollegeCourseOrm.get_college_courses_by_id(college_id)
+                response.update({'data': {'courses': CollegeCoursesSerializer(courses, many=True).data,
+                                          'college_name': college.college_name}})
                 response.update({'status': 'success'})
                 response.update({'response_code': status.HTTP_200_OK})
             except Exception as ex:

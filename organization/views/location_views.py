@@ -3,6 +3,7 @@ from rest_framework.views import APIView, status
 from ..location_services import LocationORM
 from ..dataserializers.state_serializer import *
 import json
+__author__ = 'ravi'
 
 
 class AddState(APIView):

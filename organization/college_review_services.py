@@ -1,5 +1,6 @@
 from models import CollegeReview
 import datetime
+__author__ = 'ravi'
 
 
 class CollegeReviewORM(object):
@@ -10,8 +11,9 @@ class CollegeReviewORM(object):
         college_review.college_id = college_review_helper.college_id
         college_review.college_name = college_review_helper.college_name
         college_review.entrance = college_review_helper.entrance
+        college_review.course = college_review_helper.course
         college_review.rank = college_review_helper.rank
-        college_review.passout_year = college_review_helper.passourt_year
+        college_review.passout_year = college_review_helper.passout_year
         college_review.fee = college_review_helper.fee
         college_review.review = college_review_helper.review
         college_review.faculties = college_review_helper.faculties

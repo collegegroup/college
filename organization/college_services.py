@@ -1,5 +1,6 @@
-from models import *
+from models import CollegeMain, CollegeFacilities, CollegeCourses, CollegeCategory, BasicCollegeCourses
 import datetime
+__author__ = 'ravi'
 
 
 class CollegeOrm(object):
@@ -61,6 +62,15 @@ class CollegeCourseOrm(object):
             college_courses.save()
         except Exception as ex:
             raise ex
+
+    @staticmethod
+    def get_college_courses_by_id(college_id):
+        courses = None
+        try:
+            courses = CollegeCourses.objects.filter(college_id=college_id).order_by('course')
+        except Exception as ex:
+            raise ex
+        return courses
 
 
 class FacilitiesORM(object):

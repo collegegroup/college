@@ -1,5 +1,6 @@
-from models import *
+from models import SchoolMain, SchoolCurriculum, SchoolFacilities
 import datetime
+__author__ = 'ravi'
 
 
 class SchoolOrm(object):
@@ -30,12 +31,12 @@ class SchoolOrm(object):
 
     @staticmethod
     def get_school_by_id(school_id):
-        college_main = None
+        school_main = None
         try:
-            school_main = SchoolMain.objects.get(id=school_id)
+            school_main = SchoolMain.objects.get(school_id=school_id)
             return school_main
         except Exception as ex:
-            raise
+            raise ex
 
     @staticmethod
     def get_schools_by_name(name_prefix):

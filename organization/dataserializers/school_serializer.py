@@ -1,5 +1,6 @@
 from ..models import SchoolMain
 from rest_framework import serializers
+__author__ = 'ravi'
 
 
 class SchoolSerializer(serializers.ModelSerializer):

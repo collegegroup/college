@@ -5,10 +5,12 @@ from rest_framework.views import APIView, status
 from ..coaching_services import InstituteOrm, InstituteCourseOrm, FacilitiesORM, CategoryORM
 from ..jsonparser.coaching_jsons import *
 from ..dataserializers.coaching_category_serializer import BasicCoachingCoursesSerializer
+from ..dataserializers.coaching_serializer import CoachingCourseSerializer
 from ..core import *
 from django.conf import settings
 import json
 import uuid
+__author__ = 'ravi'
 
 
 # Create your views here.
@@ -131,6 +133,26 @@ class GetAllBasicCoachingCourses(APIView):
 
                 response.update({'data': {'categories_courses': BasicCoachingCoursesSerializer(basic_categories,
                                                                                                many=True).data}})
+                response.update({'status': 'success'})
+                response.update({'response_code': status.HTTP_200_OK})
+            except Exception as ex:
+                response.update({'message': 'could not get data'})
+                response.update({'status': 'error'})
+                response.update({'response_code': status.HTTP_406_NOT_ACCEPTABLE})
+
+            return HttpResponse(json.dumps(response), content_type="application/json")
+
+
+class GetCoachingForReview(APIView):
+    def get(self, request, institute_id):
+        if request.method == "GET":
+            response = dict()
+            institute_id = institute_id
+            try:
+                institute = InstituteOrm.get_institute_by_id(institute_id)
+                courses = InstituteCourseOrm.get_coaching_courses_by_id(institute_id)
+                response.update({'data': {'courses': CoachingCourseSerializer(courses, many=True).data,
+                                          'institute_name': institute.institute_name}})
                 response.update({'status': 'success'})
                 response.update({'response_code': status.HTTP_200_OK})
             except Exception as ex:

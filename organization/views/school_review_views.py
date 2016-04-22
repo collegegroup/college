@@ -1,20 +1,21 @@
 from django.shortcuts import render, HttpResponse
 from rest_framework.views import APIView, status
-from ..jsonparser.coaching_review_json import CoachingReviewJsonParser
-from ..coaching_review_services import CoachingReviewORM
+from ..jsonparser.school_review_json import SchoolReviewJsonParser
+from ..school_review_services import SchoolReviewORM
 import json
 __author__ = 'ravi'
 
+# Create your views here.
 
-class AddCoachingReview(APIView):
+
+class AddSchoolReview(APIView):
 
     def post(self, request):
         if request.method == "POST":
             response = dict()
             try:
-                coaching_review_helper = CoachingReviewJsonParser.coaching_review_json_parser(request.POST.
-                                                                                              get('jsonData'))
-                CoachingReviewORM.save_coaching_review(coaching_review_helper)
+                school_review_helper = SchoolReviewJsonParser.school_review_json_parser(request.POST.get('jsonData'))
+                SchoolReviewORM.save_school_review(school_review_helper)
                 response.update({'message': "date saved successfully"})
                 response.update({'response_code': status.HTTP_200_OK})
                 response.update({'status': 'success'})

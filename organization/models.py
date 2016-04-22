@@ -69,16 +69,15 @@ class CoachingReview(models.Model):
     seq_id = models.AutoField(db_column='SEQ_ID', primary_key=True)  # Field name made lowercase.
     user_id = models.IntegerField(db_column='USER_ID', blank=True, null=True)  # Field name made lowercase.
     institute_id = models.IntegerField(db_column='INSTITUTE_ID', blank=True, null=True)  # Field name made lowercase.
-    state_name = models.CharField(db_column='STATE_NAME', max_length=100, blank=True, null=True)  # Field name made lowercase.
     institute_name = models.CharField(db_column='INSTITUTE_NAME', max_length=250, blank=True, null=True)  # Field name made lowercase.
     course = models.CharField(db_column='COURSE', max_length=45, blank=True, null=True)  # Field name made lowercase.
     fee = models.DecimalField(db_column='FEE', max_digits=10, decimal_places=2, blank=True, null=True)  # Field name made lowercase.
     year_of_batch = models.CharField(db_column='YEAR_OF_BATCH', max_length=45, blank=True, null=True)  # Field name made lowercase.
     review = models.CharField(db_column='REVIEW', max_length=250, blank=True, null=True)  # Field name made lowercase.
-    faculties = models.CharField(db_column='FACULTIES', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    administration = models.CharField(db_column='ADMINISTRATION', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    alumini = models.CharField(db_column='ALUMINI', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    atmosphere = models.CharField(db_column='ATMOSPHERE', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    faculties = models.IntegerField(db_column='FACULTIES', blank=True, null=True)  # Field name made lowercase.
+    administration = models.IntegerField(db_column='ADMINISTRATION', blank=True, null=True)  # Field name made lowercase.
+    alumni = models.IntegerField(db_column='ALUMNI', blank=True, null=True)  # Field name made lowercase.
+    atmosphere = models.IntegerField(db_column='ATMOSPHERE', blank=True, null=True)  # Field name made lowercase.
     lastupd_dttm = models.DateTimeField(db_column='LASTUPD_DTTM', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
@@ -150,16 +149,16 @@ class CollegeReview(models.Model):
     college_id = models.IntegerField(db_column='COLLEGE_ID', blank=True, null=True)  # Field name made lowercase.
     college_name = models.CharField(db_column='COLLEGE_NAME', max_length=250, blank=True, null=True)  # Field name made lowercase.
     course = models.CharField(db_column='COURSE', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    intrance = models.CharField(db_column='INTRANCE', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    entrance = models.CharField(db_column='ENTRANCE', max_length=45, blank=True, null=True)  # Field name made lowercase.
     rank = models.CharField(db_column='RANK', max_length=45, blank=True, null=True)  # Field name made lowercase.
     passout_year = models.CharField(db_column='PASSOUT_YEAR', max_length=45, blank=True, null=True)  # Field name made lowercase.
     fee = models.DecimalField(db_column='FEE', max_digits=10, decimal_places=2, blank=True, null=True)  # Field name made lowercase.
     review = models.CharField(db_column='REVIEW', max_length=250, blank=True, null=True)  # Field name made lowercase.
-    faculties = models.CharField(db_column='FACULTIES', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    infrastructure = models.CharField(db_column='INFRASTRUCTURE', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    accommodation = models.CharField(db_column='ACCOMMODATION', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    placement = models.CharField(db_column='PLACEMENT', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    social_life = models.CharField(db_column='SOCIAL_LIFE', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    faculties = models.IntegerField(db_column='FACULTIES', blank=True, null=True)  # Field name made lowercase.
+    infrastructure = models.IntegerField(db_column='INFRASTRUCTURE', blank=True, null=True)  # Field name made lowercase.
+    accommodation = models.IntegerField(db_column='ACCOMMODATION', blank=True, null=True)  # Field name made lowercase.
+    placement = models.IntegerField(db_column='PLACEMENT', blank=True, null=True)  # Field name made lowercase.
+    social_life = models.IntegerField(db_column='SOCIAL_LIFE', blank=True, null=True)  # Field name made lowercase.
     lastupd_dttm = models.DateTimeField(db_column='LASTUPD_DTTM', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
@@ -169,7 +168,7 @@ class CollegeReview(models.Model):
 
 class InstituteCourses(models.Model):
     seq_id = models.AutoField(db_column='SEQ_ID', primary_key=True)  # Field name made lowercase.
-    college_id = models.IntegerField(db_column='COLLEGE_ID', blank=True, null=True)  # Field name made lowercase.
+    institute_id = models.IntegerField(db_column='INSTITUTE_ID', blank=True, null=True)  # Field name made lowercase.
     course = models.CharField(db_column='COURSE', max_length=45, blank=True, null=True)  # Field name made lowercase.
     duration = models.CharField(db_column='DURATION', max_length=45, blank=True, null=True)  # Field name made lowercase.
     fee = models.DecimalField(db_column='FEE', max_digits=10, decimal_places=2, blank=True, null=True)  # Field name made lowercase.
@@ -273,10 +272,10 @@ class SchoolReview(models.Model):
     board = models.CharField(db_column='BOARD', max_length=45, blank=True, null=True)  # Field name made lowercase.
     fee = models.DecimalField(db_column='FEE', max_digits=10, decimal_places=2, blank=True, null=True)  # Field name made lowercase.
     review = models.CharField(db_column='REVIEW', max_length=250, blank=True, null=True)  # Field name made lowercase.
-    faculties = models.CharField(db_column='FACULTIES', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    facilities = models.CharField(db_column='FACILITIES', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    infrastructure = models.CharField(db_column='INFRASTRUCTURE', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    extra_curriculum = models.CharField(db_column='EXTRA_CURRICULUM', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    faculties = models.IntegerField(db_column='FACULTIES', blank=True, null=True)  # Field name made lowercase.
+    facilities = models.IntegerField(db_column='FACILITIES', blank=True, null=True)  # Field name made lowercase.
+    infrastructure = models.IntegerField(db_column='INFRASTRUCTURE', blank=True, null=True)  # Field name made lowercase.
+    extra_curriculum = models.IntegerField(db_column='EXTRA_CURRICULUM', blank=True, null=True)  # Field name made lowercase.
     lastupd_dttm = models.DateTimeField(db_column='LASTUPD_DTTM', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
