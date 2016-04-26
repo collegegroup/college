@@ -155,11 +155,19 @@
 
                 })
 
+
+
+
+
+
+
+
+
                 .state('review', {
 
                     url: '/review',
 
-                    templateUrl: '/static/reviewApp/templates/ReviewHome.html',
+                    templateUrl: '/static/reviewApp/templates/ReviewIndex.html',
 
                     controller: function() {
 
@@ -167,7 +175,31 @@
 
                     }
 
-                });
+                })
+
+                .state('review.college', {
+
+                    url: '/college',
+
+                    templateUrl: '/static/reviewApp/templates/CollegeReview.html'
+
+                })
+
+                .state('review.school', {
+
+                    url: '/school',
+
+                    templateUrl: '/static/reviewApp/templates/SchoolReview.html'
+
+                })
+
+                .state('review.institute', {
+
+                    url: '/institute',
+
+                    templateUrl: '/static/reviewApp/templates/InstitutionReview.html'
+
+                })        ;
 
 
 

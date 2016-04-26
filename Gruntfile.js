@@ -33,18 +33,6 @@ module.exports = function(grunt) {
                         'static/adminApp/js/services/HTTPRequestService.js',
                         'static/adminApp/js/services/utilityService.js'
 
-                        /*'static/adminApp/js/controllers/dashboard/dashboardCtrl.js',
-                        'static/adminApp/js/controllers/location/addStateCityCtrl.js',
-                        'static/adminApp/js/controllers/location/subCityPincodeCtrl.js',
-                        'static/adminApp/js/controllers/location/viewLocationsCtrl.js',
-                        
-                        'static/adminApp/js/controllers/courseManagement/collegeManagement.js',
-                        'static/adminApp/js/controllers/courseManagement/coachingManagement.js',
-
-                        'static/adminApp/js/controllers/instituteRegistration/schoolRegistration.js',
-                        'static/adminApp/js/controllers/instituteRegistration/collegeRegistration.js',
-                        'static/adminApp/js/controllers/instituteRegistration/coachingRegistration.js'*/
-
                     ],
 
                     'static/adminApp/js/sourceMin/cust.all.min.js': [
@@ -59,17 +47,7 @@ module.exports = function(grunt) {
             reviewAppMin: {
                 files: {
                     'static/reviewApp/js/sourceMin/all.min.js': [
-                        'static/reviewApp/js/controllers/app.js',
-                        'static/reviewApp/js/routes/routes.js'
-                    ],
-
-                    'static/reviewApp/js/sourceMin/cust.all.min.js': [
-                        'static/js/lib/jquery/jquery.min.js',
-                        'static/js/lib/jquery/jquery-ui.min.js',
-                        'static/js/lib/angular/angular.min.js',
-                        'static/js/lib/bootstrap/bootstrap.min.js',
-                        'static/js/lib/bootstrap/ui-bootstrap-tpls.min.js',
-                        'static/js/lib/angular/angular-ui-router.min.js'
+                       
                     ]
                 }
             },
