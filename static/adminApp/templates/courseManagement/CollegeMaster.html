@@ -61,10 +61,10 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="location in allLocations | filter:searchLocations">
+                    <tr ng-repeat="categoryCourse in collegeCategoriesCourses | filter:searchCollegeCategoriesCourses">
                         <td>{{$index+1}}</td>
-                        <td>{{categoryCourse.course_name}}</td>
                         <td>{{categoryCourse.category_name}}</td>
+                        <td>{{categoryCourse.course_name}}</td>
                     </tr>
                     </tbody>
                 </table>

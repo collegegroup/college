@@ -1,665 +1,198 @@
-<!DOCTYPE html>
-<html lang="en">
+<script type="text/javascript" src="/static/mainApp/sourceMin/cust.all.min.js"></script>
+<script data-main="/static/adminApp/js/requireJS/requireJS.js" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js"></script>
+{% load staticfiles %}
+<div>
+    <div ui-view></div>
+</div>
+<script>
+    var app = angular.module('mainCollegeApp', ["ui.router", "ui.bootstrap",
+        'mainCollegeApp.dashboard',
 
-    <link>
-    {% load staticfiles %}
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <meta name="description" content="Bootstrap Admin App + jQuery">
-        <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
-        <title>Angle - Bootstrap Admin Template</title>
-        <!-- =============== VENDOR STYLES ===============-->
-        <!-- FONT AWESOME-->
-        <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' rel='stylesheet'/>
-        <!--<link href='/static/css/font-awesome.min.css' rel='stylesheet'/>-->
-        <link rel="stylesheet" href="/static/css/font-awesome.min.css">
-        <!-- SIMPLE LINE ICONS-->
-        <link rel="stylesheet" href="/static/css/simple-line-icons.css">
-        <!-- ANIMATE.CSS-->
-        <link rel="stylesheet" href="/static/css/animate.min.css">
-        <!-- WHIRL (spinners)-->
-        <link rel="stylesheet" href="/static/css/whirl.css">
-        <!-- =============== PAGE VENDOR STYLES ===============-->
-        <!-- WEATHER ICONS-->
-        <link rel="stylesheet" href="/static/css/weather-icons.min.css">
-        <!-- =============== BOOTSTRAP STYLES ===============-->
-        <link rel="stylesheet" href="/static/css/bootstrap.css" id="bscss">
-        <!-- =============== APP STYLES ===============-->
-        <link rel="stylesheet" href="/static/css/app.css" id="maincss">
-        <script>
-            /*
-            $(function () {
-                $("#header").load("Header.html");
-                $("#footer").load("Footer.html");
-                $("#sidebar").load("SideBar.html");
-            });
-            */
-            function AddMoreCollege(ch)
-            {
-                var xmlhttp;
-                if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                    xmlhttp = new XMLHttpRequest();
-                }
-                else
-                {// code for IE6, IE5
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                }
-                xmlhttp.onreadystatechange = function ()
-                {
-                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-                    {
-                        document.getElementById("AddMoreCollege").innerHTML = xmlhttp.responseText;
+        'mainCollegeApp.addStateCityApp',
+        'mainCollegeApp.subCityPincodeApp',
+        'mainCollegeApp.viewLocationsApp',
+
+        'mainCollegeApp.collegeManagementApp',
+        'mainCollegeApp.coachingManagementApp',
+
+        'mainCollegeApp.schoolRegistrationApp',
+        'mainCollegeApp.collegeRegistrationApp',
+        'mainCollegeApp.coachingRegistrationApp']);
+
+    app.controller('mainCollegeCtrl', function($rootScope){
+
+    });
+
+
+
+
+    app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
+
+        //$locationProvider.html5Mode(true);
+
+        //$urlRouterProvider.otherwise('/review');
+
+        $urlRouterProvider.when("", "/admin/dashboard");
+
+        $urlRouterProvider.when("/", "/admin/dashboard");
+
+        $urlRouterProvider.when("/admin", "/admin/dashboard");
+
+        // For any unmatched url, send to /route1
+        $urlRouterProvider.otherwise("/admin/dashboard");
+
+        $stateProvider
+
+                .state('admin', {
+
+                    url: '/admin',
+
+                    templateUrl: '/static/adminApp/templates/adminView.html'
+
+                })
+
+                .state('admin.dashboard', {
+
+                    url: '/dashboard',
+
+                    templateUrl: '/static/adminApp/templates/dashboard/dashboard.html',
+
+                    controller: 'dashboardCtrl'
+
+                })
+
+                .state('admin.locationstatecity', {
+
+                    url: '/locationstatecity',
+
+                    templateUrl: '/static/adminApp/templates/locationManagement/AddStateCity.html',
+
+                    controller: 'addStateCityCtrl'
+
+                })
+
+                .state('admin.locationstatepin', {
+
+                    url: '/locationstatepin',
+
+                    templateUrl: '/static/adminApp/templates/locationManagement/AddSubCityPin.html',
+
+                    controller: 'subCityPincodeCtrl'
+
+                })
+
+                .state('admin.locationview', {
+
+                    url: '/locationview',
+
+                    templateUrl: '/static/adminApp/templates/locationManagement/ViewLocations.html',
+
+                    controller: 'viewLocationsCtrl'
+
+                })
+
+
+
+
+
+
+                /*From here course management routes*/
+                .state('admin.coursemanagementcollege', {
+
+                    url: '/coursemanagementcollege',
+
+                    templateUrl: '/static/adminApp/templates/courseManagement/CollegeMaster.html',
+
+                    controller: 'collegeManagementCtrl'
+
+                })
+
+                .state('admin.coursemanagementcoaching', {
+
+                    url: '/coursemanagementcoaching',
+
+                    templateUrl: '/static/adminApp/templates/courseManagement/CoachingMaster.html',
+
+                    controller: 'coachingManagementCtrl'
+
+                })
+
+
+
+
+
+
+
+
+                /*From here institute registration routes*/
+                .state('admin.instituteregistrationschool', {
+
+                    url: '/instituteregistrationschool',
+
+                    templateUrl: '/static/adminApp/templates/instituteRegistration/SchoolRegistration.html',
+
+                    controller: 'schoolRegistrationCtrl'
+
+                })
+
+                .state('admin.instituteregistrationcollege', {
+
+                    url: '/instituteregistrationcollege',
+
+                    templateUrl: '/static/adminApp/templates/instituteRegistration/CollegeRegistration.html',
+
+                    controller: 'collegeRegistrationCtrl'
+
+                })
+
+                .state('admin.instituteregistrationcoaching', {
+
+                    url: '/instituteregistrationcoaching',
+
+                    templateUrl: '/static/adminApp/templates/instituteRegistration/CoachingRegistration.html',
+
+                    controller: 'coachingRegistrationCtrl'
+
+                })
+
+                .state('review', {
+
+                    url: '/review',
+
+                    templateUrl: '/static/reviewApp/templates/ReviewHome.html',
+
+                    controller: function() {
+
+                        alert('review/college');
+
                     }
-                }
-                xmlhttp.open("GET", "AddMoreCollege.html?ch=" + ch, true);
-                xmlhttp.send();
-            }
 
-            function CollegeRegistration(ch)
-            {
-                var xmlhttp;
-                if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                    xmlhttp = new XMLHttpRequest();
-                }
-                else
-                {// code for IE6, IE5
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                }
-                xmlhttp.onreadystatechange = function ()
-                {
-                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-                    {
-                        document.getElementById("Registration").innerHTML = xmlhttp.responseText;
+                });
+
+
+
+    });
+
+    app.config(function($httpProvider) {
+
+        $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+
+        $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+
+    });
+
+    app.directive('focusMe', function($timeout) {
+        return {
+            scope: { trigger: '=focusMe' },
+            link: function(scope, element) {
+                scope.$watch('trigger', function(value) {
+                    if(value === true) {
+                        element[0].focus();
+                        scope.trigger = false;
                     }
-                }
-                xmlhttp.open("GET", "CollegeRegistration.html?ch=" + ch, true);
-                xmlhttp.send();
+                });
             }
+        };
+    });
 
-            function SchoolRegistration(ch)
-            {
-                var xmlhttp;
-                if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                    xmlhttp = new XMLHttpRequest();
-                }
-                else
-                {// code for IE6, IE5
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                }
-                xmlhttp.onreadystatechange = function ()
-                {
-                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-                    {
-                        document.getElementById("Registration").innerHTML = xmlhttp.responseText;
-                    }
-                }
-                xmlhttp.open("GET", "SchoolRegistration.html?ch=" + ch, true);
-                xmlhttp.send();
-            }
-
-            function CoachingRegistration(ch)
-            {
-                var xmlhttp;
-                if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                    xmlhttp = new XMLHttpRequest();
-                }
-                else
-                {// code for IE6, IE5
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                }
-                xmlhttp.onreadystatechange = function ()
-                {
-                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-                    {
-                        document.getElementById("Registration").innerHTML = xmlhttp.responseText;
-                    }
-                }
-                xmlhttp.open("GET", "CoachingRegistration.html?ch=" + ch, true);
-                xmlhttp.send();
-            }
-            function AddCompanyPlacement(ch)
-            {
-                var xmlhttp;
-                if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                    xmlhttp = new XMLHttpRequest();
-                }
-                else
-                {// code for IE6, IE5
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                }
-                xmlhttp.onreadystatechange = function ()
-                {
-                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-                    {
-                        document.getElementById("AddCompanyPlacement").innerHTML = xmlhttp.responseText;
-                    }
-                }
-                xmlhttp.open("GET", "AddCompanyPlacement.html?ch=" + ch, true);
-                xmlhttp.send();
-            }
-
-            function AddStateCity(ch)
-            {
-                console.log('City: ',ch);
-                /*var xmlhttp;
-                if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                    xmlhttp = new XMLHttpRequest();
-                }
-                else
-                {// code for IE6, IE5
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                }
-                xmlhttp.onreadystatechange = function ()
-                {
-                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-                    {
-                        console.log('Respons: ', xmlhttp.responseText);
-                        document.getElementById("Registration").innerHTML = xmlhttp.responseText;
-                    }
-                }
-                xmlhttp.open("GET", "AddStateCity.html?ch=" + ch, true);
-                xmlhttp.send();*/
-            }
-            function AddSubCityPin(ch)
-            {
-                var xmlhttp;
-                if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                    xmlhttp = new XMLHttpRequest();
-                }
-                else
-                {// code for IE6, IE5
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                }
-                xmlhttp.onreadystatechange = function ()
-                {
-                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-                    {
-                        document.getElementById("Registration").innerHTML = xmlhttp.responseText;
-                    }
-                }
-                xmlhttp.open("GET", "AddSubCityPin.html?ch=" + ch, true);
-                xmlhttp.send();
-            }
-            function ViewLocations(ch)
-            {
-                var xmlhttp;
-                if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                    xmlhttp = new XMLHttpRequest();
-                }
-                else
-                {// code for IE6, IE5
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                }
-                xmlhttp.onreadystatechange = function ()
-                {
-                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-                    {
-                        document.getElementById("Registration").innerHTML = xmlhttp.responseText;
-                    }
-                }
-                xmlhttp.open("GET", "ViewLocations.html?ch=" + ch, true);
-                xmlhttp.send();
-            }
-
-            function CollegeMaster(ch)
-            {
-                var xmlhttp;
-                if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                    xmlhttp = new XMLHttpRequest();
-                }
-                else
-                {// code for IE6, IE5
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                }
-                xmlhttp.onreadystatechange = function ()
-                {
-                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-                    {
-                        document.getElementById("Registration").innerHTML = xmlhttp.responseText;
-                    }
-                }
-                xmlhttp.open("GET", "CollegeMaster.html?ch=" + ch, true);
-                xmlhttp.send();
-            }
-            function CoachingMaster(ch)
-            {
-                var xmlhttp;
-                if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                    xmlhttp = new XMLHttpRequest();
-                }
-                else
-                {// code for IE6, IE5
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                }
-                xmlhttp.onreadystatechange = function ()
-                {
-                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-                    {
-                        document.getElementById("Registration").innerHTML = xmlhttp.responseText;
-                    }
-                }
-                xmlhttp.open("GET", "CoachingMaster.html?ch=" + ch, true);
-                xmlhttp.send();
-            }
-            function Dashboard(ch)
-            {
-                var xmlhttp;
-                if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                    xmlhttp = new XMLHttpRequest();
-                }
-                else
-                {// code for IE6, IE5
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                }
-                xmlhttp.onreadystatechange = function ()
-                {
-                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-                    {
-                        document.getElementById("Registration").innerHTML = xmlhttp.responseText;
-                    }
-                }
-                xmlhttp.open("GET", "dashboard.html?ch=" + ch, true);
-                xmlhttp.send();
-            }
-
-        </script>
-        <!--RUN TIME IMAGE UPLOAD FUNCTION  -->
-
-        <link href="/static/css/jquery-ui.min.css" rel="stylesheet" type="text/css" />
-        <script data-main="/static/adminApp/js/requireJS/requireJS.js" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js"></script>
-
-
-
-
-        <script>
-            function readURL(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-
-                    reader.onload = function (e) {
-                        $('#Image')
-                                .attr('src', e.target.result)
-                                .width(160)
-                                .height(160);
-                    };
-
-                    reader.readAsDataURL(input.files[0]);
-                }
-            }
-        </script>
-        <meta charset=utf-8 />
-        <!--[if IE]>
-          <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-        <style>
-            article, aside, figure, footer, header, hgroup, 
-            menu, nav, section { display: block; }
-        </style>
-
-        <!--END RUN TIME IMAGE -->
-    </head>
-
-    <body id="mainApp" ng-controller="mainCollegeCtrl">
-        <div class="wrapper">
-            <!-- top navbar-->
-            <header class="topnavbar-wrapper">
-                <!-- START Top Navbar-->
-                <nav role="navigation" class="navbar topnavbar">
-                    <!-- START navbar header-->
-                    <div class="navbar-header">
-                        <a href="#/dashboard" class="navbar-brand">
-                            <div class="brand-logo">
-                                <img src="/media/site/logo.png" alt="App Logo" class="img-responsive">
-                            </div>
-                            <div class="brand-logo-collapsed">
-                                <img src="/media/site/logo-single.png" alt="App Logo" class="img-responsive">
-                            </div>
-                        </a>
-                    </div>
-                    <!-- END navbar header-->
-                    <!-- START Nav wrapper-->
-                    <div class="nav-wrapper">
-                        <!-- START Left navbar-->
-                        <ul class="nav navbar-nav">
-                            <li>
-                                <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
-                                <a href="student_dash.html#" data-toggle-state="aside-collapsed" class="hidden-xs">
-                                    <em class="fa fa-navicon"></em>
-                                </a>
-                                <!-- Button to show/hide the sidebar on mobile. Visible on mobile only.-->
-                                <a href="student_dash.html#" data-toggle-state="aside-toggled" data-no-persist="true" class="visible-xs sidebar-toggle">
-                                    <em class="fa fa-navicon"></em>
-                                </a>
-                            </li>
-                            <!-- START User avatar toggle-->
-                            <li>
-                                <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
-                                <a id="user-block-toggle" href="student_dash.html#user-block" data-toggle="collapse">
-                                    <em class="fa fa-user"></em>
-                                </a>
-                            </li>
-                            <!-- END User avatar toggle-->
-                            <!-- START lock screen-->
-                            <li>
-                                <a href="lock.html" title="Lock screen">
-                                    <em class="fa fa-lock"></em>
-                                </a>
-                            </li>
-                            <!-- END lock screen-->
-                        </ul>
-                        <!-- END Left navbar-->
-                        <!-- START Right Navbar-->
-                        <ul class="nav navbar-nav navbar-right">
-                            <!-- Search icon-->
-                            <li>
-                                <a href="student_dash.html#" data-search-open="">
-                                    <em class="fa fa-search"></em>
-                                </a>
-                            </li>
-                            <!-- Fullscreen (only desktops)-->
-                            <!--<li class="visible-lg">
-                               <a href="dashboard.html#" data-toggle-fullscreen="">
-                                  <em class="fa fa-expand"></em>
-                               </a>
-                            </li>-->
-                            <!-- START Alert menu-->
-                            <li class="dropdown dropdown-list">
-                                <a href="/dashboard/" data-toggle="dropdown">
-                                    <em class="fa fa-bell"></em>
-                                    <div class="label label-danger">10</div>
-                                </a>
-                                <!-- START Dropdown menu-->
-                                <ul class="dropdown-menu animated flipInX">
-                                    <li>
-                                        <!-- START list group-->
-                                        <div class="list-group">
-                                            <!-- list item-->
-                                            <a href="/dashboard/" class="list-group-item">
-                                                <div class="media-box">
-                                                    <div class="pull-left">
-                                                        <em class="fa fa-twitter fa-2x text-info"></em>
-                                                    </div>
-                                                    <div class="media-box-body clearfix">
-                                                        <p class="m0">New followers</p>
-                                                        <p class="m0 text-muted">
-                                                            <small>1 new follower</small>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <!-- list item-->
-                                            <a href="/dashboard/" class="list-group-item">
-                                                <div class="media-box">
-                                                    <div class="pull-left">
-                                                        <em class="fa fa-envelope fa-2x text-warning"></em>
-                                                    </div>
-                                                    <div class="media-box-body clearfix">
-                                                        <p class="m0">New e-mails</p>
-                                                        <p class="m0 text-muted">
-                                                            <small>You have 10 new emails</small>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <!-- list item-->
-                                            <a href="/dashboard/" class="list-group-item">
-                                                <div class="media-box">
-                                                    <div class="pull-left">
-                                                        <em class="fa fa-tasks fa-2x text-success"></em>
-                                                    </div>
-                                                    <div class="media-box-body clearfix">
-                                                        <p class="m0">Pending Tasks</p>
-                                                        <p class="m0 text-muted">
-                                                            <small>11 pending task</small>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <!-- last list item -->
-                                            <a href="/dashboard/" class="list-group-item">
-                                                <small>More notifications</small>
-                                                <span class="label label-danger pull-right">14</span>
-                                            </a>
-                                        </div>
-                                        <!-- END list group-->
-                                    </li>
-                                </ul>
-                                <!-- END Dropdown menu-->
-                            </li>
-                            <!-- END Alert menu-->
-                            <!-- START Offsidebar button-->
-                            <!--<li>
-                               <a href="dashboard.html#" data-toggle-state="offsidebar-open" data-no-persist="true">
-                                  <em class="icon-notebook"></em>
-                               </a>
-                            </li>-->
-
-                            <!-- Login Section -->
-                            <li class="dropdown">
-                                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="padding-top: 10px; padding-bottom: 10px;">
-                                    <img alt="Mukesh" height="30" width="30" src="/media/site/03.jpg">
-                                    <span style="display: inline; color: rgb(119, 119, 119);">Hi! Mukesh <span class="caret" style="color: rgb(119, 119, 119);"></span></span>
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">My Profile &amp; Reviews</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Messages<span id="msgNotif" class="pull-right label label-danger" style="color: rgb(119, 119, 119);"></span></a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Logout</a></li>
-                                </ul>
-                            </li>
-                            <!-- Login End -->		
-                            <!-- END Offsidebar menu-->
-                        </ul>
-                        <!-- END Right Navbar-->
-                    </div>
-                    <!-- END Nav wrapper-->
-                    <!-- START Search form-->
-                    <form role="search" action="search.html" class="navbar-form">
-                        <div class="form-group has-feedback">
-                            <input type="text" placeholder="Type and hit enter ..." class="form-control">
-                            <div data-search-dismiss="" class="fa fa-times form-control-feedback"></div>
-                        </div>
-                        <button type="submit" class="hidden btn btn-default">Submit</button>
-                    </form>
-                    <!-- END Search form-->
-                </nav>
-                <!-- END Top Navbar-->
-            </header>
-
-
-            <!-- sidebar-->
-            <aside class="aside">
-                <!-- START Sidebar (left)-->
-                <div class="aside-inner">
-                    <nav data-sidebar-anyclick-close="" class="sidebar">
-                        <!-- START sidebar nav-->
-                        <ul class="nav">
-                            <!-- START user info-->
-                            <li class="has-user-block">
-                                <div id="user-block" class="collapse">
-                                    <div class="item user-block">
-                                        <!-- User picture-->
-                                        <div class="user-block-picture">
-                                            <div class="user-block-status">
-                                                <img src="/media/site/02.jpg" alt="Avatar" width="60" height="60" class="img-thumbnail img-circle">
-                                                <div class="circle circle-success circle-lg"></div>
-                                            </div>
-                                        </div>
-                                        <!-- Name and Job-->
-                                        <div class="user-block-info">
-                                            <span class="user-block-name">Hello, Mike</span>
-                                            <span class="user-block-role">Designer</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <!-- END user info-->
-                            <!-- Iterates over all sidebar items-->
-                            <li class="nav-heading ">
-                                <span data-localize="sidebar.heading.HEADER">Main Navigation</span>
-                            </li>
-                            <!--onclick="Dashboard(this.clicked)"-->
-                            <li class=" ">
-                                <a href="#/dashboard" data-target="#dashboard" title="Dashboard" data-toggle="collapse">
-                                    <div class="pull-right label label-info">3</div>
-                                    <em class="fa fa-tachometer"></em>
-                                    <span data-localize="sidebar.nav.DASHBOARD">Dashboard</span>
-                                </a>
-                            </li>
-                            <li class="nav-heading ">
-                                <span data-localize="sidebar.heading.HEADER">Location Management</span>
-                            </li>
-                            <li class=" ">
-                                <a href="dummy#location_menu" title="Dashboard" data-toggle="collapse">
-                                    <div class="pull-right label label-info">3</div>
-                                    <em class="fa fa-tachometer"></em>
-                                    <span >Location</span>
-                                </a>
-                                <ul id="location_menu" class="nav sidebar-subnav collapse">
-                                    <!--onclick="AddStateCity(this.clicked)"-->
-                                    <li class="">
-                                        <a href="#/location/statecity" data-target="#locationStatecity"  title="AddStateCity">
-                                            <span>STATE - CITY</span>
-                                        </a>
-                                    </li>
-                                    <!--<li class="">
-                                        <a href="/addstatecity/" title="Dashboard v1">
-                                            <span>STATE - CITY</span>
-                                        </a>
-                                    </li>-->
-                                    <!--onclick="AddSubCityPin(this.clicked)"-->
-                                    <li class=" ">
-                                        <a href="#/location/statepin" data-target="#locationStatepin"  title="AddSubCityPin">
-                                            <span>SUBCITY - PINCODE</span>
-                                        </a>
-                                    </li>
-                                    <!--onclick="ViewLocations(this.clicked)"-->
-                                    <li class=" ">
-                                        <a href="#/location/view" data-target="#locationView" title="ViewLocations">
-                                            <span>VIEW</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-heading ">
-                                <span data-localize="sidebar.heading.HEADER">Course Management</span>
-                            </li>
-                            <li class="">
-                                <a href="dashboard.html#course1"  title="Dashboard" data-toggle="collapse">
-                                    <em class="fa fa-tachometer"></em>
-                                    <span data-localize="sidebar.nav.DASHBOARD">School</span>
-                                </a>
-                                
-                            </li>
-                            <li class="">
-                                <a href="#/coursemanagement/college" data-target="#coursemanagementCollege" title="Dashboard" data-toggle="collapse">
-                                    <em class="fa fa-tachometer"></em>
-                                    <span data-localize="sidebar.nav.DASHBOARD">College</span>
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="#/coursemanagement/coaching" data-target="#coursemanagementCoaching" title="Dashboard" data-toggle="collapse">
-                                    <em class="fa fa-tachometer"></em>
-                                    <span data-localize="sidebar.nav.DASHBOARD">Coaching</span>
-                                </a>
-                            </li>
-                            <li class="nav-heading ">
-                                <span data-localize="sidebar.heading.HEADER">Institute Registration</span>
-                            </li>
-                            <li class="">
-                                <a href="#/instituteregistration/school" data-target="#instituteRegistrationSchool" title="Dashboard" data-toggle="collapse">
-                                    <em class="fa fa-tachometer"></em>
-                                    <span data-localize="sidebar.nav.DASHBOARD">School Listing</span>
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="#/instituteregistration/college" data-target="#instituteRegistrationCollege" title="Dashboard" data-toggle="collapse">
-                                    <em class="fa fa-tachometer"></em>
-                                    <span data-localize="sidebar.nav.DASHBOARD">College Listing</span>
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="#/instituteregistration/coaching" data-target="#instituteRegistrationCoaching" title="Dashboard" data-toggle="collapse">
-                                    <em class="fa fa-tachometer"></em>
-                                    <span data-localize="sidebar.nav.DASHBOARD">Coaching Listing</span>
-                                </a>
-                            </li>
-                            <li class="nav-heading ">
-                                <span data-localize="sidebar.heading.HEADER">Advertisement Management</span>
-                            </li>
-                            <!-- END sidebar nav-->
-                            </ul>
-                    </nav>
-                </div>
-                <!-- END Sidebar (left)-->
-            </aside>
-            <!-- offsidebar-->
-            <!---->
-            <!-- Main section-->
-            <section id="Registration" style="padding-top: 2em;">
-                <div ui-view></div>
-            </section>
-        </div>
-
-        <!-- Page content-->
-        <!-- Page footer-->
-        <footer>
-            <span>&copy; 2015 - Angle</span>
-        </footer>
-        <!-- =============== VENDOR SCRIPTS ===============-->
-        <!-- MODERNIZR-->
-        <!--<script src="/static/js/modernizr.custom.js"></script>-->
-        <!-- MATCHMEDIA POLYFILL-->
-        <!--<script src="/static/js/matchMedia.js"></script>-->
-        <!-- JQUERY-->
-        <!--<script src="/static/js/jquery.js"></script>-->
-        <!-- BOOTSTRAP-->
-        <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
-        <!-- STORAGE API-->
-        <!--<script src="/static/js/jquery.storageapi.js"></script>-->
-        <!-- JQUERY EASING-->
-        <!--<script src="/static/js/jquery.easing.js"></script>-->
-        <!-- ANIMO-->
-        <!--<script src="/static/js/animo.js"></script>-->
-        <!-- SLIMSCROLL-->
-        <!--<script src="/static/js/jquery.slimscroll.min.js"></script>-->
-        <!-- SCREENFULL-->
-        <!--<script src="/static/js/screenfull.js"></script>-->
-        <!-- LOCALIZE-->
-        <!--<script src="/static/js/jquery.localize.js"></script>-->
-        <!-- RTL demo-->
-        <!--<script src="/static/js/demo-rtl.js"></script>-->
-        <!-- =============== PAGE VENDOR SCRIPTS ===============-->
-        <!-- SPARKLINE-->
-        <!--<script src="/static/js/index.js"></script>-->
-        <!-- FLOT CHART-->
-        <!--<script src="/static/js/jquery.flot.js"></script>
-        <script src="/static/js/jquery.flot.tooltip.min.js"></script>
-        <script src="/static/js/jquery.flot.resize.js"></script>
-        <script src="/static/js/jquery.flot.pie.js"></script>
-        <script src="/static/js/jquery.flot.time.js"></script>
-        <script src="/static/js/jquery.flot.categories.js"></script>
-        <script src="/static/js/jquery.flot.spline.min.js"></script>-->
-        <!-- CLASSY LOADER-->
-        <!--<script src="/static/js/jquery.classyloader.min.js"></script>-->
-        <!-- MOMENT JS-->
-        <!--<script src="/static/js/moment-with-locales.min.js"></script>-->
-        <!-- DEMO-->
-        <!--<script src="/static/js/demo-flot.js"></script>-->
-        <!-- =============== APP SCRIPTS ===============-->
-        <!--<script src="/static/js/app.js"></script>-->
-    </body>
-
-</html>
+</script>

@@ -8,7 +8,7 @@ collegeApp.config([ "$stateProvider", "$urlRouterProvider",
 
     function($stateProvider, $urlRouterProvider) {
 
-        $urlRouterProvider.otherwise('/dashboard');
+        //$urlRouterProvider.otherwise('/dashboard');
 
         $stateProvider
             
@@ -28,7 +28,7 @@ collegeApp.config([ "$stateProvider", "$urlRouterProvider",
             /*From here location management routes*/
             .state('location statecity', {
 
-                url: '/location/statecity',
+                url: '/admin/locationstatecity',
 
                 templateUrl: 'static/adminApp/templates/locationManagement/AddStateCity.html',
 

@@ -11,14 +11,14 @@ require.config({
 
 });
 // Start the main app logic.
-require(['/static/adminApp/js/sourceMin/cust.all.min.js'],function(){
-    console.log('Loaded Admin lib files');
-    require(['/static/adminApp/js/sourceMin/all.min.js'],function(){
-        console.log("Loading Admin app...");
+require(['/static/reviewApp/js/sourceMin/cust.all.min.js'],function(){
+    console.log('Loaded lib files');
+    require(['/static/reviewApp/js/sourceMin/all.min.js'],function(){
+        console.log("Loading app...");
         angular.bootstrap(document.body, [
-            'mainCollegeApp'
+            'collegeReviewApp'
         ]);
-        console.log('Loaded Admin source files');
+        console.log('Loaded source files');
     });
 });
 

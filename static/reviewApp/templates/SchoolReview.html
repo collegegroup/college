@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
         <title>ACADEMICA, Home-2</title>
-        <link href="/media/site/favicon.png" type="image/x-icon" rel="shortcut icon">
+        <link href="/static/favicon.png" type="image/x-icon" rel="shortcut icon">
         <link href="/static/assets/css/master.css" rel="stylesheet">
         <!-- SWITCHER -->
         <link href="/static/assets/plugins/switcher/css/switcher.css" rel="stylesheet" id="switcher-css" media="all">
@@ -16,6 +16,12 @@
         <link href="/static/assets/plugins/switcher/css/color5.css" rel="alternate stylesheet" title="color5" media="all">
         <script src="/static/assets/plugins/jquery/jquery-1.11.3.min.js"></script>
         <link href="/static/assets/css/default.css" rel="stylesheet" type="text/css"/>
+        <!--<script>
+            $(function () {
+                $("#header").load("Header.html");
+                $("#footer").load("Footer.html");
+            });
+        </script>-->
         <style type="text/css">
         </style>
     </head>
@@ -48,20 +54,13 @@
                             <div class="section_mod-a__inner">
                                 <center>
                                     <div class="MenuBar col-sm-12" style="font-size: 1.5em;">
-                                        <div class="col-sm-4">School</div>
-                                        <div class="col-sm-4">College</div>
-                                        <div class="col-sm-4" style="border: none;">Institute</div>
+                                        <div class="col-sm-12">Write a Review</div>
                                     </div>
                                 </center>
                                 <div id="CollegeReview" class="row">
                                     <div class="col-sm-7">
                                         <section style="z-index: -1000;" class="section-advantages">
                                             <ul class="advantages advantages_mod-a list-unstyled">
-                                                <li style="width: 100%;" class="advantages__item"> <span class="advantages__icon"><i class="icon stroke icon-Pointer"></i></span>
-                                                    <div class="advantages__inner">
-                                                        <h3 class="ui-title-inner decor decor_mod-a">SELECT STATE: <a class="tooltips" href="#"><input class="form-control" type="text"><span>Enter City Name Here...</span></a></h3>
-                                                    </div>
-                                                </li>
                                                 <li style="width: 100%;" class="advantages__item"> <span class="advantages__icon"><i class="icon stroke icon-Tag"></i></span>
                                                     <div class="advantages__inner">
                                                         <h3 class="ui-title-inner decor decor_mod-a">SCHOOL NAME: <a class="tooltips" href="#"><input class="form-control" type="text" placeholder="Enter School Name"><span>Enter the school name which you are reviewing</span></a></h3>
@@ -385,8 +384,7 @@
                                                 </div>
                                             </div>
                                             <div style="text-align: right; padding-top: 6em;" class="col-sm-12">
-                                                <button style="background: #E84C3D;"  class="btn btn-primary btn-effect">SKIP</button>
-                                                <button style="background: #E84C3D;" onclick="CollegeReview(this.clicked)" class="btn btn-primary btn-effect">NEXT</button>
+                                                <button style="background: #E84C3D;" class="btn btn-primary btn-effect">FINISH</button>
                                             </div>
                                         </section>
                                         <!-- end section-advantages --> 

@@ -13,14 +13,27 @@ module.exports = function(grunt) {
                 files: {
                     //'public/js/app/services.min.js': ['public/js/app/services/*.js'],
                     'static/adminApp/js/sourceMin/all.min.js': [
-                        'static/adminApp/js/controllers/app.js',
-                        'static/adminApp/js/routes/routes.js',
+                        //'static/adminApp/js/controllers/app.js',
+                        //'static/adminApp/js/routes/routes.js',
+
+                        'static/adminApp/js/controllers/dashboard/dashboardCtrl.js',
+
+                        'static/adminApp/js/controllers/location/addStateCityCtrl.js',
+                        'static/adminApp/js/controllers/location/subCityPincodeCtrl.js',
+                        'static/adminApp/js/controllers/location/viewLocationsCtrl.js',
+
+                        'static/adminApp/js/controllers/courseManagement/collegeManagement.js',
+                        'static/adminApp/js/controllers/courseManagement/coachingManagement.js',
+
+                        'static/adminApp/js/controllers/instituteRegistration/schoolRegistration.js',
+                        'static/adminApp/js/controllers/instituteRegistration/collegeRegistration.js',
+                        'static/adminApp/js/controllers/instituteRegistration/coachingRegistration.js',
 
                         'static/adminApp/js/services/uploadService.js',
                         'static/adminApp/js/services/HTTPRequestService.js',
-                        'static/adminApp/js/services/utilityService.js',
+                        'static/adminApp/js/services/utilityService.js'
 
-                        'static/adminApp/js/controllers/dashboard/dashboardCtrl.js',
+                        /*'static/adminApp/js/controllers/dashboard/dashboardCtrl.js',
                         'static/adminApp/js/controllers/location/addStateCityCtrl.js',
                         'static/adminApp/js/controllers/location/subCityPincodeCtrl.js',
                         'static/adminApp/js/controllers/location/viewLocationsCtrl.js',
@@ -30,17 +43,11 @@ module.exports = function(grunt) {
 
                         'static/adminApp/js/controllers/instituteRegistration/schoolRegistration.js',
                         'static/adminApp/js/controllers/instituteRegistration/collegeRegistration.js',
-                        'static/adminApp/js/controllers/instituteRegistration/coachingRegistration.js'
+                        'static/adminApp/js/controllers/instituteRegistration/coachingRegistration.js'*/
 
                     ],
 
                     'static/adminApp/js/sourceMin/cust.all.min.js': [
-                        'static/js/lib/jquery/jquery.min.js',
-                        'static/js/lib/jquery/jquery-ui.min.js',
-                        'static/js/lib/angular/angular.min.js',
-                        'static/js/lib/bootstrap/bootstrap.min.js',
-                        'static/js/lib/bootstrap/ui-bootstrap-tpls.min.js',
-                        'static/js/lib/angular/angular-ui-router.min.js',
                         'static/js/lib/angular/angular-file-upload.min.js',
                         'static/js/lib/angular/angular-dateparser.min.js',
                         'static/js/lib/angular/angular-timepicker.min.js'
@@ -49,9 +56,33 @@ module.exports = function(grunt) {
 
                 }
             },
-            thirdPartyLib: {
+            reviewAppMin: {
                 files: {
-                    
+                    'static/reviewApp/js/sourceMin/all.min.js': [
+                        'static/reviewApp/js/controllers/app.js',
+                        'static/reviewApp/js/routes/routes.js'
+                    ],
+
+                    'static/reviewApp/js/sourceMin/cust.all.min.js': [
+                        'static/js/lib/jquery/jquery.min.js',
+                        'static/js/lib/jquery/jquery-ui.min.js',
+                        'static/js/lib/angular/angular.min.js',
+                        'static/js/lib/bootstrap/bootstrap.min.js',
+                        'static/js/lib/bootstrap/ui-bootstrap-tpls.min.js',
+                        'static/js/lib/angular/angular-ui-router.min.js'
+                    ]
+                }
+            },
+            mainLib: {
+                files: {
+                    'static/mainApp/sourceMin/cust.all.min.js': [
+                        'static/js/lib/jquery/jquery.min.js',
+                        'static/js/lib/jquery/jquery-ui.min.js',
+                        'static/js/lib/angular/angular.min.js',
+                        'static/js/lib/bootstrap/bootstrap.min.js',
+                        'static/js/lib/bootstrap/ui-bootstrap-tpls.min.js',
+                        'static/js/lib/angular/angular-ui-router.min.js'
+                    ]
                 }
             }
         }
