@@ -18,7 +18,7 @@ collegeReviewApp.config(function($locationProvider, $stateProvider, $urlRouterPr
 
             url: '/review',
 
-            templateUrl: '/static/reviewApp/templates/ReviewHome.html',
+            templateUrl: '/static/reviewApp/templates/ReviewSearch.html',
 
             controller: function() {
 
@@ -32,7 +32,7 @@ collegeReviewApp.config(function($locationProvider, $stateProvider, $urlRouterPr
 
             url: '/review/college',
 
-            templateUrl: '/static/reviewApp/templates/ReviewHome.html',
+            templateUrl: '/static/reviewApp/templates/ReviewSearch.html',
 
             controller: function() {
 

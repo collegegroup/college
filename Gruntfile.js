@@ -47,7 +47,10 @@ module.exports = function(grunt) {
             reviewAppMin: {
                 files: {
                     'static/reviewApp/js/sourceMin/all.min.js': [
-                       
+                        'static/reviewApp/js/controllers/searchReview.js',
+                        'static/reviewApp/js/controllers/collegeReview.js',
+                        'static/reviewApp/js/controllers/schoolReview.js',
+                        'static/reviewApp/js/controllers/instituteReview.js'
                     ]
                 }
             },

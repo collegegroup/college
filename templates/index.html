@@ -17,7 +17,12 @@
 
         'mainCollegeApp.schoolRegistrationApp',
         'mainCollegeApp.collegeRegistrationApp',
-        'mainCollegeApp.coachingRegistrationApp']);
+        'mainCollegeApp.coachingRegistrationApp',
+
+        'mainCollegeApp.searchReview',
+        'mainCollegeApp.collegeReview',
+        'mainCollegeApp.schoolReview',
+        'mainCollegeApp.instituteReview']);
 
     app.controller('mainCollegeCtrl', function($rootScope){
 
@@ -167,13 +172,17 @@
 
                     url: '/review',
 
-                    templateUrl: '/static/reviewApp/templates/ReviewIndex.html',
+                    templateUrl: '/static/reviewApp/templates/ReviewIndex.html'
 
-                    controller: function() {
+                })
 
-                        alert('review/college');
+                .state('review.search', {
 
-                    }
+                    url: '/search',
+
+                    templateUrl: '/static/reviewApp/templates/ReviewSearch.html',
+
+                    controller: 'searchReviewCtrl'
 
                 })
 
@@ -181,7 +190,9 @@
 
                     url: '/college',
 
-                    templateUrl: '/static/reviewApp/templates/CollegeReview.html'
+                    templateUrl: '/static/reviewApp/templates/CollegeReview.html',
+
+                    controller: 'collegeReviewCtrl'
 
                 })
 
@@ -189,7 +200,9 @@
 
                     url: '/school',
 
-                    templateUrl: '/static/reviewApp/templates/SchoolReview.html'
+                    templateUrl: '/static/reviewApp/templates/SchoolReview.html',
+
+                    controller: 'schoolReviewCtrl'
 
                 })
 
@@ -197,7 +210,9 @@
 
                     url: '/institute',
 
-                    templateUrl: '/static/reviewApp/templates/InstitutionReview.html'
+                    templateUrl: '/static/reviewApp/templates/InstitutionReview.html',
+
+                    controller: 'instituteReviewCtrl'
 
                 })        ;
 
