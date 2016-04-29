@@ -142,4 +142,3 @@ REST_FRAMEWORK = {
     ),
 }
 
-

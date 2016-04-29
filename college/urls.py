@@ -57,7 +57,7 @@ urlpatterns = [
     url(r'^college/(?P<college_id>.*)/', GetCollegeForReview.as_view()),
 
     # REVIEW RELATED ALL URL'S
-    url(r'^review/', ReviewHome.as_view()),
+    url(r'^review/home/', ReviewHome.as_view()),
     url(r'^review/review/', ReviewPage.as_view()),
     url(r'^review/search/', GetOrganizationDetails.as_view()),
     url(r'^review/college/', AddCollegeReview.as_view()),
