@@ -9,7 +9,7 @@ Primary use:	Academica
 
 /* FONTS*/
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:700,600,400,300|Montserrat:400,700|Lato:400,300,700,900,400italic);
-@import url('../fonts/font-awesome/css/font-awesome.min.css');
+/*@import url('../fonts/font-awesome/css/font-awesome.min.css');*/
 @import url('../fonts/stroke/style.css');
 
 /* PLUGIN CSS */
