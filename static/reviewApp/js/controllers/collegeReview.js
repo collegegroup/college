@@ -2,7 +2,7 @@
  * Created by bhanu on 26/4/16.
  */
 
-var collegeReviewApp = angular.module('mainCollegeApp.collegeReview', []);
+var collegeReviewApp = angular.module('mainCollegeApp.collegeReview', ['starRating']);
 
 collegeReviewApp.controller('collegeReviewCtrl', function($scope, HTTPService, utilityService, $stateParams) {
 
@@ -12,7 +12,7 @@ collegeReviewApp.controller('collegeReviewCtrl', function($scope, HTTPService, u
 
         user_id: "",
 
-        college_id: '',
+        college_id: $scope.collegeID,
 
         college_name: "",
 
@@ -30,15 +30,15 @@ collegeReviewApp.controller('collegeReviewCtrl', function($scope, HTTPService, u
 
         review: "",
 
-        accommodation: 0,
+        accommodation: 1,
 
-        infrastructure: 0,
+        infrastructure: 1,
 
-        faculties: 0,
+        faculties: 1,
 
-        placement: 0,
+        placement: 1,
 
-        social_life: 0
+        social_life: 1
     };
 
 
@@ -91,7 +91,7 @@ collegeReviewApp.controller('collegeReviewCtrl', function($scope, HTTPService, u
      * */
     $scope.$on('collegeReviewSuccess', function (event, response) {
 
-        console.log('Response: ', response);
+        
 
     });
     $scope.$on('collegeReviewError', function (event, response) {
@@ -113,7 +113,7 @@ collegeReviewApp.controller('collegeReviewCtrl', function($scope, HTTPService, u
      * */
     $scope.$on('getCollegeRecordSuccess', function (event, response) {
 
-        console.log('Respons: ', response);
+        $scope.collegeJSONData.college_name = response.data.data.college_name;
 
     });
     $scope.$on('getCollegeRecordError', function (event, response) {

@@ -3,7 +3,7 @@
  */
 
 
-var schoolReviewApp = angular.module('mainCollegeApp.schoolReview', []);
+var schoolReviewApp = angular.module('mainCollegeApp.schoolReview', ['starRating']);
 
 schoolReviewApp.controller('schoolReviewCtrl', function($scope, HTTPService, utilityService, $stateParams) {
 
@@ -11,12 +11,11 @@ schoolReviewApp.controller('schoolReviewCtrl', function($scope, HTTPService, uti
 
     $scope.schoolID = $stateParams.acadamyID;
 
-
     $scope.schoolJSONData = {
         
         user_id: "",
         
-        school_id: '',
+        school_id: $scope.schoolID,
         
         school_name: "",
         
@@ -34,15 +33,15 @@ schoolReviewApp.controller('schoolReviewCtrl', function($scope, HTTPService, uti
         
         review: "",
         
-        faculties: 0,
+        faculties: 1,
         
-        infrastructure: 0,
+        infrastructure: 1,
         
-        facilities: 0,
+        facilities: 1,
         
-        extra_curriculum: 0,
+        extra_curriculum: 1,
         
-        social_life: 0
+        social_life: 1
     };
 
 
@@ -120,7 +119,9 @@ schoolReviewApp.controller('schoolReviewCtrl', function($scope, HTTPService, uti
      * */
     $scope.$on('getSchoolRecordSuccess', function (event, response) {
 
-        console.log('Respons: ', response);
+        console.log('Respons: ', response.data.data.school_name);
+
+        $scope.schoolJSONData.school_name = response.data.data.school_name;
 
     });
     $scope.$on('getSchoolRecordError', function (event, response) {

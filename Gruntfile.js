@@ -48,6 +48,7 @@ module.exports = function(grunt) {
                 files: {
                     'static/reviewApp/js/sourceMin/all.min.js': [
                         'static/reviewApp/js/directives/massautocomplete.js',
+                        'static/reviewApp/js/directives/starRating.js',
                         
                         'static/reviewApp/js/controllers/searchReview.js',
                         'static/reviewApp/js/controllers/collegeReview.js',

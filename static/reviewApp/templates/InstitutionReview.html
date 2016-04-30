@@ -309,23 +309,27 @@
                             <div style="padding-left: 4em;" class="col-sm-12">
                                 <div style="" class="col-sm-12">
                                     <div class="col-sm-6"> <h3 class="ui-title-inner decor decor_mod-a">faculties:</h3></div>
-                                    <div class="col-sm-6 rating"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></div>
+                                    <div class="star-rating" star-rating rating-value="coachingJSONData.faculties"
+                                         data-max="5" on-rating-selected=""></div>
                                 </div>
                                 <div style="" class="col-sm-12">
                                     <div class="col-sm-6"><h3 class="ui-title-inner decor decor_mod-a">Administration:</h3></div>
-                                    <div class="col-sm-6 rating"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></div>
+                                    <div class="star-rating" star-rating rating-value="coachingJSONData.administration"
+                                         data-max="5" on-rating-selected=""></div>
                                 </div>
                                 <div style="" class="col-sm-12">
                                     <div class="col-sm-6"><h3 class="ui-title-inner decor decor_mod-a">Alumni:</h3></div>
-                                    <div class="col-sm-6 rating"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></div>
+                                    <div class="star-rating" star-rating rating-value="coachingJSONData.alumni"
+                                         data-max="5" on-rating-selected=""></div>
                                 </div>
                                 <div style="" class="col-sm-12">
                                     <div class="col-sm-6"><h3 class="ui-title-inner decor decor_mod-a">Atmosphare:</h3></div>
-                                    <div class="col-sm-6 rating"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></div>
+                                    <div class="star-rating" star-rating rating-value="coachingJSONData.atmosphere"
+                                         data-max="5" on-rating-selected=""></div>
                                 </div>
                             </div>
                             <div style="text-align: right; padding-top: 6em; padding-bottom: 2em;" class="col-sm-12">
-                                <button style="background: #E84C3D;" class="btn btn-primary btn-effect">FINISH</button>
+                                <button ng-click="submitCoachingReview(coachingJSONData)" style="background: #E84C3D;" class="btn btn-primary btn-effect">FINISH</button>
                             </div>
                         </section>
                         <!-- end section-advantages -->

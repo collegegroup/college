@@ -12,7 +12,7 @@ instituteReviewApp.controller('instituteReviewCtrl', function($scope, HTTPServic
 
         user_id: "",
 
-        institute_id: '',
+        institute_id: $scope.coachingID,
 
         institute_name: "",
 
@@ -26,13 +26,13 @@ instituteReviewApp.controller('instituteReviewCtrl', function($scope, HTTPServic
 
         review: "",
 
-        faculties: 0,
+        faculties: 1,
 
-        administration: 0,
+        administration: 1,
 
-        alumni: 0,
+        alumni: 1,
 
-        atmosphere: 0
+        atmosphere: 1
     };
 
 
@@ -107,7 +107,7 @@ instituteReviewApp.controller('instituteReviewCtrl', function($scope, HTTPServic
      * */
     $scope.$on('getCoachingRecordSuccess', function (event, response) {
 
-        console.log('Respons: ', response);
+        $scope.coachingJSONData.institute_name = response.data.data.institute_name;
 
     });
     $scope.$on('getCoachingRecordError', function (event, response) {
