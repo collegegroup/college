@@ -16,7 +16,11 @@
                             <ul class="advantages advantages_mod-a list-unstyled">
                                 <li style="width: 100%;" class="advantages__item"> <span class="advantages__icon"><i class="icon stroke icon-Tag"></i></span>
                                     <div class="advantages__inner">
-                                        <h3 class="ui-title-inner decor decor_mod-a">SCHOOL NAME: <a class="tooltips" href="#"><input class="form-control" type="text" placeholder="Enter School Name"><span>Enter the school name which you are reviewing</span></a></h3>
+                                        <h3 class="ui-title-inner decor decor_mod-a">SCHOOL NAME:
+                                            <a class="tooltips" >
+                                                <input class="form-control" ng-model="schoolJSONData.school_name" type="text" placeholder="Enter School Name"><span>Enter the school name which you are reviewing</span>
+                                            </a>
+                                        </h3>
                                     </div>
                                 </li>
                             </ul>
@@ -24,22 +28,8 @@
                                 <li class="advantages__item"> <span class="advantages__icon"><i class="icon stroke icon-User"></i></span>
                                     <div class="advantages__inner">
                                         <h3 class="ui-title-inner decor decor_mod-a">CLASS:
-                                            <a class="tooltips" href="#">
-                                                <select class="form-control">
-                                                    <option>Select Class</option>
-                                                    <option>Class - 1</option>
-                                                    <option>Class - 2</option>
-                                                    <option>Class - 3</option>
-                                                    <option>Class - 4</option>
-                                                    <option>Class - 5</option>
-                                                    <option>Class - 6</option>
-                                                    <option>Class - 7</option>
-                                                    <option>Class - 8</option>
-                                                    <option>Class - 9</option>
-                                                    <option>Class - 10</option>
-                                                    <option>Class - 11</option>
-                                                    <option>Class - 12</option>
-                                                </select>
+                                            <a class="tooltips" >
+                                                <input type="text" ng-model="schoolJSONData.class" class="form-control" />
                                                 <span>Enter the school name which you are reviewing</span>
                                             </a>
                                         </h3>
@@ -47,14 +37,19 @@
                                 </li>
                                 <li class="advantages__item"> <span class="advantages__icon"><i class="icon stroke icon-List"></i></span>
                                     <div class="advantages__inner">
-                                        <h3 class="ui-title-inner decor decor_mod-a">STREAM:  <a class="tooltips" href="#"><input class="form-control" type="text" placeholder="Enter Stream"><span>Enter the school name which you are reviewing</span></a></h3>
+                                        <h3 class="ui-title-inner decor decor_mod-a">STREAM:
+                                            <a class="tooltips" >
+                                                <input ng-model="schoolJSONData.stream" class="form-control" type="text" placeholder="Enter Stream">
+                                                <span>Enter the school name which you are reviewing</span>
+                                            </a>
+                                        </h3>
                                     </div>
                                 </li>
                                 <li class="advantages__item"> <span class="advantages__icon"><i class="icon stroke icon-Agenda"></i></span>
                                     <div class="advantages__inner">
                                         <h3 class="ui-title-inner decor decor_mod-a">YEAR:
-                                            <a class="tooltips" href="#">
-                                                <select class="form-control" >
+                                            <a class="tooltips" >
+                                                <select ng-model="schoolJSONData.year" class="form-control" >
                                                     <option value="" selected="selected">Select Year</option>
 
                                                     <option value="2016">2016
@@ -296,12 +291,22 @@
                                 </li>
                                 <li class="advantages__item"> <span class="advantages__icon"><i class="icon stroke icon-Shield"></i></span>
                                     <div class="advantages__inner">
-                                        <h3 class="ui-title-inner decor decor_mod-a">BOARD:  <a class="tooltips" href="#"><input class="form-control" type="text" placeholder="Enter Board"><span>Enter the school name which you are reviewing</span></a></h3>
+                                        <h3 class="ui-title-inner decor decor_mod-a">BOARD:
+                                            <a class="tooltips" >
+                                                <input ng-model="schoolJSONData.board" class="form-control" type="text" placeholder="Enter Board">
+                                                <span>Enter the school name which you are reviewing</span>
+                                            </a>
+                                        </h3>
                                     </div>
                                 </li>
                                 <li class="advantages__item"> <span class="advantages__icon"><i class="icon stroke icon-Dollars"></i></span>
                                     <div class="advantages__inner">
-                                        <h3 class="ui-title-inner decor decor_mod-a">FEE:  <a class="tooltips" href="#"><input class="form-control" type="text" placeholder="Enter Fee"><span>Enter the school name which you are reviewing</span></a></h3>
+                                        <h3 class="ui-title-inner decor decor_mod-a">FEE:
+                                            <a class="tooltips" >
+                                                <input ng-model="schoolJSONData.fee" class="form-control" type="text" placeholder="Enter Fee">
+                                                <span>Enter the school name which you are reviewing</span>
+                                            </a>
+                                        </h3>
                                     </div>
                                 </li>
                             </ul>
@@ -314,7 +319,9 @@
                             <ul class="advantages advantages_mod-a list-unstyled">
                                 <li style="width: 100%;" class="advantages__item"> <span class="advantages__icon"><i class="icon stroke icon-Edit"></i></span>
                                     <div class="advantages__inner">
-                                        <h3 class="ui-title-inner decor decor_mod-a">write a review:  <textarea style="height: 10em;" class="form-control" placeholder="Write Review Here..."></textarea></h3>
+                                        <h3 class="ui-title-inner decor decor_mod-a">write a review:
+                                            <textarea ng-model="schoolJSONData.review" style="height: 10em;" class="form-control" placeholder="Write Review Here..."></textarea>
+                                        </h3>
                                     </div>
                                 </li>
                             </ul>
@@ -337,7 +344,7 @@
                                 </div>
                             </div>
                             <div style="text-align: right; padding-top: 6em;" class="col-sm-12">
-                                <button style="background: #E84C3D;" class="btn btn-primary btn-effect">FINISH</button>
+                                <button ng-click="submitSchoolReview(schoolJSONData)" style="background: #E84C3D;" class="btn btn-primary btn-effect">FINISH</button>
                             </div>
                         </section>
                         <!-- end section-advantages -->

@@ -16,31 +16,51 @@
                             <ul class="advantages advantages_mod-a list-unstyled">
                                 <li style="width: 100%;" class="advantages__item"> <span class="advantages__icon"><i class="icon stroke icon-Tag"></i></span>
                                     <div class="advantages__inner">
-                                        <h3 class="ui-title-inner decor decor_mod-a">College Name: <a class="tooltips" href="#"><input class="form-control" type="text" placeholder="Enter College Name"><span>Enter the school name which you are reviewing</span></a></h3>
+                                        <h3 class="ui-title-inner decor decor_mod-a">College Name:
+                                            <a class="tooltips" >
+                                                <input ng-model="collegeJSONData.college_name" class="form-control" type="text" placeholder="Enter College Name">
+                                                <span>Enter the school name which you are reviewing</span>
+                                            </a>
+                                        </h3>
                                     </div>
                                 </li>
                             </ul>
                             <ul class="advantages advantages_mod-a list-unstyled">
                                 <li class="advantages__item"> <span class="advantages__icon"><i class="icon stroke icon-Book"></i></span>
                                     <div class="advantages__inner">
-                                        <h3 class="ui-title-inner decor decor_mod-a">COURSE: <a class="tooltips" href="#"><input class="form-control" type="text" placeholder="Enter Course"><span>Enter the school name which you are reviewing</span></a></h3>
+                                        <h3 class="ui-title-inner decor decor_mod-a">COURSE:
+                                            <a class="tooltips" >
+                                                <input ng-model="collegeJSONData.course" class="form-control" type="text" placeholder="Enter Course">
+                                                <span>Enter the school name which you are reviewing</span>
+                                            </a>
+                                        </h3>
                                     </div>
                                 </li>
                                 <li class="advantages__item"> <span class="advantages__icon"><i class="icon stroke icon-Pencil"></i></span>
                                     <div class="advantages__inner">
-                                        <h3 class="ui-title-inner decor decor_mod-a">ENTRANCE EXAM: <a class="tooltips" href="#"><input class="form-control" type="text" placeholder="Enter Enterence Exam"><span>Enter the school name which you are reviewing</span></a></h3>
+                                        <h3 class="ui-title-inner decor decor_mod-a">ENTRANCE EXAM:
+                                            <a class="tooltips" >
+                                                <input ng-model="collegeJSONData.entrance"  class="form-control" type="text" placeholder="Enter Enterence Exam">
+                                                <span>Enter the school name which you are reviewing</span>
+                                            </a>
+                                        </h3>
                                     </div>
                                 </li>
                                 <li class="advantages__item"> <span class="advantages__icon"><i class="icon stroke icon-Star"></i></span>
                                     <div class="advantages__inner">
-                                        <h3 class="ui-title-inner decor decor_mod-a">RANK: <a class="tooltips" href="#"><input class="form-control" type="text" placeholder="Enter Score/Percentile"><span>Enter the school name which you are reviewing</span></a></h3>
+                                        <h3 class="ui-title-inner decor decor_mod-a">RANK:
+                                            <a class="tooltips" >
+                                                <input ng-model="collegeJSONData.rank"  class="form-control" type="text" placeholder="Enter Score/Percentile">
+                                                <span>Enter the school name which you are reviewing</span>
+                                            </a>
+                                        </h3>
                                     </div>
                                 </li>
                                 <li class="advantages__item"> <span class="advantages__icon"><i class="icon stroke icon-Agenda"></i></span>
                                     <div class="advantages__inner">
                                         <h3 class="ui-title-inner decor decor_mod-a">PASSOUT YEAR:
-                                            <a class="tooltips" href="#">
-                                                <select class="form-control" >
+                                            <a class="tooltips" >
+                                                <select ng-model="collegeJSONData.pass_out_year"  class="form-control" >
                                                     <option value="" selected="selected">Select Year</option>
 
                                                     <option value="2016">2016
@@ -282,7 +302,12 @@
                                 </li>
                                 <li class="advantages__item"> <span class="advantages__icon"><i class="icon stroke icon-Dollars"></i></span>
                                     <div class="advantages__inner">
-                                        <h3 class="ui-title-inner decor decor_mod-a">FEE: <a class="tooltips" href="#"><input class="form-control" type="text" placeholder="Enter Fee"><span>Enter the school name which you are reviewing</span></a></h3>
+                                        <h3 class="ui-title-inner decor decor_mod-a">FEE:
+                                            <a class="tooltips" >
+                                                <input ng-model="collegeJSONData.fee"  class="form-control" type="text" placeholder="Enter Fee">
+                                                <span>Enter the school name which you are reviewing</span>
+                                            </a>
+                                        </h3>
                                     </div>
                                 </li>
                             </ul>
@@ -295,7 +320,9 @@
                             <ul class="advantages advantages_mod-a list-unstyled">
                                 <li style="width: 100%;" class="advantages__item"> <span class="advantages__icon"><i class="icon stroke icon-Edit"></i></span>
                                     <div class="advantages__inner">
-                                        <h3 class="ui-title-inner decor decor_mod-a">write a review: <textarea style="height: 10em;" class="form-control" placeholder="Write Review Here..."></textarea></h3>
+                                        <h3 class="ui-title-inner decor decor_mod-a">write a review:
+                                            <textarea ng-model="collegeJSONData.review"  style="height: 10em;" class="form-control" placeholder="Write Review Here..."></textarea>
+                                        </h3>
                                     </div>
                                 </li>
                             </ul>
@@ -322,7 +349,7 @@
                                 </div>
                             </div>
                             <div style="text-align: right; padding-top: 6em; padding-bottom: 2em;" class="col-sm-12">
-                                <button style="background: #E84C3D;" class="btn btn-primary btn-effect">FINISH</button>
+                                <button ng-click="submitCollegeReview(collegeJSONData)" style="background: #E84C3D;" class="btn btn-primary btn-effect">FINISH</button>
                             </div>
                         </section>
                         <!-- end section-advantages -->

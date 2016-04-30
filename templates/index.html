@@ -6,7 +6,7 @@
     <div ui-view></div>
 </div>
 <script>
-    var app = angular.module('mainCollegeApp', ["ui.router", "ui.bootstrap",
+    var app = angular.module('mainCollegeApp', ["ui.router", "ui.bootstrap", "ngSanitize",
         'mainCollegeApp.dashboard',
 
         'mainCollegeApp.addStateCityApp',
@@ -38,14 +38,16 @@
 
         //$urlRouterProvider.otherwise('/review');
 
-        $urlRouterProvider.when("", "/admin/dashboard");
+        $urlRouterProvider.when("", "/review/home");
 
-        $urlRouterProvider.when("/", "/admin/dashboard");
+        $urlRouterProvider.when("/", "/review/home");
 
         $urlRouterProvider.when("/admin", "/admin/dashboard");
 
+        $urlRouterProvider.when("/admin/", "/admin/dashboard");
+
         // For any unmatched url, send to /route1
-        $urlRouterProvider.otherwise("/admin/dashboard");
+        $urlRouterProvider.otherwise("/review/home");
 
         $stateProvider
 
@@ -177,9 +179,9 @@
 
                 })
 
-                .state('review.search', {
+                .state('review.home', {
 
-                    url: '/search',
+                    url: '/home',
 
                     templateUrl: '/static/reviewApp/templates/ReviewSearch.html',
 
@@ -189,7 +191,7 @@
 
                 .state('review.college', {
 
-                    url: '/college',
+                    url: '/college/:acadamyID',
 
                     templateUrl: '/static/reviewApp/templates/CollegeReview.html',
 
@@ -199,7 +201,7 @@
 
                 .state('review.school', {
 
-                    url: '/school',
+                    url: '/school/:acadamyID',
 
                     templateUrl: '/static/reviewApp/templates/SchoolReview.html',
 
@@ -207,9 +209,9 @@
 
                 })
 
-                .state('review.institute', {
+                .state('review.coaching', {
 
-                    url: '/institute',
+                    url: '/coaching/:acadamyID',
 
                     templateUrl: '/static/reviewApp/templates/InstitutionReview.html',
 

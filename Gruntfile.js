@@ -47,6 +47,8 @@ module.exports = function(grunt) {
             reviewAppMin: {
                 files: {
                     'static/reviewApp/js/sourceMin/all.min.js': [
+                        'static/reviewApp/js/directives/massautocomplete.js',
+                        
                         'static/reviewApp/js/controllers/searchReview.js',
                         'static/reviewApp/js/controllers/collegeReview.js',
                         'static/reviewApp/js/controllers/schoolReview.js',
@@ -60,6 +62,7 @@ module.exports = function(grunt) {
                         'static/js/lib/jquery/jquery.min.js',
                         'static/js/lib/jquery/jquery-ui.min.js',
                         'static/js/lib/angular/angular.min.js',
+                        'static/js/lib/angular/angular-sanitize.min.js',
                         'static/js/lib/bootstrap/bootstrap.min.js',
                         'static/js/lib/bootstrap/ui-bootstrap-tpls.min.js',
                         'static/js/lib/angular/angular-ui-router.min.js'
