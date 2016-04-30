@@ -15,10 +15,10 @@
                         <section style="z-index: -1000;" class="section-advantages">
                             <ul class="advantages advantages_mod-a list-unstyled">
                                 <li style="width: 100%;" class="advantages__item"> <span class="advantages__icon"><i class="icon stroke icon-Tag"></i></span>
-                                    <div class="advantages__inner">
+                                    <div class="advantages__inner" ng-class="{'has-error': schoolNameError}">
                                         <h3 class="ui-title-inner decor decor_mod-a">SCHOOL NAME:
                                             <a class="tooltips" >
-                                                <input class="form-control" ng-model="schoolJSONData.school_name" type="text" placeholder="Enter School Name"><span>Enter the school name which you are reviewing</span>
+                                                <input focus-me="schoolNameFocus" class="form-control" ng-model="schoolJSONData.school_name" type="text" placeholder="Enter School Name"><span>Enter the school name which you are reviewing</span>
                                             </a>
                                         </h3>
                                     </div>
@@ -26,30 +26,30 @@
                             </ul>
                             <ul class="advantages advantages_mod-a list-unstyled">
                                 <li class="advantages__item"> <span class="advantages__icon"><i class="icon stroke icon-User"></i></span>
-                                    <div class="advantages__inner">
+                                    <div class="advantages__inner" ng-class="{'has-error': classNameError}">
                                         <h3 class="ui-title-inner decor decor_mod-a">CLASS:
                                             <a class="tooltips" >
-                                                <input type="text" ng-model="schoolJSONData.class" class="form-control" />
+                                                <input focus-me="classNameFocus" type="text" ng-model="schoolJSONData.class" class="form-control" />
                                                 <span>Enter the school name which you are reviewing</span>
                                             </a>
                                         </h3>
                                     </div>
                                 </li>
                                 <li class="advantages__item"> <span class="advantages__icon"><i class="icon stroke icon-List"></i></span>
-                                    <div class="advantages__inner">
+                                    <div class="advantages__inner" ng-class="{'has-error': streamNameError}">
                                         <h3 class="ui-title-inner decor decor_mod-a">STREAM:
                                             <a class="tooltips" >
-                                                <input ng-model="schoolJSONData.stream" class="form-control" type="text" placeholder="Enter Stream">
+                                                <input focus-me="streamNameFocus" ng-model="schoolJSONData.stream" class="form-control" type="text" placeholder="Enter Stream">
                                                 <span>Enter the school name which you are reviewing</span>
                                             </a>
                                         </h3>
                                     </div>
                                 </li>
                                 <li class="advantages__item"> <span class="advantages__icon"><i class="icon stroke icon-Agenda"></i></span>
-                                    <div class="advantages__inner">
+                                    <div class="advantages__inner" ng-class="{'has-error': yearError}">
                                         <h3 class="ui-title-inner decor decor_mod-a">YEAR:
                                             <a class="tooltips" >
-                                                <select ng-model="schoolJSONData.year" class="form-control" >
+                                                <select focus-me="yearFocus" ng-model="schoolJSONData.year" class="form-control" >
                                                     <option value="" selected="selected">Select Year</option>
 
                                                     <option value="2016">2016
@@ -290,20 +290,20 @@
                                     </div>
                                 </li>
                                 <li class="advantages__item"> <span class="advantages__icon"><i class="icon stroke icon-Shield"></i></span>
-                                    <div class="advantages__inner">
+                                    <div class="advantages__inner" ng-class="{'has-error': boardError}">
                                         <h3 class="ui-title-inner decor decor_mod-a">BOARD:
                                             <a class="tooltips" >
-                                                <input ng-model="schoolJSONData.board" class="form-control" type="text" placeholder="Enter Board">
+                                                <input focus-me="boardFocus" ng-model="schoolJSONData.board" class="form-control" type="text" placeholder="Enter Board">
                                                 <span>Enter the school name which you are reviewing</span>
                                             </a>
                                         </h3>
                                     </div>
                                 </li>
                                 <li class="advantages__item"> <span class="advantages__icon"><i class="icon stroke icon-Dollars"></i></span>
-                                    <div class="advantages__inner">
+                                    <div class="advantages__inner" ng-class="{'has-error': feeError}">
                                         <h3 class="ui-title-inner decor decor_mod-a">FEE:
                                             <a class="tooltips" >
-                                                <input ng-model="schoolJSONData.fee" class="form-control" type="text" placeholder="Enter Fee">
+                                                <input focus-me="feeFocus" ng-model="schoolJSONData.fee" class="form-control" type="text" placeholder="Enter Fee">
                                                 <span>Enter the school name which you are reviewing</span>
                                             </a>
                                         </h3>

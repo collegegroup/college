@@ -49,6 +49,225 @@ collegeReviewApp.controller('collegeReviewCtrl', function($scope, HTTPService, u
 
 
 
+
+    $scope.collegeNameError = false;
+    $scope.courseError = false;
+    $scope.entranceError = false;
+    $scope.rankError = false;
+    $scope.passOutYearError = false;
+    $scope.collegeFeeError = false;
+    
+    $scope.collegeFeeFocus = false;
+    $scope.passOutYearFocus = false;
+    $scope.rankFocus= false;
+    $scope.entranceFocus = false;
+    $scope.courseFocus = false;
+    $scope.collegeNameFocus = false;
+
+
+
+
+
+
+
+
+
+
+    /*
+     * This method is used to prepare college json data
+     * */
+    $scope.prepareCollegeJSONData = function (jsonData) {
+
+        $scope.collegeJSONData.accommodation = jsonData.accommodation.toString();
+        $scope.collegeJSONData.infrastructure = jsonData.infrastructure.toString();
+        $scope.collegeJSONData.faculties = jsonData.faculties.toString();
+        $scope.collegeJSONData.placement = jsonData.placement.toString();
+        $scope.collegeJSONData.social_life = jsonData.social_life.toString();
+
+        return $scope.collegeJSONData;
+
+    };
+    /*
+     * This method is used to prepare college json data
+     * */
+
+
+
+
+
+
+
+
+
+    /*
+     * These are the validation methods for school JSON
+     * */
+    $scope.validateCollegeName = function (collegeName) {
+
+        if(utilityService.validateText(collegeName, "COLLEGE REVIEW COLLEGE NAME VALIDATION")) {
+
+            $scope.collegeNameError = false;
+            $scope.collegeNameFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.collegeNameError = true;
+            $scope.collegeNameFocus = true;
+
+            return false;
+
+        }
+
+    };
+
+    $scope.validateCourse = function (course) {
+
+        if(utilityService.validateText(course, "COLLEGE REVIEW COURSE VALIDATION")) {
+
+            $scope.courseError = false;
+            $scope.courseFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.courseError = true;
+            $scope.courseFocus = true;
+
+            return false;
+
+        }
+
+    };
+
+    $scope.validateEntrance = function (entrance) {
+
+        if(utilityService.validateText(entrance, "COLLEGE REVIEW ENTRANCE VALIDATION")) {
+
+            $scope.entranceError = false;
+            $scope.entranceFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.entranceError = true;
+            $scope.entranceFocus = true;
+
+            return false;
+
+        }
+
+    };
+
+    $scope.validateRank = function (rank) {
+
+        if(utilityService.validateText(rank, "COLLEGE RANK VALIDATION")) {
+
+            $scope.rankError = false;
+            $scope.rankFocus= false;
+
+            return true;
+
+        }  else {
+
+            $scope.rankError = true;
+            $scope.rankFocus = true;
+
+            return false;
+
+        }
+
+    };
+
+    $scope.validatePassOutYear = function (passOutYear) {
+
+        if(utilityService.validateText(passOutYear, "SCHOOL BOARD VALIDATION")) {
+
+            $scope.passOutYearError = false;
+            $scope.passOutYearFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.passOutYearError = true;
+            $scope.passOutYearFocus = true;
+
+            return false;
+
+        }
+
+    };
+
+    $scope.validateFee = function (fee) {
+
+        if(utilityService.validateText(fee, "COLLEGE FEE VALIDATION")) {
+
+            $scope.collegeFeeError = false;
+            $scope.collegeFeeFocus = false;
+
+            return true;
+
+        }  else {
+
+            $scope.collegeFeeError = true;
+            $scope.collegeFeeFocus = true;
+
+            return false;
+
+        }
+
+    };
+    /*
+     * These are the validation methods for school JSON
+     * */
+
+    
+    
+    
+    
+
+
+
+
+    /*
+     * This method is used to validate the JSON data
+     * */
+    $scope.validateCollegeJSONData = function (jsonData) {
+
+        if($scope.validateCollegeName(jsonData.college_name) &&
+            $scope.validateCourse(jsonData.course) &&
+            $scope.validateEntrance(jsonData.entrance) &&
+            $scope.validateRank(jsonData.rank) &&
+            $scope.validatePassOutYear(jsonData.pass_out_year) &&
+            $scope.validateFee(jsonData.fee)) {
+
+            jsonData = $scope.prepareCollegeJSONData(jsonData);
+
+            return true;
+
+        } else {
+
+            return false;
+
+        }
+
+    };
+    /*
+     * This method is used to validate the JSON data
+     * */
+
+
+
+
+
+
+
+
+
     /*
      * THis is used get particular  college record
      * */
@@ -69,9 +288,13 @@ collegeReviewApp.controller('collegeReviewCtrl', function($scope, HTTPService, u
      * */
     $scope.submitCollegeReview = function (collegeJSONData) {
 
-        var formData = utilityService.objectToRequestData({jsonData: encodeURIComponent(JSON.stringify(collegeJSONData))});
+        if($scope.validateCollegeJSONData(collegeJSONData)) {
 
-        HTTPService.POSTRequest('/review/college/', formData, 'collegeReview');
+            var formData = utilityService.objectToRequestData({jsonData: encodeURIComponent(JSON.stringify(collegeJSONData))});
+
+            HTTPService.POSTRequest('/review/college/', formData, 'collegeReview');
+
+        }
 
     };
     /*

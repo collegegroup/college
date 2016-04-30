@@ -15,10 +15,10 @@
                         <section class="section-advantages">
                             <ul class="advantages advantages_mod-a list-unstyled">
                                 <li style="width: 100%;" class="advantages__item"> <span class="advantages__icon"><i class="icon stroke icon-Tag"></i></span>
-                                    <div class="advantages__inner">
+                                    <div class="advantages__inner" ng-class="{'has-error': instituteNameError}">
                                         <h3 class="ui-title-inner decor decor_mod-a">Institute Name:
                                             <a class="tooltips" >
-                                                <input ng-model="coachingJSONData.institute_name" class="form-control" type="text" placeholder="Enter Institute Name">
+                                                <input focus-me="instituteNameFocus" ng-model="coachingJSONData.institute_name" class="form-control" type="text" placeholder="Enter Institute Name">
                                                 <span>Enter the school name which you are reviewing</span>
                                             </a>
                                         </h3>
@@ -27,30 +27,30 @@
                             </ul>
                             <ul class="advantages advantages_mod-a list-unstyled">
                                 <li class="advantages__item"> <span class="advantages__icon"><i class="icon stroke icon-Book"></i></span>
-                                    <div class="advantages__inner">
+                                    <div class="advantages__inner" ng-class="{'has-error': coursesError}">
                                         <h3 class="ui-title-inner decor decor_mod-a">Courses:
                                             <a class="tooltips" >
-                                                <input ng-model="coachingJSONData.course" class="form-control" type="text" placeholder="Enter Courses">
+                                                <input focus-me="coursesFocus" ng-model="coachingJSONData.course" class="form-control" type="text" placeholder="Enter Courses">
                                                 <span>Enter the school name which you are reviewing</span>
                                             </a>
                                         </h3>
                                     </div>
                                 </li>
                                 <li class="advantages__item"> <span class="advantages__icon"><i class="icon stroke icon-Dollars"></i></span>
-                                    <div class="advantages__inner">
+                                    <div class="advantages__inner" ng-class="{'has-error': instituteFeeError}">
                                         <h3 class="ui-title-inner decor decor_mod-a">Fee
                                             <a class="tooltips" >
-                                                <input ng-model="coachingJSONData.fee" class="form-control" type="text" placeholder="Enter Fee">
+                                                <input focus-me="instituteFeeFocus  " ng-model="coachingJSONData.fee" class="form-control" type="text" placeholder="Enter Fee">
                                                 <span>Enter the school name which you are reviewing</span>
                                             </a>
                                         </h3>
                                     </div>
                                 </li>
                                 <li class="advantages__item"> <span class="advantages__icon"><i class="icon stroke icon-Agenda"></i></span>
-                                    <div class="advantages__inner">
+                                    <div class="advantages__inner" ng-class="{'has-error': yearOfBatchError}">
                                         <h3 class="ui-title-inner decor decor_mod-a">YEAR of batch:
                                             <a class="tooltips" >
-                                                <select ng-model="coachingJSONData.year_of_batch" class="form-control" >
+                                                <select focus-me="yearOfBatchFocus" ng-model="coachingJSONData.year_of_batch" class="form-control" >
                                                     <option value="" selected="selected">Select Year</option>
 
                                                     <option value="2016">2016
