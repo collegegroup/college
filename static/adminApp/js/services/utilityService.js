@@ -171,6 +171,22 @@
 
                     }
 
+                },
+                
+                convertTimeStringTo24HoursFormat : function (timeValue) {
+
+                    if (timeValue == '00:00:00') {
+                  
+                        return '00:00:00';
+                  
+                    } else {
+                  
+                        timeValue = new Date(timeValue);
+                  
+                        return timeValue.getHours() + ":" + timeValue.getMinutes() + ":" + timeValue.getSeconds();
+                  
+                    }
+                    
                 }
 
             }
