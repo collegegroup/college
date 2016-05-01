@@ -67,7 +67,7 @@ class CoachingFacilities(models.Model):
 
 class CoachingReview(models.Model):
     seq_id = models.AutoField(db_column='SEQ_ID', primary_key=True)  # Field name made lowercase.
-    user_id = models.IntegerField(db_column='USER_ID', blank=True, null=True)  # Field name made lowercase.
+    user_id = models.CharField(db_column='USER_ID', max_length=50, blank=True, null=True)  # Field name made lowercase.
     institute_id = models.IntegerField(db_column='INSTITUTE_ID', blank=True, null=True)  # Field name made lowercase.
     institute_name = models.CharField(db_column='INSTITUTE_NAME', max_length=250, blank=True, null=True)  # Field name made lowercase.
     course = models.CharField(db_column='COURSE', max_length=45, blank=True, null=True)  # Field name made lowercase.
@@ -145,7 +145,7 @@ class CollegeMain(models.Model):
 
 class CollegeReview(models.Model):
     seq_id = models.AutoField(db_column='SEQ_ID', primary_key=True)  # Field name made lowercase.
-    user_id = models.IntegerField(db_column='USER_ID', blank=True, null=True)  # Field name made lowercase.
+    user_id = models.CharField(db_column='USER_ID', max_length=50, blank=True, null=True)  # Field name made lowercase.
     college_id = models.IntegerField(db_column='COLLEGE_ID', blank=True, null=True)  # Field name made lowercase.
     college_name = models.CharField(db_column='COLLEGE_NAME', max_length=250, blank=True, null=True)  # Field name made lowercase.
     course = models.CharField(db_column='COURSE', max_length=45, blank=True, null=True)  # Field name made lowercase.
@@ -262,7 +262,7 @@ class SchoolMain(models.Model):
 
 class SchoolReview(models.Model):
     seq_id = models.AutoField(db_column='SEQ_ID', primary_key=True)  # Field name made lowercase.
-    user_id = models.IntegerField(db_column='USER_ID', blank=True, null=True)  # Field name made lowercase.
+    user_id = models.CharField(db_column='USER_ID', max_length=50, blank=True, null=True)  # Field name made lowercase.
     school_id = models.IntegerField(db_column='SCHOOL_ID', blank=True, null=True)  # Field name made lowercase.
     state_name = models.CharField(db_column='STATE_NAME', max_length=100, blank=True, null=True)  # Field name made lowercase.
     school_name = models.CharField(db_column='SCHOOL_NAME', max_length=250, blank=True, null=True)  # Field name made lowercase.

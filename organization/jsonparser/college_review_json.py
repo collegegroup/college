@@ -53,8 +53,8 @@ class CollegeReviewJsonParser(object):
             entrance = result['entrance']
         if 'rank' in result:
             rank = result['rank']
-        if 'passout_year' in result:
-            passout_year = result['passout_year']
+        if 'pass_out_year' in result:
+            passout_year = result['pass_out_year']
         if 'fee' in result:
             fee = result['fee']
         if 'review' in result:
