@@ -24,7 +24,7 @@ class InstituteOrm(object):
 
         try:
             institute_main.save()
-            return institute_main.id
+            return institute_main.institute_id
         except Exception as ex:
             raise ex
 
@@ -67,6 +67,7 @@ class InstituteCourseOrm(object):
         institute_courses = InstituteCourses()
         institute_courses.institute_id = institute_id
         institute_courses.course = course.course
+        institute_courses.category = course.category
         institute_courses.duration = course.duration
         institute_courses.fee = course.fee
         institute_courses.lastupd_dttm = datetime.datetime.now()

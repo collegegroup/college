@@ -1,0 +1,161 @@
+.box {
+  width: 40%;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.2);
+  padding: 35px;
+  border: 2px solid #fff;
+  border-radius: 20px/50px;
+  background-clip: padding-box;
+  text-align: center;
+}
+
+.button {
+  font-size: 16px;
+  padding: 5px 10px;
+  color: #343433;
+  border: 2px solid #06D85F;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.button:hover {
+  background: #06D85F;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 999999;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 30px auto;
+/*  padding: 20px;*/
+  background: white;
+  border-radius: 5px;
+  width: 50%;
+  position: relative;
+  transition: all 5s ease-in-out;
+  text-align: center;
+}
+
+.popup h4 {
+  margin: 0;
+  padding: .7em;
+  color: white;
+  font-family: Tahoma, Arial, sans-serif;
+  background: #909496;
+}
+.popup .close {
+  position: absolute;
+  top: 7px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 900px){
+  .box{
+    width: 90%;
+  }
+  .popup{
+    width: 90%;
+  }
+}
+
+.Form input[type = "text"]{
+    padding: 10px;
+    border: 1px solid silver;
+    width: 25em;
+}
+.Form input[type="submit"]{
+    background: #06D85F;
+    color: white;
+    border: 1px solid silver;
+    padding: 8px 20px;
+}
+.Form input[type="submit"]:hover{
+    opacity: 0.8;
+}
+.Form textarea{
+    margin-top: 10px;
+    height: 7em; width: 25em;
+    padding: 10px;
+}
+
+.PopupLeft{
+    padding: 20px;
+    background: white;
+    text-align: center;
+}
+.PopupLeft input[type = "text"]{
+    padding: 7px;
+    border: 1px solid silver;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 100%;
+}
+.PopupLeft input[type = "submit"]{
+    padding: 7px;
+    border: 1px solid silver;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 100%;
+    background: #EB354E;
+    color: white;
+}
+.PopupLeft span{
+    border-bottom: 1px solid silver;
+    padding: 1em;
+}
+.PopupLeft article{
+    padding: 1em;
+    color: gray;
+}
+.PopupRight{
+    padding: 20px;
+    background: white;
+    text-align: center;
+}
+.PopupRight span{
+    border-bottom: 1px solid silver;
+    padding: 1em;
+}
+.PopupRight article{
+    padding: 1em;
+    color: gray;
+}
+.PopupRight i{
+    color: white;
+    padding-right: 5px;
+    font-size: 15px;
+}
+.PopupRight button{
+    background: #30487B;
+    border: 1px solid #EEEEEE;
+    padding: 6px 10px;
+    color: white;
+    border-radius: 5px;
+    margin-top: 10px;
+}

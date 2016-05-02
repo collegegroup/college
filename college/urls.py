@@ -27,7 +27,7 @@ from organization.views.school_review_views import AddSchoolReview
 from organization.views.coaching_review_views import AddCoachingReview
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^site-admin/', admin.site.urls),
     url(r'^$', Home.as_view(), name="default"),
     url(r'^home/', Home.as_view(), name="home"),
     url(r'^dashboard/', Dashboard.as_view(), name="dashboard"),

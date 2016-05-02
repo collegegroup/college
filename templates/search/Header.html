@@ -1,0 +1,122 @@
+<div class="col-sm-12" style="background-image: url('/media/site/LPUBack.jpg'); height: auto; background-repeat: no-repeat; background-size: cover;">
+    <div id="grad1" class="col-sm-12" style="height: 100%;">
+        <header class="header">
+            <!-- end top-header  -->
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12"> <a class="header-logo" href="javascript:void(0);"><img class="header-logo__img" src="/media/site/ReviewLogoWhite.png" height="50" width="195" alt="Logo"></a>
+                        <div class="header-inner">
+                            <div class="header-search">
+                                <div class="navbar-search">
+                                    <form id="search-global-form">
+                                        <div class="input-group">
+                                            <input type="text" placeholder="Type your search..." class="form-control" autocomplete="off" name="s" id="search" value="">
+                                            <span class="input-group-btn">
+                                                <button type="reset" class="btn search-close" id="search-close"><i class="fa fa-times"></i></button>
+                                            </span> 
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <nav class="navbar yamm">
+                                <div class="navbar-header hidden-md  hidden-lg  hidden-sm ">
+                                    <button type="button" data-toggle="collapse" data-target="#navbar-collapse-1" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                                </div>
+                                <div id="navbar-collapse-1" class="navbar-collapse collapse">
+                                    <ul class="my1 nav navbar-nav" >
+                                        <li><a style="color: white;" href="index.html">Home</a></li>
+                                        <li><a style="color: white;" href="Reviews/index.html">WRITE A REVIEW</a></li>
+                                        <li><a style="color: white;" href="#">LOGIN/SIGN UP</a></li>
+                                    </ul>
+                                </div>
+                            </nav>
+                            <!--end navbar --> 
+
+                        </div>
+                        <!-- end header-inner --> 
+                    </div>
+                    <!-- end col  --> 
+                </div>
+                <!-- end row  --> 
+            </div>
+            <!-- end container--> 
+        </header>
+        <!-- end header -->
+        <div class="container CollegeHeading" >
+            <div class="col-sm-1">
+                <img src="/media/site/LPU.jpg" alt=""/>
+            </div>
+            <div class="col-sm-9">
+                <h1>Lovely Professional University, [LPU] Jalandhar</h1>
+                <h5><i class="icon stroke icon-Pointer"></i> Jalandhar, Punjab</h5>
+                <h5><i class="fa fa-check"></i> &nbsp;Approved By UGC, NCTE</h5>
+                <h5><i class="fa fa-thumb-tack"></i> &nbsp;&nbsp;2015</h5>
+                <div class="col-sm-12 SearchDetails3">
+                    <div class="col-sm-2 Rank1">
+                        <div class="col-sm-12" style="border-bottom: 2px solid white;">INSTITUTION RANK</div>
+                        <span class="col-sm-12" style="height: 5px;"></span>
+                        <div class="col-sm-12 ColorBox"><span>120</span></div>
+                    </div>
+                    <div class="col-sm-2 Rank1">
+                        <div class="col-sm-12" style="border-bottom: 2px solid white;">STUDENTS RATING</div>
+                        <span class="col-sm-12" style="height: 5px;"></span>
+                        <div class="col-sm-12 ColorBox"><span style="background: #3D8EF0;">310</span></div>
+                    </div>
+                    <div class="col-sm-2 Rank1">
+                        <div class="col-sm-12" style="border-bottom: 2px solid white;">STUDENTS REVIEW</div>
+                        <span class="col-sm-12" style="height: 5px;"></span>
+                        <div class="col-sm-12 ColorBox"><span style="background: #5CB85C;">130</span></div>
+                    </div>
+                    <div class="col-sm-2 Rank1">
+                        <div class="col-sm-12" style="border-bottom: 2px solid white;">CONNECTIONS</div>
+                        <span class="col-sm-12" style="height: 5px;"></span>
+                        <div class="col-sm-12 ColorBox"><span style="background: #FFA500;">110</span></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-2 CollegeHeadingRight">
+                <a>I am Interested &nbsp;&nbsp; <i class="fa fa-thumbs-up"></i> </a><br/><br/><br/>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="navbar-main" class="col-sm-12">
+    <ul class="topnav">
+        <li><a class="active" href="index.html"><i class="icon stroke icon-House"></i><br/>Home</a></li>
+        <li><a class="active" href="CoursesFee.html"><i class="icon stroke icon-Book"></i><br/>Courses & Fee</a></li>
+        <li><a class="active" href="Placement.html"><i class="icon stroke icon-Briefcase"></i><br/>Placements</a></li>
+        <li><a class="active" href="Gallery.html"><i class="icon stroke icon-Picture"></i><br/>Gallery</a></li>
+        <li><a class="active" href="Review.html"><i class="icon stroke icon-Message"></i><br/>Reviews & Ratings</a></li>
+
+        <li class="icon">
+            <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+        </li>
+    </ul>
+    <script>
+        function myFunction() {
+            document.getElementsByClassName("topnav")[0].classList.toggle("responsive");
+        }
+    </script>
+    <script>
+        /*! Main */
+        jQuery(document).ready(function ($) {
+
+            // Fixa navbar ao ultrapassa-lo
+            var navbar = $('#navbar-main'),
+                    distance = navbar.offset().top,
+                    $window = $(window);
+
+            $window.scroll(function () {
+                if ($window.scrollTop() >= distance) {
+                    navbar.removeClass('navbar-fixed-top').addClass('navbar-fixed-top');
+                    $("body").css("padding-top", "70px");
+                } else {
+                    navbar.removeClass('navbar-fixed-top');
+                    $("body").css("padding-top", "0px");
+                }
+            });
+        });
+    </script>
+</div>

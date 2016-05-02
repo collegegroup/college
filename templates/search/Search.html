@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
+        <title>ACADEMICA, Home-2</title>
+        <link href="favicon.png" type="image/x-icon" rel="shortcut icon">
+        <link href="../assets/css/master.css" rel="stylesheet">
+        <!-- SWITCHER -->
+        <link href="../assets/plugins/switcher/css/switcher.css" rel="stylesheet" id="switcher-css" media="all">
+        <link href="../assets/plugins/switcher/css/switcher.css" rel="stylesheet" id="switcher-css" media="all">
+        <link href="../assets/plugins/switcher/css/color1.css" rel="alternate stylesheet" title="color1" media="all">
+        <link href="../assets/plugins/switcher/css/color2.css" rel="alternate stylesheet" title="color2" media="all">
+        <link href="../assets/plugins/switcher/css/color3.css" rel="alternate stylesheet" title="color3" media="all">
+        <link href="../assets/plugins/switcher/css/color4.css" rel="alternate stylesheet" title="color4" media="all">
+        <link href="../assets/plugins/switcher/css/color5.css" rel="alternate stylesheet" title="color5" media="all">
+        <script src="../assets/plugins/jquery/jquery-1.11.3.min.js"></script>
+        <link href="../assets/css/default.css" rel="stylesheet" type="text/css"/>
+        <!--FONT AWSOME-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <!--FONT AWSOME END-->
+        <script>
+            $(function () {
+                $("#header").load("../Header.html");
+                $("#footer").load("../Footer.html");
+                $("#Grid").load("SearchList.html");
+            });
+
+            function SearchGrid(ch)
+            {
+                var xmlhttp;
+                if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                }
+                else
+                {// code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function ()
+                {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                    {
+                        document.getElementById("Grid").innerHTML = xmlhttp.responseText;
+                    }
+                }
+                xmlhttp.open("GET", "SearchGrid.html?ch=" + ch, true);
+                xmlhttp.send();
+            }
+
+            function SearchList(ch)
+            {
+                var xmlhttp;
+                if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                }
+                else
+                {// code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function ()
+                {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                    {
+                        document.getElementById("Grid").innerHTML = xmlhttp.responseText;
+                    }
+                }
+                xmlhttp.open("GET", "SearchList.html?ch=" + ch, true);
+                xmlhttp.send();
+            }
+
+        </script>
+    </head>
+
+    <body>
+
+        <!-- Loader -->
+        <div id="page-preloader"><span class="spinner"></span></div>
+        <!-- Loader end -->
+
+        <div class="layout-theme animated-css"  data-header="sticky" data-header-top="200"> 
+
+            <!-- Start Switcher -->
+            <div class="switcher-wrapper">
+            </div>
+            <!-- End Switcher -->
+
+            <div id="wrapper"> 
+
+                <!-- HEADER -->
+                <div id="header"></div>
+                <div style=" box-shadow: 0px -0px 1px #AD33C5;" class="main-content">
+                    <div class="Search">
+                        <div class="col-sm-12" style="background: #F8F8F8; border-bottom: 1px solid #D89FE4; padding: 1em 5em; z-index: 1000;">
+                            <div class="col-sm-7" >
+                                <input style="border: 1px solid silver; border-radius: 3px; padding: 3px 5px; width: 35vw;" type="search" placeholder="College/ School/ Institute Name"/>
+                                <button style="background: #FD3753; border: 1px solid #EEEEEE; padding: 3px;">
+                                    <i style="color: white; font-size: 15px; padding: 7px;" class="icon stroke icon-Search"></i>
+                                </button>
+                                <button style="border: 1px solid silver; background: white; border-radius: 3px; padding: 3px 10px; margin-left: 3em;">Save Search</button>
+                            </div>
+                            <div class="col-sm-4" style="font-family: Montserrat; font-size: 13px;">List of 54 Top Matching Colleges in India based on Ranking</div>
+                            <div class="col-sm-1 ListGrid" style="font-family: Montserrat;">
+                                <a onclick="SearchList(this.clicked)">
+                                    <i style="color: white; font-size: 18px; padding: 7px; color: #FD3753;" class="fa fa-list"></i>
+                                </a>
+                                |
+                                <a onclick="SearchGrid(this.clicked)">
+                                    <i style="color: white; font-size: 18px; padding: 7px; color: #FD3753;" class="fa fa-th"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-12" style="background: white; padding-top: 2em;">
+                            <div class='col-sm-2 LeftBar'>
+                                <div class="AdvanceSearch">Advanced Search</div>
+                                <div class="col-sm-12">STATE: </div>
+                                <div class="col-sm-12">
+                                    <input type="text"/>
+                                </div>
+                                <div class="col-sm-12" style="margin-top: 1em;">CITY: </div>
+                                <div class="col-sm-12">
+                                    <input type="text"/>
+                                </div>
+                                <div class="col-sm-12" style="margin-top: 1em;">COURSES: </div>
+                                <div class="col-sm-12">
+                                    <input type="text"/>
+                                </div>
+                                <div class="col-sm-12" style="margin-top: 1em;">FEE: </div>
+                                <div class="col-sm-12">
+                                    <input type="text"/>
+                                </div>
+                            </div>
+                            <div class='col-sm-7' style="height: auto; padding-left: 1em; font-family: din, 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+                                <div class="col-sm-12" id="Grid" style="padding-bottom: 1em;"></div>
+                                <div class="col-sm-12" style="text-align: center;">
+                                    <button style="background: #E84C3D; font-weight: bold; margin: 5em 0em;" class="btn btn-primary btn-effect">Load More Colleges...</button>
+                                </div>
+                            </div>
+                            <div class='col-sm-3' style="height: 200px;"></div>
+                        </div>
+                    </div>
+                    <div id="footer"></div>
+                    <!-- end wrapper --> 
+                </div>
+                <!-- end layout-theme --> 
+            </div>
+        </div>
+        <!-- SCRIPTS --> 
+        <script src="../assets/js/jquery-migrate-1.2.1.js"></script>
+        <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
+        <script src="../assets/js/modernizr.custom.js"></script> 
+        <script src="../assets/js/waypoints.min.js"></script> 
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script> 
+
+        <!--THEME--> 
+        <script  src="../assets/plugins/sliderpro/js/jquery.sliderPro.min.js"></script> 
+        <script src="../assets/plugins/owl-carousel/owl.carousel.min.js"></script> 
+        <script src="../assets/plugins/isotope/jquery.isotope.min.js"></script> 
+        <script src="../assets/plugins/prettyphoto/js/jquery.prettyPhoto.js"></script> 
+        <script src="../assets/plugins/datetimepicker/jquery.datetimepicker.js"></script> 
+        <script src="../assets/plugins/jelect/jquery.jelect.js"></script> 
+        <script src="../assets/plugins/rendro-easy-pie-chart/dist/jquery.easypiechart.min.js"></script> 
+        <script src="../assets/js/cssua.min.js"></script> 
+        <script src="../assets/js/wow.min.js"></script> 
+        <script src="../assets/js/custom.min.js"></script>
+
+        <!--COLOR SWITCHER --> 
+        <script src="../assets/plugins/switcher/js/bootstrap-select.js"></script> 
+        <script src="../assets/plugins/switcher/js/dmss.js"></script>
+    </body>
+</html>

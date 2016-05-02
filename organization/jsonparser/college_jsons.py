@@ -21,8 +21,9 @@ class CollegeHelper(object):
 
 
 class CollegeCourseHelper(object):
-    def __init__(self, course, duration, fee, entrance):
+    def __init__(self, course, category, duration, fee, entrance):
         self.course = course
+        self.category = category
         self.duration = duration
         self.fee = fee
         self.entrance = entrance
@@ -58,6 +59,7 @@ class CollegeJsonParser(object):
         average_package = None
         courses = list()
         course_name = None
+        category = None
         duration = None
         fee = None
         entrance = None
@@ -103,6 +105,8 @@ class CollegeJsonParser(object):
                 for course in result['data']['courses']:
                     if 'course' in course:
                         course_name = course['course']
+                    if 'category' in course:
+                        category = course['category']
                     if 'duration' in course:
                         duration = course['duration']
                     if 'fee' in course:

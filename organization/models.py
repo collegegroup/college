@@ -98,6 +98,7 @@ class CollegeCategory(models.Model):
 class CollegeCourses(models.Model):
     seq_id = models.AutoField(db_column='SEQ_ID', primary_key=True)  # Field name made lowercase.
     college_id = models.IntegerField(db_column='COLLEGE_ID', blank=True, null=True)  # Field name made lowercase.
+    category = models.CharField(db_column='CATEGORY', max_length=100, blank=True, null=True)  # Field name made lowercase.
     course = models.CharField(db_column='COURSE', max_length=45, blank=True, null=True)  # Field name made lowercase.
     duration = models.CharField(db_column='DURATION', max_length=45, blank=True, null=True)  # Field name made lowercase.
     fee = models.DecimalField(db_column='FEE', max_digits=10, decimal_places=2, blank=True, null=True)  # Field name made lowercase.
@@ -170,6 +171,7 @@ class InstituteCourses(models.Model):
     seq_id = models.AutoField(db_column='SEQ_ID', primary_key=True)  # Field name made lowercase.
     institute_id = models.IntegerField(db_column='INSTITUTE_ID', blank=True, null=True)  # Field name made lowercase.
     course = models.CharField(db_column='COURSE', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    category = models.CharField(db_column='CATEGORY', max_length=100, blank=True, null=True)  # Field name made lowercase.
     duration = models.CharField(db_column='DURATION', max_length=45, blank=True, null=True)  # Field name made lowercase.
     fee = models.DecimalField(db_column='FEE', max_digits=10, decimal_places=2, blank=True, null=True)  # Field name made lowercase.
     lastupd_dttm = models.DateTimeField(db_column='LASTUPD_DTTM', blank=True, null=True)  # Field name made lowercase.

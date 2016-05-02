@@ -54,6 +54,7 @@ class CollegeCourseOrm(object):
         college_courses = CollegeCourses()
         college_courses.college_id = college_id
         college_courses.course = course.course
+        college_courses.category = course.category
         college_courses.duration = course.duration
         college_courses.fee = course.fee
         college_courses.entrance = course.entrance

@@ -20,8 +20,9 @@ class InstituteHelper(object):
 
 
 class InstituteCourseHelper(object):
-    def __init__(self, course, duration, fee):
+    def __init__(self, course, category, duration, fee):
         self.course = course
+        self.category = category
         self.duration = duration
         self.fee = fee
 
@@ -57,6 +58,7 @@ class InstituteJsonParser(object):
         director_name = None
         courses = list()
         course_name = None
+        category = None
         duration = None
         fee = None
         profile_image = None
@@ -97,10 +99,12 @@ class InstituteJsonParser(object):
                 for course in result['data']['courses']:
                     if 'course' in course:
                         course_name = course['course']
+                    if 'category' in course:
+                        category = course['category']
                     if 'duration' in course:
                         duration = course['duration']
                     if 'fee' in course:
                         fee = course['fee']
-                    courses.append(InstituteCourseHelper(course_name, duration, fee))
+                    courses.append(InstituteCourseHelper(course_name, category, duration, fee))
         return [InstituteHelper(institute_name, director_name, location, establishment, description, affiliation,
                                 website, address,landline_num, mobile_num, emailid, profile_image), courses, facilities]
