@@ -48,21 +48,23 @@ app.controller('schoolRegistrationCtrl', function($scope, uploadService, utility
     $scope.schoolEmailFocus = false;
     /* Form validation variables */
 
+    $scope.today = new Date();
+
     $scope.schoolRegistrationJSON = {
 
         data:{
-            school_name: "NIST SCHOOL",
-            location: "AKP",
+            school_name: "",
+            location: "",
             establishment: "",
-            description: "DEC",
-            affiliation: "CBSE",
-            website: "example.com",
-            school_start_time: new Date(),
-            school_end_time: new Date(),
-            address: "address",
-            landline_num: "landline_num",
-            mobile_num: "0213125469",
-            emailid: "emailid",
+            description: "",
+            affiliation: "",
+            website: "",
+            school_start_time: $scope.today,
+            school_end_time: $scope.today,
+            address: "",
+            landline_num: "",
+            mobile_num: "",
+            emailid: "",
             facilities: [
                 {
                     text: "AC",
@@ -80,7 +82,7 @@ app.controller('schoolRegistrationCtrl', function($scope, uploadService, utility
                     value: 1
                 },
                 {
-                    text: "yoga",
+                    text: "Yoga",
                     value: 0
                 }
             ]
@@ -120,18 +122,18 @@ app.controller('schoolRegistrationCtrl', function($scope, uploadService, utility
         $scope.schoolRegistrationJSON = {
 
             data:{
-                school_name: "NIST SCHOOL",
-                location: "AKP",
-                establishment: "2001",
-                description: "DEC",
-                affiliation: "CBSE",
-                website: "example.com",
-                school_start_time: "10:00",
-                school_end_time: "04:00",
+                school_name: "",
+                location: "",
+                establishment: "",
+                description: "",
+                affiliation: "",
+                website: "",
+                school_start_time: $scope.today,
+                school_end_time: $scope.today,
                 address: "address",
-                landline_num: "landline_num",
-                mobile_num: "0213125469",
-                emailid: "emailid",
+                landline_num: "",
+                mobile_num: "",
+                emailid: "",
                 facilities: [
                     {
                         text: "AC",
@@ -370,7 +372,9 @@ app.controller('schoolRegistrationCtrl', function($scope, uploadService, utility
             $scope.validateSchoolWebsite(schoolObj.data.website) &&
             $scope.validateSchoolEmail(schoolObj.data.emailid)) {
 
-            $scope.saveSchoolRegistration(schoolObj);
+            $scope.schoolRegistrationJSON = $scope.prepareSchoolRegistrationJSON(schoolObj);
+
+            $scope.saveSchoolRegistration($scope.schoolRegistrationJSON);
 
         }
 
@@ -378,6 +382,32 @@ app.controller('schoolRegistrationCtrl', function($scope, uploadService, utility
     /*
      * This method is used to validate school registration form
      * */
+
+    
+    
+    
+    
+    
+    
+    
+    
+    /*
+    * This method is used to prepare school registration JSON
+    * */
+    $scope.prepareSchoolRegistrationJSON = function (schoolJSON) {
+      
+        console.log(utilityService.convertTimeStringTo24HoursFormat(schoolJSON.data.school_start_time));
+
+        $scope.schoolRegistrationJSON.data.school_start_time = utilityService.convertTimeStringTo24HoursFormat(schoolJSON.data.school_start_time);
+
+        $scope.schoolRegistrationJSON.data.school_end_time = utilityService.convertTimeStringTo24HoursFormat(schoolJSON.data.school_end_time);
+
+        return $scope.schoolRegistrationJSON;
+
+    };
+    /*
+    * This method is used to prepare school registration JSON
+    * */
 
 
 
@@ -439,6 +469,8 @@ app.controller('schoolRegistrationCtrl', function($scope, uploadService, utility
         if(response.status == "success"){
 
             $scope.schoolImageURL = response.profile_image_path;
+
+            $scope.schoolRegistrationJSON.data.profile_image = response.profile_image_path;
 
         } else {
 

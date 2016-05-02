@@ -479,6 +479,8 @@ app.controller('collegeRegistrationCtrl', function($scope, uploadService, utilit
 
             $scope.collegeImageURL = response.profile_image_path;
 
+            $scope.collegeRegistrationJSON.data.profile_image = response.profile_image_path;
+
         } else {
 
         }

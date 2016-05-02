@@ -504,6 +504,8 @@ app.controller('coachingRegistrationCtrl', function($scope, uploadService, HTTPS
 
             $scope.coachingImageURL = response.profile_image_path;
 
+            $scope.coachingRegistrationJSON.data.profile_image = response.profile_image_path;
+
         } else {
 
         }
