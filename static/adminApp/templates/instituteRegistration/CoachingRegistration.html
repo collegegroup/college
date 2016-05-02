@@ -105,15 +105,29 @@
             <div style="text-align: left;" class="col-sm-12 panel panel-default">
                 <div class="panel-heading"><h4>ADD COURSES</h4></div>
                 <div class="panel-body" ng-repeat="course in coachingRegistrationJSON.data.courses">
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <div class="form-group">
                             <div class="col-lg-12">
                                 <label class="control-label">Course</label>
-                                <input type="text" ng-model="course.course" placeholder="Course" class="form-control" name="course">
+                                <select placeholder="Course" ng-model="course.course" class="form-control" name="course">
+                                    <option value="">Select Course</option>
+                                    <option ng-repeat="course in coachingRegistrationCourses" ng-value="course">{{course.course_name}}</option>
+                                </select>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                <label class="control-label">Course</label>
+                                <select placeholder="Course" ng-model="category.course" class="form-control" name="course">
+                                    <option value="">Select Category</option>
+                                    <option ng-repeat="category in coachingRegistrationCourses" ng-value="course">{{category.category_name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
                         <div class="form-group">
                             <div class="col-lg-12">
                                 <label class="control-label">Duration</label>
@@ -121,7 +135,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <div class="form-group">
                             <div class="col-lg-12">
                                 <label class="control-label">Fee</label>
@@ -130,8 +144,12 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-3" >
-                        <button ng-disabled="hideCoachingCoureseRemoveButton" ng-click="removeCoachingCourse($index)" style="margin-top: 30px;" type="button" class="mb-sm btn btn-danger"><em class="fa fa-minus"></em> &nbsp;&nbsp;Remove</button>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                <button ng-disabled="hideCoachingCoureseRemoveButton" ng-click="removeCoachingCourse($index)" style="margin-top: 30px;" type="button" class="mb-sm btn btn-danger"><em class="fa fa-minus"></em> &nbsp;&nbsp;Remove</button>
+                            </div>
+                        </div>
                     </div>
 
                 </div>

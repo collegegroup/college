@@ -94,12 +94,51 @@ app.controller('coachingRegistrationCtrl', function($scope, uploadService, HTTPS
             courses: [
                 {
                     course: "",
+                    category: "",
                     duration: "",
                     fee: ""
                 }
             ]
         }
     };
+
+
+
+
+
+
+
+
+
+
+    /*
+     * This for get category course from coaching registration
+     * */
+    HTTPService.GETRequest('/category/course/coaching/', '', 'getCoachingCategoriesCoursesInstituteRegistration');
+    /*
+     * This for get category course from coaching registration
+     * */
+    /*
+     * This is for get coaching course categories response from coaching registration
+     * */
+    $scope.$on('getCoachingCategoriesCoursesInstituteRegistrationSuccess', function (event, response) {
+
+        $scope.coachingRegistrationCourses = response.data.data.categories_courses;
+
+    });
+    $scope.$on('getCoachingCategoriesCoursesInstituteRegistrationError', function (event, response) {
+
+    });
+    /*
+     * This is for get coaching course categories response from coaching registration
+     * */
+    
+    
+    
+    
+    
+    
+    
 
 
     /*

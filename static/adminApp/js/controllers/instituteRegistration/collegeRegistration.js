@@ -85,6 +85,7 @@ app.controller('collegeRegistrationCtrl', function($scope, uploadService, utilit
             courses:[
                 {
                     course:"",
+                    category:"",
                     duration:"",
                     fee:"",
                     entrance:""
@@ -98,6 +99,49 @@ app.controller('collegeRegistrationCtrl', function($scope, uploadService, utilit
     $scope.collegeImageUploadURL = '/upload/college/';
 
     $scope.hideCollegeCoureseRemoveButton = true;
+
+    $scope.coursesInCollegeRegistration = '';
+
+
+
+
+
+
+
+
+
+
+    /*
+     * This for get category course
+     * */
+    HTTPService.GETRequest('/category/course/college/', '', 'getCollegeCategoriesCoursesInstituteRegistration');
+    /*
+     * This for get category course
+     * */
+    /*
+     * This is for get coaching categories response from college registration
+     * */
+    $scope.$on('getCollegeCategoriesCoursesInstituteRegistrationSuccess', function (event, response) {
+
+        console.log('Courses: ', response.data.data.categories_courses);
+
+        $scope.collegeRegistrationCourses = response.data.data.categories_courses;
+
+    });
+    $scope.$on('getCollegeCategoriesCoursesInstituteRegistrationError', function (event, response) {
+
+    });
+    /*
+     * This is for get coaching categories response from college registration
+     * */
+
+
+
+
+
+
+
+
 
     /*
      * This method is used select the file
