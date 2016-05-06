@@ -113,7 +113,7 @@ class CollegeJsonParser(object):
                         fee = course['fee']
                     if 'entrance' in course:
                         entrance = course['entrance']
-                    courses.append(CollegeCourseHelper(course_name, duration, fee, entrance))
+                    courses.append(CollegeCourseHelper(course_name, category, duration, fee, entrance))
         return [CollegeHelper(college_name, location, establishment, description, affiliation, website, address,
                               landline_num, mobile_num, emailid, profile_image, highest_package,
                               average_package), courses, facilities]

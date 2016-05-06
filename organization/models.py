@@ -137,6 +137,10 @@ class CollegeMain(models.Model):
     profile_image = models.CharField(db_column='PROFILE_IMAGE', max_length=100, blank=True, null=True)  # Field name made lowercase.
     highest_package = models.DecimalField(db_column='HIGHEST_PACKAGE', max_digits=10, decimal_places=2, blank=True, null=True)  # Field name made lowercase.
     average_package = models.DecimalField(db_column='AVERAGE_PACKAGE', max_digits=10, decimal_places=2, blank=True, null=True)  # Field name made lowercase.
+    city_name = models.CharField(db_column='CITY_NAME', max_length=100, blank=True,
+                                 null=True)  # Field name made lowercase.
+    state_name = models.CharField(db_column='STATE_NAME', max_length=45, blank=True,
+                                  null=True)  # Field name made lowercase.
     lastupd_dttm = models.DateTimeField(db_column='LASTUPD_DTTM', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:

@@ -36,6 +36,7 @@ class CollegeOrm(object):
             college_main = CollegeMain.objects.get(college_id=college_id)
             return college_main
         except Exception as ex:
+            print (ex)
             raise
 
     @staticmethod
@@ -86,6 +87,15 @@ class FacilitiesORM(object):
             college_facilities.save()
         except:
             raise
+
+    @staticmethod
+    def get_facility(college_id):
+        facilities = None
+        try:
+            facilities = CollegeFacilities.objects.filter(college_id=college_id)
+        except Exception as ex:
+            raise ex
+        return facilities
 
 
 class CategoryORM(object):

@@ -1,18 +1,4 @@
-"""college URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/1.9/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  url(r'^$', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  url(r'^$', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.conf.urls import url, include
-    2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
-"""
+"""college URL Configuration"""
 from django.conf.urls import url
 from django.contrib import admin
 from django.conf import settings
@@ -22,6 +8,7 @@ from organization.views.college_views import *
 from organization.views.coaching_views import *
 from organization.views.location_views import *
 from organization.views.review_views import *
+from organization.views.college_search_view import *
 from organization.views.college_review_views import AddCollegeReview
 from organization.views.school_review_views import AddSchoolReview
 from organization.views.coaching_review_views import AddCoachingReview
@@ -63,6 +50,9 @@ urlpatterns = [
     url(r'^review/college/', AddCollegeReview.as_view()),
     url(r'^review/school/', AddSchoolReview.as_view()),
     url(r'^review/coaching/', AddCoachingReview.as_view()),
+
+    # SEARCH RELATED ALL URL'S
+    url(r'^search/college/(?P<college_id>.*)/', GetCollegeDetails.as_view()),
 
     # LOCATION URLS
     url(r'^allstate/', GetAllState.as_view()),

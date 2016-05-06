@@ -1,4 +1,4 @@
-from ..models import CollegeMain, CollegeCourses
+from ..models import CollegeMain, CollegeCourses, CollegeFacilities
 from rest_framework import serializers
 __author__ = 'ravi'
 
@@ -6,8 +6,9 @@ __author__ = 'ravi'
 class CollegeSerializer(serializers.ModelSerializer):
     class Meta:
         model = CollegeMain()
-        fields = ['school_id', 'school_name', 'location', 'establishment', 'description', 'affiliation',
-                  'website', 'address', 'landline_num', 'mobile_num', 'emailid']
+        fields = ['college_name', 'establishment', 'description', 'affiliation',
+                  'website', 'address', 'landline_num', 'mobile_num', 'emailid', 'highest_package',
+                  'average_package', 'city_name', 'state_name']
 
 
 class CollegeSmallSerializer(serializers.ModelSerializer):
@@ -20,3 +21,15 @@ class CollegeCoursesSerializer(serializers.ModelSerializer):
     class Meta:
         model = CollegeCourses()
         fields = ['course']
+
+
+class CollegeFacilitiesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CollegeFacilities
+        fields = ['facility_name']
+
+
+class CollegeFullCoursesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CollegeCourses()
+        fields = ['course', 'duration', 'fee', 'entrance']
