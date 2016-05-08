@@ -18,7 +18,7 @@ class CollegeRegister(APIView):
 
     def post(self, request):
         if request.method == 'POST':
-            # print (request.POST.get('jsonData'))
+            print (request.POST.get('jsonData'))
             college_json_parser = CollegeJsonParser()
             college_helper, courses, facilities = college_json_parser.college_register_json_parser(request.POST.get('jsonData'))
             college_orm = CollegeOrm()
