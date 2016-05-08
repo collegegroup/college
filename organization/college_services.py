@@ -1,5 +1,6 @@
 from models import CollegeMain, CollegeFacilities, CollegeCourses, CollegeCategory, BasicCollegeCourses
 import datetime
+from django.db.models import Q
 __author__ = 'ravi'
 
 
@@ -48,6 +49,15 @@ class CollegeOrm(object):
         except Exception as ex:
             raise ex
 
+    @staticmethod
+    def get_college_by_state_city(state_name, city_name):
+        colleges = None
+        try:
+            colleges = CollegeMain.objects.filter(state_name=state_name, city_name=city_name)
+        except Exception as ex:
+            raise ex
+        return colleges
+
 
 class CollegeCourseOrm(object):
     @staticmethod
@@ -73,6 +83,15 @@ class CollegeCourseOrm(object):
         except Exception as ex:
             raise ex
         return courses
+
+    @staticmethod
+    def get_college_by_course(college_id, course, fee):
+        colleges = None
+        try:
+            colleges = CollegeCourses.objects.get(college_id=college_id, course=course, fee__lte=fee)
+        except Exception as ex:
+            raise ex
+        return colleges
 
 
 class FacilitiesORM(object):

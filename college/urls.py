@@ -8,6 +8,7 @@ from organization.views.college_views import *
 from organization.views.coaching_views import *
 from organization.views.location_views import *
 from organization.views.review_views import *
+from organization.views.search_views import *
 from organization.views.college_search_view import *
 from organization.views.college_review_views import AddCollegeReview
 from organization.views.school_review_views import AddSchoolReview
@@ -53,6 +54,7 @@ urlpatterns = [
 
     # SEARCH RELATED ALL URL'S
     url(r'^search/college/(?P<college_id>.*)/', GetCollegeDetails.as_view()),
+    url(r'^search/colleges/', SearchColleges.as_view()),
 
     # LOCATION URLS
     url(r'^allstate/', GetAllState.as_view()),

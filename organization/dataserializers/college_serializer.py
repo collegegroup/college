@@ -6,7 +6,7 @@ __author__ = 'ravi'
 class CollegeSerializer(serializers.ModelSerializer):
     class Meta:
         model = CollegeMain()
-        fields = ['college_name', 'establishment', 'description', 'affiliation',
+        fields = ['college_id', 'college_name', 'establishment', 'description', 'affiliation',
                   'website', 'address', 'landline_num', 'mobile_num', 'emailid', 'highest_package',
                   'average_package', 'city_name', 'state_name']
 

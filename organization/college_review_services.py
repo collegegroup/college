@@ -1,4 +1,5 @@
 from models import CollegeReview
+from django.db.models import Count
 import datetime
 __author__ = 'ravi'
 
@@ -26,3 +27,12 @@ class CollegeReviewORM(object):
             college_review.save()
         except Exception as ex:
             raise ex
+
+    @staticmethod
+    def get_college_review_count(college_id):
+        result = None
+        try:
+            result = CollegeReview.objects.filter(college_id=college_id).count()
+        except Exception as ex:
+            raise ex
+        return result

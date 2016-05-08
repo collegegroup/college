@@ -24,6 +24,7 @@ class GetOrganizationDetails(APIView):
             response = dict()
             name_prefix = request.POST.get('name_prefix')
             try:
+                name_prefix = name_prefix.lower()
                 institutes = InstituteOrm.get_institutes_by_name(name_prefix)
                 schools = SchoolOrm.get_schools_by_name(name_prefix)
                 colleges = CollegeOrm.get_colleges_by_name(name_prefix)
